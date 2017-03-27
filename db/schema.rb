@@ -10,10 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170327102629) do
+ActiveRecord::Schema.define(version: 20170327104440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "guests", force: :cascade do |t|
+    t.string   "full_name"
+    t.string   "email"
+    t.string   "phone_number"
+    t.integer  "plus"
+    t.integer  "invitation_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["invitation_id"], name: "index_guests_on_invitation_id", using: :btree
+  end
+
+  create_table "invitations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "og_title"
+    t.text     "og_description"
+    t.string   "groom_name"
+    t.string   "bride_name"
+    t.text     "groom_bio"
+    t.text     "bride_bio"
+    t.string   "location"
+    t.datetime "date"
+    t.text     "wedding_description"
+    t.boolean  "rsvp"
+    t.integer  "template_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["template_id"], name: "index_invitations_on_template_id", using: :btree
+    t.index ["user_id"], name: "index_invitations_on_user_id", using: :btree
+  end
+
+  create_table "templates", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -32,4 +69,7 @@ ActiveRecord::Schema.define(version: 20170327102629) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "guests", "invitations"
+  add_foreign_key "invitations", "templates"
+  add_foreign_key "invitations", "users"
 end
