@@ -1,0 +1,5 @@
+<h3>List of guests:</h3>
+
+<% @guests.each do |guest| %>
+  <p>Full name: <%= guest.full_name %>  |  Email: <%= guest.email %>  |  Phone number: <%= guest.phone_number %>  |  Plus: <%= guest.plus %></p>
+  <% end %>

@@ -30,7 +30,6 @@ class TemplatesController < ApplicationController
     @template = Task.find(params[:id])
     @template.update(title: params[:title], description: params[:description])
     redirect_to template_path(@template)
-
   end
 
   def destroy
