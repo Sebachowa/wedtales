@@ -12,15 +12,18 @@ class InvitationsController < ApplicationController
 
   def new
     @invitation = Invitation.new
-    @step = params[:step]
+    # @step = params[:step]
   end
 
   def create
     @invitation = Invitation.new(invitation_params)
     @invitation.user_id = current_user.id
+    @invitation.template_id = invitation_params[:template_id].to_i
+    @invitation.rsvp = invitation_params[:rsvp]
     if @invitation.save
       redirect_to invitation_path(@invitation)
     else
+      puts @invitation.errors.full_messages
       render :new
     end
   end
@@ -42,6 +45,6 @@ class InvitationsController < ApplicationController
   end
 
   def invitation_params
-    params.require(:invitation).permit(:og_title, :og_description, :groom_name, :bride_name, :groom_bio, :bride_bio, :location, :date, :wedding_description, :rsvp, photos: [])
+    params.require(:invitation).permit(:og_title, :og_description, :groom_name, :bride_name, :groom_bio, :bride_bio, :location, :date, :story_title, :template_id, :wedding_description, :rsvp, photos: [])
   end
 end
