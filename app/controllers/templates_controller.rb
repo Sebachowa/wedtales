@@ -27,7 +27,7 @@ class TemplatesController < ApplicationController
   end
 
   def update
-    @template = Task.find(params[:id])
+    @template = Template.find(params[:id])
     @template.update(title: params[:title], description: params[:description])
     redirect_to template_path(@template)
   end
