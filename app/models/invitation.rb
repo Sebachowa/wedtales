@@ -12,6 +12,8 @@ class Invitation < ApplicationRecord
   validates :rsvp, default: false, presence: true
   validates :og_title, presence: true
   validates :og_description, presence: true
+  validates :story_title, presence: true
+  validates :draft, default: true
 end
 
 
