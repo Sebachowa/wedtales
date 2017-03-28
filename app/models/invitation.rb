@@ -9,7 +9,6 @@ class Invitation < ApplicationRecord
   validates :location, presence: true
   validates :date, presence: true
   validates :wedding_description, presence: true
-  validates :rsvp, default: false, presence: true
   validates :og_title, presence: true
   validates :og_description, presence: true
   validates :story_title, presence: true

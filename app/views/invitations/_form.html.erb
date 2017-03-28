@@ -12,7 +12,7 @@
     <%= f.input :story_title, placeholder:'Enter a title', input_html: { class:'new-input' } %>
     <%= f.input :wedding_description, placeholder: 'Enter something to decribe your wedding day', input_html: { class:'new-input' } %>
     <%= f.input :template_id, placeholder: 'Select your template', input_html: { class:'new-input' } %>
-    <%= f.collection_radio_buttons :rsvp, [[true, 'Yes'] ,[false, 'No']], :first, :last %>
+    <%= f.input :rsvp %>
     <%= f.submit %>
   <% end %>
 </div>
