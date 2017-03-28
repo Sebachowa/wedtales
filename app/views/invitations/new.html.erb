@@ -1,1 +1,17 @@
-<%= render 'form' %>
+
+<%#= render 'templates/all' %>
+<%# @templates.each do |template| %>
+    <p><%#= template.title %></p>
+    <p><%#= template.description %></p>
+    <%#= link_to "Preview", template_path(template) %>
+
+<%# end %>
+
+<% @templates.each do |template| %>
+  <p><%= template.title %></p>
+  <p><%= template.description %></p>
+  <%= link_to "Preview", template_path(template) %>
+  <%= simple_form_for(@invitation) do |f| %>
+    <%= f.submit %>
+  <% end %>
+<% end %>

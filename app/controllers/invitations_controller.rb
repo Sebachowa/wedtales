@@ -11,17 +11,19 @@ class InvitationsController < ApplicationController
   end
 
   def new
+    @template = Template.find(params[:template_id])
     @invitation = Invitation.new
     # @step = params[:step]
   end
 
   def create
-    @invitation = Invitation.new(invitation_params)
+    @template = Template.find(params[:template_id])
+    @invitation = Template.invitations.new(invitation_params)
     @invitation.user_id = current_user.id
     @invitation.template_id = invitation_params[:template_id].to_i
     @invitation.rsvp = invitation_params[:rsvp]
     if @invitation.save
-      redirect_to invitation_path(@invitation)
+      redirect_to edit_invitation_path(@invitation)
     else
       puts @invitation.errors.full_messages
       render :new
