@@ -13,7 +13,7 @@ class Invitation < ApplicationRecord
   validates :og_title, presence: true
   validates :og_description, presence: true
   validates :story_title, presence: true
-  validates :draft, default: true
+  validates :draft, presence: true
 end
 
 
