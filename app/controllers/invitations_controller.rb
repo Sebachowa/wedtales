@@ -12,6 +12,7 @@ class InvitationsController < ApplicationController
 
   def new
     @invitation = Invitation.new
+    @step = params[:step]
   end
 
   def create
