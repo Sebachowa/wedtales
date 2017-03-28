@@ -1,0 +1,10 @@
+<div class="container">
+  <%= simple_form_for(@guest) do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :full_name, placeholder: "Enter your name" %>
+    <%= f.input :email, placeholder: "Enter your email" %>
+    <%= f.input :phone_number, placeholder: "Enter your phone number" %>
+    <%= f.input :plus, collection: (0..5) %>
+    <%= f.submit %>
+  <% end %>
+</div>
