@@ -13,7 +13,7 @@ class TemplatesController < ApplicationController
   end
 
   def create
-    template_params = params.require(:template).permit(:title, :description)
+    template_params = params.require(:template).permit(:title, :description, :photo)
     @template = Template.new(template_params)
     if @template.save
       redirect_to template_path(@template)
