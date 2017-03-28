@@ -1,15 +1,17 @@
 /* Main class */
 .navbar-wagon {
-  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: white;
+  background: #f9b6b4;
   transition: all 0.3s ease;
   display: flex;
-  height: 70px;
+  height: 60px;
   padding: 0px 30px;
   align-items: center;
   justify-content: space-between;
 }
 
+.navbar-links {
+  flex: 1 0 60%;
+}
 /* Optional class to fix the navbar on top */
 .navbar-wagon-fixed {
   position: fixed;
@@ -26,6 +28,7 @@
 
 /* Navbar right section (with form, links, button) */
 .navbar-wagon-right {
+  flex: 1 0 20%;
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -11,7 +11,8 @@ class InvitationsController < ApplicationController
   end
 
   def new
-    @template = Template.find(params[:template_id])
+    @templates = Template.all
+    # @template = Template.find(params[:template_id])
     @invitation = Invitation.new
     # @step = params[:step]
   end
@@ -25,7 +26,6 @@ class InvitationsController < ApplicationController
     if @invitation.save
       redirect_to edit_invitation_path(@invitation)
     else
-      puts @invitation.errors.full_messages
       render :new
     end
   end
