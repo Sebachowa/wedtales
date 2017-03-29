@@ -1,1 +1,12 @@
-<%= render 'form' %>
+<%#= render 'form' %>
+<div class="wrapper">
+  <div class="container">
+    <h3>List of templates:</h3>
+    <%= simple_form_for(@invitation) do |f| %>
+      <%= f.association :template, as: :radio_buttons %>
+      <%= f.submit %>
+    <% end %>
+
+  </div>
+</div>
+

@@ -12,30 +12,31 @@ class InvitationsController < ApplicationController
 
   def new
     @templates = Template.all
-    # @template = Template.find(params[:template_id])
     @invitation = Invitation.new
-    # @step = params[:step]
   end
 
   def create
-    @template = Template.find(params[:template_id])
-    @invitation = Template.invitations.new(invitation_params)
+    @invitation = Invitation.new(invitation_params)
     @invitation.user_id = current_user.id
-    @invitation.template_id = invitation_params[:template_id].to_i
-    @invitation.rsvp = invitation_params[:rsvp]
     if @invitation.save
-      redirect_to edit_invitation_path(@invitation)
+      redirect_to edit_invitation_path(@invitation, step:2)
     else
+      puts @invitation.errors.messages
       render :new
     end
   end
 
   def edit
     @invitation = Invitation.find(params[:id])
+    @step = params[:step].to_i
+    if @step < 1 || @step > 3
+      @step = 1
+    end
   end
 
   def update
     @invitation = Invitation.find(params[:id])
+    @invitation.update(invitation_params)
     @invitation.update(invitation_params)
     redirect_to invitation_path(@invitation)
   end
@@ -47,6 +48,6 @@ class InvitationsController < ApplicationController
   end
 
   def invitation_params
-    params.require(:invitation).permit(:og_title, :og_description, :groom_name, :bride_name, :groom_bio, :bride_bio, :location, :date, :story_title, :template_id, :wedding_description, :rsvp, photos: [])
+    params.require(:invitation).permit(:og_title, :og_description, :groom_name, :bride_name, :groom_bio, :bride_bio, :location, :date, :story_title, :wedding_description, :rsvp, :template_id, photos: [])
   end
 end
