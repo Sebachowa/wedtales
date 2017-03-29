@@ -13,14 +13,13 @@ class InvitationsController < ApplicationController
   def new
     @templates = Template.all
     @invitation = Invitation.new
-    # @step = params[:step]
   end
 
   def create
     @invitation = Invitation.new(invitation_params)
     @invitation.user_id = current_user.id
     if @invitation.save
-      redirect_to edit_invitation_path(@invitation)
+      redirect_to edit_invitation_path(@invitation, step:2)
     else
       puts @invitation.errors.messages
       render :new
@@ -29,10 +28,15 @@ class InvitationsController < ApplicationController
 
   def edit
     @invitation = Invitation.find(params[:id])
+    @step = params[:step].to_i
+    if @step < 1 || @step > 3
+      @step = 1
+    end
   end
 
   def update
     @invitation = Invitation.find(params[:id])
+    @invitation.update(invitation_params)
     @invitation.update(invitation_params)
     redirect_to invitation_path(@invitation)
   end
