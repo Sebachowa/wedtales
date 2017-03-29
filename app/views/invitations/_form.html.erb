@@ -15,7 +15,7 @@
     <%= f.input :story_title, placeholder:'Enter a title', input_html: { class:'new-input' } %>
     <%= f.input :wedding_description, placeholder: 'Enter something to decribe your wedding day', input_html: { class:'new-input' } %>
     <%= f.input :gallery, label: 'Gallery', as: :attachinary %>
-    <%= f.input :template_id, placeholder: 'Select your template', input_html: { class:'new-input' } %>
+    <%= f.hidden_field :template_id, placeholder: 'Select your template', input_html: { class:'new-input' } %>
     <%= f.input :rsvp %>
     <%= f.hidden_field :step, value: @step %>
     <%= f.submit "Next" %>
