@@ -3,6 +3,6 @@
   <h3>List of templates:</h3>
   <%= simple_form_for(@invitation) do |f| %>
     <%= f.association :template, as: :radio_buttons %>
-    <%#= f.submit %>
+    <%= f.hidden_field :step, value: @step %>
+    <%= f.submit "Next" %>
   <% end %>
-

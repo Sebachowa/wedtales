@@ -12,16 +12,6 @@
 <% if @step > 1 %>
   <%= link_to "Back", edit_invitation_path(step: @step - 1 ) %>
 <% end %>
-
-<% if @step > 0 && @step < 3 %>
-  <%= link_to "Next", edit_invitation_path(step: @step + 1 ), class: "btn"%>
-<% end %>
-
-<% if @step == 3 %>
-  <%= simple_form_for(@invitation) do |f| %>
-    <%= f.submit "Save" %>
-  <% end %>
-<% end %>
 </div>
 
 
