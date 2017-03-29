@@ -37,8 +37,8 @@ class InvitationsController < ApplicationController
   def update
     @invitation = Invitation.find(params[:id])
     @invitation.update(invitation_params)
-    @invitation.update(invitation_params)
     redirect_to invitation_path(@invitation)
+    raise
   end
 
   def destroy

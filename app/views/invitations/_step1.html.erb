@@ -1,3 +1,8 @@
-<div class="padded">
-<h1> This is step <%= @step %> </h1>
-</div>
+  <h1> This is step <%= @step %> </h1>
+
+  <h3>List of templates:</h3>
+  <%= simple_form_for(@invitation) do |f| %>
+    <%= f.association :template, as: :radio_buttons %>
+    <%#= f.submit %>
+  <% end %>
+
