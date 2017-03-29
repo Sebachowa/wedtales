@@ -15,38 +15,38 @@
       </div>
       <div class="col-xs-9">
         <div class="booking-displayer">
-          <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="<%= params[:current_tab] == "skills" || params[:current_tab].nil? ? 'active' : '' %>"><a href="#skills" aria-controls="home" role="tab" data-toggle="tab">Skills</a></li>
-            <li role="presentation" class="<%= params[:current_tab] == "bookings" ? 'active' : '' %>"><a href="#bookings" aria-controls="profile" role="tab" data-toggle="tab">Bookings</a></li>
-            <li role="presentation" class="<%= params[:current_tab] == "requests" ? 'active' : '' %>"><a href="#requests" aria-controls="messages" role="tab" data-toggle="tab">Requests</a></li>
-          </ul>
-          <div class="tab-content">
-            <div role="tabpanel" class="tab-pane <%= params[:current_tab] == "skills" || params[:current_tab].nil? ? 'active' : '' %>" id="skills">
-              <% current_user.invitations.each do |invitation| %>
-                <div class="product">
-                  <% if invitation.photo? %>
-                    <%= cl_image_tag skill.photos.first.path, class: "product-image hidden-xs hidden-sm hidden-md" %>
-                  <% else %>
-                  <%= image_tag "img-placeholder.svg", class: "product-image hidden-xs hidden-sm hidden-md" %>
-                  <% end %>
-                  <div class='product-body'>
-                    <h3><%= invitation.og_title %></h3>
-                    <p><%= invitation.og_description %></p>
-                  </div>
-                  <ul class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
-                    <li><%= link_to invitation_path(invitation) do %>
-                          <i class="fa fa-eye"></i>
-                        <% end %></li>
-                    <li><%= link_to edit_invitation_path(invitation) do %>
-                          <i class="fa fa-pencil"></i>
-                        <% end %></li>
-                    <li><%= link_to invitation_path(invitation), method: :delete do %>
-                          <i class="fa fa-trash"></i>
-                        <% end %></li>
-                  </ul>
-                </div>
+          <% current_user.invitations.each do |invitation| %>
+            <div class="product">
+              <% if invitation.photo? %>
+                <%= cl_image_tag skill.photos.first.path, class: "product-image hidden-xs hidden-sm hidden-md" %>
+              <% else %>
+              <%= image_tag "img-placeholder.svg", class: "product-image hidden-xs hidden-sm hidden-md" %>
               <% end %>
+              <div class='product-body'>
+                <h3><%= invitation.og_title %></h3>
+                <p><%= invitation.og_description %></p>
+              </div>
+              <ul class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
+                <li>
+                  <%= link_to invitation_path(invitation) do %>
+                    <i class="fa fa-eye"></i>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to edit_invitation_path(invitation) do %>
+                    <i class="fa fa-pencil"></i>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to invitation_path(invitation), method: :delete do %>
+                    <i class="fa fa-trash"></i>
+                  <% end %>
+                </li>
+              </ul>
             </div>
-          </div>
+          <% end %>
         </div>
       </div>
+    </div>
+  </div>
+</div>
