@@ -1,3 +1,9 @@
+<!-- <%# test = 1 %> -->
+<!-- <div class="template1"> -->
+
+<% @mytemplate = "template1" %>
+<div class='<%= @invitation.template.stylesheet %>'>
+<%#= @invitation.template.stylesheet %>
 <h2>We are getting married!</h2>
 <h4><%= @invitation.groom_name %> AND <%= @invitation.bride_name %></h4>
 <h4>Wedding Date</h4>
@@ -18,4 +24,4 @@
 
 <h2>Save the date</h2>
 <%= @invitation.rsvp %>
-
+</div>
