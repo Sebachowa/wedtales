@@ -38,8 +38,12 @@ class InvitationsController < ApplicationController
   def update
     @invitation = Invitation.find(params[:id])
     @invitation.update(invitation_params)
-    @invitation.update(invitation_params)
-    redirect_to invitation_path(@invitation)
+    @step = params[:invitation][:step].to_i
+    if @step == 3
+      redirect_to invitation_path(@invitation)
+    else
+      redirect_to edit_invitation_path(@invitation, step: @step + 1)
+    end
   end
 
   def destroy
@@ -49,6 +53,6 @@ class InvitationsController < ApplicationController
   end
 
   def invitation_params
-    params.require(:invitation).permit(:og_title, :og_description, :groom_name, :bride_name, :groom_bio, :bride_bio, :location, :date, :story_title, :wedding_description, :rsvp, :template_id, photos: [])
+    params.require(:invitation).permit(:og_title, :og_description, :groom_name, :bride_name, :groom_bio, :bride_bio, :location, :date, :story_title, :wedding_description, :rsvp, :bride_photo, :groom_photo, :template_id, gallery: [])
   end
 end

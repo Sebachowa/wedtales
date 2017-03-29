@@ -1,4 +1,6 @@
-<div class="padded">
-<h1> This is step <%= @step %> </h1>
+  <h1> This is step <%= @step %> </h1>
 
-</div>
+  <%= simple_form_for(@invitation) do |f| %>
+    <%= f.hidden_field :step, value: @step %>
+    <%= f.submit "Save" %>
+  <% end %>

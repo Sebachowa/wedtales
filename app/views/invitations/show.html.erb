@@ -12,12 +12,22 @@
 <%= @invitation.location %>
 
 <h2>About the couple</h2>
+<% if @invitation.groom_photo? %>
+  <%= cl_image_tag @invitation.groom_photo.path, width: 200, height: 300, crop: :fill %>
+<% end %>
 <h4><%= @invitation.groom_name %></h4>
 <%= @invitation.groom_bio %>
+
+<% if @invitation.bride_photo? %>
+  <%= cl_image_tag @invitation.bride_photo.path, width: 200, height: 300, crop: :fill %>
+<% end %>
 <h4><%= @invitation.bride_name %></h4>
 <%= @invitation.bride_bio %>
 
 <h2>Our Photos</h2>
+<% @invitation.gallery.each do |photo| %>
+  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+<% end %>
 
 <h2>Wedding Day</h2>
 <%= @invitation.wedding_description %>
@@ -25,3 +35,6 @@
 <h2>Save the date</h2>
 <%= @invitation.rsvp %>
 </div>
+
+
+

@@ -1,7 +1,10 @@
 class Invitation < ApplicationRecord
   belongs_to :user
   belongs_to :template
-  has_attachment :photo, maximum: 4
+  has_attachment  :og_photo, accept: [:jpg, :png, :gif]
+  has_attachment  :groom_photo, accept: [:jpg, :png, :gif]
+  has_attachment  :bride_photo, accept: [:jpg, :png, :gif]
+  has_attachments :gallery, maximum: 4
   # validates :groom_name, presence: true
   # validates :groom_bio, presence: true
   # validates :bride_name, presence: true
