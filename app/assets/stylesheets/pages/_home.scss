@@ -3,20 +3,20 @@
  * (margin/padding adjustments)
  * ------------------------------------- */
 
-#top, #bottom, #left, #right {
-  background: #f9b6b4;
-  position: fixed;
-  }
-  #left, #right {
-    top: 0; bottom: 0;
-    width: 60px;
-    }
-    #left { left: 0; }
-    #right { right: 0; }
+// #top, #bottom, #left, #right {
+//   background: #f9b6b4;
+//   position: fixed;
+//   }
+//   #left, #right {
+//     top: 0; bottom: 0;
+//     width: 60px;
+//     }
+//     #left { left: 0; }
+//     #right { right: 0; }
 
-  #top, #bottom {
-    left: 0; right: 0;
-    height: 60px;
-    }
-    #top { top: 0; }
-    #bottom { bottom: 0; }
+//   #top, #bottom {
+//     left: 0; right: 0;
+//     height: 60px;
+//     }
+//     #top { top: 0; }
+//     #bottom { bottom: 0; }
