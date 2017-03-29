@@ -1,13 +1,1 @@
 <h1> This is step 1 </h1>
-
-<% @templates.each do |template| %>
-  <% if template.photo? %>
-    <%= cl_image_tag template.photo.path, width: 200, height: 300, crop: :fill %>
-  <% end %>
-  <p><%= template.title %></p>
-  <p><%= template.description %></p>
-  <%= link_to "Preview", template_path(template) %>
-  <%= simple_form_for(template) do |f| %>
-    <%= f.check_box :id , include_hidden: id %>
-  <% end %>
-<% end %>
