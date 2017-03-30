@@ -5,9 +5,15 @@ class Invitation < ApplicationRecord
   has_attachment  :groom_photo, accept: [:jpg, :png, :gif]
   has_attachment  :bride_photo, accept: [:jpg, :png, :gif]
   has_attachments :gallery, maximum: 4
+
+  geocoded_by :location
+  after_validation(:geocode, { if: :location_changed? })
+end
+
   before_validation :check_if_still_a_draft?
   before_validation :remove_empty_strings
   validates :draft, presence: true
+
 
   def to_param
     custom_url.nil? ? id.to_s : "#{id}-#{custom_url}".parameterize

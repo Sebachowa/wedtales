@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170330044228) do
+
+ActiveRecord::Schema.define(version: 20170330044538) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +74,8 @@ ActiveRecord::Schema.define(version: 20170330044228) do
     t.datetime "updated_at",                         null: false
     t.boolean  "draft",               default: true
     t.string   "story_title"
+    t.float    "latitude"
+    t.float    "longitude"
     t.string   "custom_url"
     t.index ["template_id"], name: "index_invitations_on_template_id", using: :btree
     t.index ["user_id"], name: "index_invitations_on_user_id", using: :btree
