@@ -18,8 +18,10 @@
           <p>Welcome to our wedding ceremony.</p>
         <% end %>
         <%= link_to "", invitation_path(invitation), class: "card-link" %>
-        <% if invitation.check_if_still_a_draft? %>
+        <% if invitation.check_if_still_a_draft? == true %>
           <p><strong>Draft</strong></p>
+          <% else %>
+          <p><strong>Finished</strong></p>
         <% end %>
 
 

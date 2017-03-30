@@ -8,23 +8,23 @@ class Invitation < ApplicationRecord
   before_validation :check_if_still_a_draft?
   before_validation :remove_empty_strings
   validates :draft, presence: true
-  
+
   def to_param
     custom_url.nil? ? id.to_s : "#{id}-#{custom_url}".parameterize
     # custom_url.present? ? "#{id}-#{custom_url}".parameterize : id.to_s
   end
-  
+
   # check the form
   def check_if_still_a_draft?
-    puts "HELLO! IM GOING TO CHECK IF YOU ARE STILL A DRAFT"
+    # puts "HELLO! IM GOING TO CHECK IF YOU ARE STILL A DRAFT"
     # if everything is there
-    if groom_name.present? && groom_photo.present? && bride_name.present? && bride_photo.present? && location.present? && date.present?
+    if groom_name.present? && bride_name.present? && location.present? && date.present?
       self.draft = false
     else
       self.draft = true
     end
   end
-  
+
   # debug the form || for show view
   def remove_empty_strings
     self.og_title = nil             if self.groom_name == ""
