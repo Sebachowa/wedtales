@@ -12,7 +12,7 @@ class Invitation < ApplicationRecord
 
   before_validation :check_if_still_a_draft?
   before_validation :remove_empty_strings
-  validates :draft, presence: true
+  # validates :draft, presence: true
 
 
   def to_param

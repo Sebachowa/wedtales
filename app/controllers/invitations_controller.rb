@@ -37,12 +37,16 @@ class InvitationsController < ApplicationController
 
   def update
     @invitation = Invitation.find(params[:id])
-    @invitation.update(invitation_params)
     @step = params[:invitation][:step].to_i
-    if @step == 3
-      redirect_to invitation_path(@invitation)
+    if @invitation.update(invitation_params)
+      if @step == 3
+        redirect_to invitation_path(@invitation)
+      else
+        redirect_to edit_invitation_path(@invitation, step: @step + 1)
+      end
     else
-      redirect_to edit_invitation_path(@invitation, step: @step + 1)
+      puts @invitation.errors.messages
+      render :edit
     end
   end
 
@@ -53,6 +57,6 @@ class InvitationsController < ApplicationController
   end
 
   def invitation_params
-    params.require(:invitation).permit(:og_title, :og_description, :groom_name, :bride_name, :groom_bio, :bride_bio, :location, :date, :story_title, :wedding_description, :rsvp, :draft, :bride_photo, :groom_photo, :template_id, :custom_url, gallery: [])
+    params.require(:invitation).permit(:og_title, :og_description, :groom_name, :bride_name, :groom_bio, :bride_bio, :location, :date, :story_title, :wedding_description, :rsvp, :bride_photo, :groom_photo, :template_id, :custom_url, gallery: [])
   end
 end
