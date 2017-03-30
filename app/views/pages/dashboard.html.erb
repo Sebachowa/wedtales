@@ -17,7 +17,7 @@
         <div class="booking-displayer">
           <% current_user.invitations.each do |invitation| %>
             <div class="product">
-              <% if invitation.photo? %>
+              <% if invitation.gallery? %>
                 <%= cl_image_tag skill.photos.first.path, class: "product-image hidden-xs hidden-sm hidden-md" %>
               <% else %>
               <%= image_tag "img-placeholder.svg", class: "product-image hidden-xs hidden-sm hidden-md" %>
