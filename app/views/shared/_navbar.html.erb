@@ -2,11 +2,11 @@
   <div class="navbar-left">
   </div>
 
-  <div class="navbar-links hidden-xs hidden-sm">
-    <%= link_to "HOME", root_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "FEATURES", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "TEMPLATES", templates_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "CONTACT", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+  <div class="navbar-links text-center hidden-xs hidden-sm">
+    <%= link_to "HOME", root_path, class: "navbar-links-item navbar-wagon-link" %>
+    <%= link_to "FEATURES", "#features-container", class: "navbar-links-item navbar-wagon-link" %>
+    <%= link_to "TEMPLATES", "#templates", class: "navbar-links-item navbar-wagon-link" %>
+    <%= link_to "CONTACT", "#map", class: "navbar-links-item navbar-wagon-link" %>
   </div>
 
   <!-- Right Navigation -->
@@ -18,7 +18,7 @@
           <% if current_user.provider == "facebook" %>
               <%= image_tag current_user.facebook_picture_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
             <% else %>
-            <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+            <%= image_tag "profile_placeholder.svg", class: "dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
             <% end %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
@@ -39,13 +39,12 @@
           </ul>
         </div>
       </div>
-
     <% else %>
-
       <!-- Login text link -->
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-
     <% end %>
+
+    <span>|</span>
 
     <!-- Button (call-to-action) -->
     <%= link_to t(".top_call_to_action", default: "Create Invitation"), new_invitation_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
@@ -56,9 +55,10 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Templates</a></li>
+        <li><a href="#">Contact</a></li>
       </ul>
     </div>
   </div>

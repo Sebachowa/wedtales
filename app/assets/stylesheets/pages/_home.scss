@@ -3,20 +3,115 @@
  * (margin/padding adjustments)
  * ------------------------------------- */
 
-// #top, #bottom, #left, #right {
-//   background: #f9b6b4;
-//   position: fixed;
-//   }
-//   #left, #right {
-//     top: 0; bottom: 0;
-//     width: 60px;
-//     }
-//     #left { left: 0; }
-//     #right { right: 0; }
+// RESET VALUES
+body {
+  margin: 60px;
+  background-image: url("sec4-repeat.png");
+  background-repeat: repeat;
+}
 
-//   #top, #bottom {
-//     left: 0; right: 0;
-//     height: 60px;
-//     }
-//     #top { top: 0; }
-//     #bottom { bottom: 0; }
+#logo {
+  margin-top: 140px;
+  p {
+    margin-top: 15px;
+  }
+}
+
+#laptop-phone {
+  margin-top: 120px;
+  img {
+    width: 80%;
+  }
+}
+
+#features-container {
+  padding: 150px 0;
+}
+
+.feature {
+  height: 380px;
+  width: 280px;
+  position: relative;
+  &:hover {
+  transition: all 0.3s ease;
+    border: 5px solid #f9b6b4;
+    background: white;
+  }
+}
+
+.feature-img  {
+  position: absolute;
+  top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}
+
+.feature-title {
+  position: absolute;
+  top: 180px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  font-size: 28px;
+  letter-spacing: 4px;
+  color: #545454;
+}
+
+.feature-text {
+  position: absolute;
+  top: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #9b9b9b;
+}
+
+#map {
+  height: 100vh;
+  background-image: url("map.png");
+  background-size: cover;
+  position: relative;
+}
+
+#contact-form {
+  opacity: 0.7;
+  background-color: #ffffff;
+  width: 50%;
+  padding: 80px 100px;
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  height:80%;
+  p {
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: 0.5px;
+    color: #6f6f6f;
+  }
+}
+
+// FIXED 4 SIDES PINK MARGIN
+#top, #bottom, #left, #right {
+  background: #f9b6b4;
+  position: fixed;
+  z-index: 1;
+  }
+  #left, #right {
+    top: 0; bottom: 0;
+    width: 4%;
+    }
+    #left { left: 0; }
+    #right { right: 0; }
+
+  #top, #bottom {
+    left: 0; right: 0;
+    height: 8%;
+    }
+    #top { top: 0; }
+    #bottom { bottom: 0; }
