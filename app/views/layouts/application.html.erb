@@ -10,18 +10,20 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <%= stylesheet_link_tag    'mastertemplate', media: 'all' %>
-<!--             <%#= stylesheet_link_tag    'mastertemplate', media: 'all' %> -->
-<!--       <link rel="stylesheet" media="all" href="../../assets/templates/mastertemplate.css"> -->
+
     </head>
     <body>
-  <!--   class="<%## if we are on an invite page and @invitation.template.name == then use the class "template-pink" %> -->
-  <!--     <div id="left"></div>
-      <div id="right"></div>
-      <div id="top"></div>
-      <div id="bottom"></div> -->
+
       <%= yield %>
       <%= javascript_include_tag 'application' %>
+
+
+
+
+
+  <%= yield(:after_js) %>
       <%= cloudinary_js_config %>
+      <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_API_BROWSER_KEY"]}&callback=initMap" %>
     </body>
   </html>
 

@@ -8,6 +8,7 @@ class InvitationsController < ApplicationController
   def show
     @livetemplate = true
     @invitation = Invitation.find(params[:id])
+    @invitation = Invitation.find(params[:id])
   end
 
   def new

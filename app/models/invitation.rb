@@ -17,6 +17,10 @@ class Invitation < ApplicationRecord
   # validates :og_description, presence: true
   # validates :story_title, presence: true
   # validates :draft, presence: true
+
+  # geocoding
+  geocoded_by :location
+  after_validation(:geocode, { if: :location_changed? })
 end
 
 
