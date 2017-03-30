@@ -36,12 +36,16 @@ class InvitationsController < ApplicationController
 
   def update
     @invitation = Invitation.find(params[:id])
-    @invitation.update(invitation_params)
     @step = params[:invitation][:step].to_i
-    if @step == 3
-      redirect_to invitation_path(@invitation)
+    if @invitation.update(invitation_params)
+      if @step == 3
+        redirect_to invitation_path(@invitation)
+      else
+        redirect_to edit_invitation_path(@invitation, step: @step + 1)
+      end
     else
-      redirect_to edit_invitation_path(@invitation, step: @step + 1)
+      puts @invitation.errors.messages
+      render :edit
     end
   end
 
