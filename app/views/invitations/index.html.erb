@@ -1,19 +1,39 @@
-<div class="wrapper">
-  <div class="container">
+  <div class="container padded">
     <h4>All Invitations</h4>
     <% @invitations.each do |invitation| %>
-      <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= invitation.gallery.any? ? cl_image_path(invitation.gallery.first.path, width: 750, height: 450, crop: :fill) : ''%>);">
+      <div style="background-image:  cl_image_path(invitation.og_photo.first.path, width: 750, height: 450, crop: :fill) : ''%>);">
+
+
         <%= link_to invitation_path(invitation) do%>
-          <h2><%= invitation.og_title %></h2>
+          <% if invitation.og_title.present? %>
+            <h2><%= invitation.og_title %></h2>
+          <% else %>
+            <h2>Welcome to our wedding!</h2>
+          <% end %>
         <% end %>
-        <p><%= invitation.og_description %></p>
-        <% if invitation.user.has_attribute?(:facebook_picture_url) %>
-          <%= image_tag invitation.user.facebook_picture_url, class: "card-user avatar" %>
+
+        <% if invitation.og_description.present? %>
+          <p><%= invitation.og_description %></p>
         <% else %>
-          <%= image_tag "profile.svg", class: "avatar" %>
+          <p>Welcome to our wedding ceremony.</p>
         <% end %>
         <%= link_to "", invitation_path(invitation), class: "card-link" %>
+        <% if invitation.check_if_still_a_draft? %>
+          <p><strong>Draft</strong></p>
+        <% end %>
+
+
+        <ul>
+          <li><%= link_to invitation_path(invitation) do %>
+                <i class="fa fa-eye"></i>
+              <% end %></li>
+          <li><%= link_to edit_invitation_path(invitation) do %>
+                <i class="fa fa-pencil"></i>
+              <% end %></li>
+          <li><%= link_to invitation_path(invitation), method: :delete do %>
+                <i class="fa fa-trash"></i>
+              <% end %></li>
+        </ul>
       </div>
     <% end %>
   </div>
-</div>
