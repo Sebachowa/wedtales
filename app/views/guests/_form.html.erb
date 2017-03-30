@@ -1,5 +1,5 @@
 <div class="container">
-  <%= simple_form_for(@guest) do |f| %>
+  <%= simple_form_for [@invitation, @guest] do |f| %>
     <%= f.error_notification %>
     <%= f.input :full_name, placeholder: "Enter your name" %>
     <%= f.input :email, placeholder: "Enter your email" %>

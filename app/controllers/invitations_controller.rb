@@ -8,7 +8,7 @@ class InvitationsController < ApplicationController
   def show
     @livetemplate = true
     @invitation = Invitation.find(params[:id])
-    @guest = Guest.new
+    # @guest = Guest.new
   end
 
   def new
@@ -53,6 +53,6 @@ class InvitationsController < ApplicationController
   end
 
   def invitation_params
-    params.require(:invitation).permit(:og_title, :og_description, :groom_name, :bride_name, :groom_bio, :bride_bio, :location, :date, :story_title, :wedding_description, :rsvp, :bride_photo, :groom_photo, :template_id, gallery: [])
+    params.require(:invitation).permit(:og_title, :og_description, :groom_name, :bride_name, :groom_bio, :bride_bio, :location, :date, :story_title, :wedding_description, :rsvp, :draft, :bride_photo, :groom_photo, :template_id, gallery: [])
   end
 end

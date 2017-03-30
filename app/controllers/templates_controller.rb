@@ -28,7 +28,8 @@ class TemplatesController < ApplicationController
 
   def update
     @template = Template.find(params[:id])
-    @template.update(title: params[:title], description: params[:description])
+    @template.update(title: params[:title], description: params[:description], stylesheet: params[:stylesheet])
+    @template.draft = false
     redirect_to template_path(@template)
   end
 
