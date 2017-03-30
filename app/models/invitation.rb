@@ -8,7 +8,7 @@ class Invitation < ApplicationRecord
 
   geocoded_by :location
   after_validation(:geocode, { if: :location_changed? })
-end
+
 
   before_validation :check_if_still_a_draft?
   before_validation :remove_empty_strings
