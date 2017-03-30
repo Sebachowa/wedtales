@@ -7,7 +7,7 @@ class Invitation < ApplicationRecord
   has_attachments :gallery, maximum: 4
   before_validation :check_if_still_a_draft?
   before_validation :remove_empty_strings
-  validates :draft, presence: true
+  # validates :draft, presence: true
 
   def to_param
     custom_url.nil? ? id.to_s : "#{id}-#{custom_url}".parameterize
