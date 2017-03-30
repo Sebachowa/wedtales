@@ -22,7 +22,7 @@
     <%= cl_image_tag @invitation.bride_photo.path, width: 200, height: 300, crop: :fill %>
   <% end %>
   <h4><%= @invitation.bride_name || "Bride" %></h4>
-  <%= @invitation.bride_bio || "She is a beautiful girl, sweet, gentlewomanly, and enthusiastic. " %>
+  <%= @invitation.bride_bio || "She is a beautiful girl, sweet, gentlewomanly, and enthusiastic." %>
 
   <h2>Our Photos</h2>
   <% @invitation.gallery.each do |photo| %>
