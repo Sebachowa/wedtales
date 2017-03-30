@@ -34,7 +34,7 @@
 
   <div id="rsvp-button-container" class="container">
     <% if @invitation.rsvp == true %>
-      <%= link_to "I'll be there", new_invitation_guest_path(@invitation) %>
+      <%= link_to "I'll be there", new_invitation_guest_path(@invitation), class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>

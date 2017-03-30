@@ -2,7 +2,7 @@
   <div class="container">
     <h4>All Invitations</h4>
     <% @invitations.each do |invitation| %>
-      <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= invitation.photos.any? ? cl_image_path(invitation.photos.first.path, width: 750, height: 450, crop: :fill) : ''%>);">
+      <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= invitation.gallery.any? ? cl_image_path(invitation.gallery.first.path, width: 750, height: 450, crop: :fill) : ''%>);">
         <%= link_to invitation_path(invitation) do%>
           <h2><%= invitation.og_title %></h2>
         <% end %>

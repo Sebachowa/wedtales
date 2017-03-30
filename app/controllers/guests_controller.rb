@@ -2,7 +2,8 @@ class GuestsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    @guests = Guest.all
+    @invitation = Invitation.find(params[:invitation_id])
+    @guests = @invitation.guests
   end
 
   def show
@@ -10,14 +11,16 @@ class GuestsController < ApplicationController
   end
 
   def new
+    @invitation = Invitation.find(params[:invitation_id])
     @guest = Guest.new
   end
 
   def create
-    guest_params = params.require(:guest).permit(:full_name, :email, :phone_number, :plus)
-    @guest = Guest.new(guest_params)
+    guest_params = params.require(:guest).permit(:full_name, :email, :phone_number, :plus, :invitation_id)
+    @invitation = Invitation.find(params[:invitation_id])
+    @guest = @invitation.guests.new(guest_params)
     if @guest.save
-      redirect_to guest_path(@guest)
+      redirect_to invitation_path(@invitation)
     else
       render :new
     end
