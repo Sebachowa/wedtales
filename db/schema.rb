@@ -72,9 +72,9 @@ ActiveRecord::Schema.define(version: 20170330044538) do
     t.datetime "updated_at",                         null: false
     t.boolean  "draft",               default: true
     t.string   "story_title"
+    t.string   "custom_url"
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "custom_url"
     t.index ["template_id"], name: "index_invitations_on_template_id", using: :btree
     t.index ["user_id"], name: "index_invitations_on_user_id", using: :btree
   end
