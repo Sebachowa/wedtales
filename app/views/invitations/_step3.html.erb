@@ -1,6 +1,7 @@
   <h1> This is step <%= @step %> </h1>
 
   <%= simple_form_for(@invitation) do |f| %>
+    <%= f.input :custom_url, placeholder: 'Customize your URL', input_html: { class:'new-input' } %>
     <%= f.hidden_field :step, value: @step %>
     <%= f.submit "Save" %>
 

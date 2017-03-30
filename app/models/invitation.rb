@@ -5,12 +5,15 @@ class Invitation < ApplicationRecord
   has_attachment  :groom_photo, accept: [:jpg, :png, :gif]
   has_attachment  :bride_photo, accept: [:jpg, :png, :gif]
   has_attachments :gallery, maximum: 4
-
   before_validation :check_if_still_a_draft?
   before_validation :remove_empty_strings
-
   validates :draft, presence: true
-
+  
+  def to_param
+    custom_url.nil? ? id.to_s : "#{id}-#{custom_url}".parameterize
+    # custom_url.present? ? "#{id}-#{custom_url}".parameterize : id.to_s
+  end
+  
   # check the form
   def check_if_still_a_draft?
     puts "HELLO! IM GOING TO CHECK IF YOU ARE STILL A DRAFT"
@@ -21,7 +24,7 @@ class Invitation < ApplicationRecord
       self.draft = true
     end
   end
-
+  
   # debug the form || for show view
   def remove_empty_strings
     self.og_title = nil             if self.groom_name == ""
