@@ -52,6 +52,6 @@ class InvitationsController < ApplicationController
   end
 
   def invitation_params
-    params.require(:invitation).permit(:og_title, :og_description, :groom_name, :bride_name, :groom_bio, :bride_bio, :location, :date, :story_title, :wedding_description, :rsvp, :draft, :bride_photo, :groom_photo, :template_id, gallery: [])
+    params.require(:invitation).permit(:og_title, :og_description, :groom_name, :bride_name, :groom_bio, :bride_bio, :location, :date, :story_title, :wedding_description, :rsvp, :draft, :bride_photo, :groom_photo, :template_id, :custom_url, gallery: [])
   end
 end
