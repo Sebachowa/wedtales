@@ -17,7 +17,14 @@ class Invitation < ApplicationRecord
   # validates :og_description, presence: true
   # validates :story_title, presence: true
   # validates :draft, presence: true
+
+
+  def to_param
+    custom_url.nil? ? id.to_s : "#{id}-#{custom_url}".parameterize
+    # custom_url.present? ? "#{id}-#{custom_url}".parameterize : id.to_s
+  end
 end
+
 
 
 
