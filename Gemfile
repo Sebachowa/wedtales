@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-ruby '2.3.3'
 
 gem 'rails', '5.0.2'
 gem 'puma'
@@ -20,8 +19,8 @@ gem 'omniauth-facebook'
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
-gem 'cloudinary', '1.1.7'
 gem 'attachinary', github: 'assembler/attachinary'
+gem 'cloudinary' # locked by attachinary at 1.1.7
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 gem "geocoder"
@@ -41,5 +40,3 @@ group :development, :test do
   gem 'listen', '~> 3.0.5'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
-
