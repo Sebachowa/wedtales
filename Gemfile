@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-ruby '2.3.3'
 
 gem 'rails', '5.0.2'
 gem 'puma'
@@ -41,5 +40,3 @@ group :development, :test do
   gem 'listen', '~> 3.0.5'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
-
