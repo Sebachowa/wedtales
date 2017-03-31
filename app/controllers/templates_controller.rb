@@ -27,9 +27,9 @@ class TemplatesController < ApplicationController
   end
 
   def update
+    template_params = params.require(:template).permit(:title, :description, :photo, :stylesheet)
     @template = Template.find(params[:id])
-    @template.update(title: params[:title], description: params[:description], stylesheet: params[:stylesheet])
-    @template.draft = false
+    @template.update(template_params)
     redirect_to template_path(@template)
   end
 
