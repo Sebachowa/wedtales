@@ -1,6 +1,7 @@
 class Invitation < ApplicationRecord
   belongs_to :user
   belongs_to :template
+  has_many :guests
   has_attachment  :og_photo, accept: [:jpg, :png, :gif]
   has_attachment  :groom_photo, accept: [:jpg, :png, :gif]
   has_attachment  :bride_photo, accept: [:jpg, :png, :gif]

@@ -5,9 +5,16 @@
 
 // RESET VALUES
 body {
-  margin: 60px;
+  background-color: #F9B6B4,
+}
+
+.main-container {
+  background-color: white;
   background-image: url("sec4-repeat.png");
   background-repeat: repeat;
+  width: 90%;
+  margin: 0 auto;
+  min-height: 1000px;
 }
 
 #logo {
