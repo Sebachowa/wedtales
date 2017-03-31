@@ -1,48 +1,70 @@
-<div class="wrapper-grey">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-3">
-        <div id="profile-card" class="text-center">
-          <% if current_user.facebook_picture_url %>
+<div class="container top-space">
+  <div class="row">
+    <div class="col-xs-3">
+      <div id="profile-card" class="text-center">
+        <% if current_user.facebook_picture_url %>
           <%= image_tag current_user.facebook_picture_url, class: "avatar-huge" %>
           <p><%= current_user.first_name %> <%= current_user.last_name %></p>
-          <% else %>
+          <hr class="separator">
+          <p><%= current_user.email %></p>
+        <% else %>
           <%= image_tag "profile-big.svg", class: "avatar-huge" %>
           <p><%= current_user.first_name %> <%= current_user.last_name %></p>
-          <% end %>
+          <hr class="separator">
+          <p><%= current_user.email %><p>
+        <% end %>
+        <div id='profile-card-button'>
           <%= link_to t(".top_call_to_action", default: "Edit profile"), edit_user_registration_path, class: "btn btn-profile" %>
         </div>
       </div>
-      <div class="col-xs-9">
-        <div class="booking-displayer">
-          <% current_user.invitations.each do |invitation| %>
-            <div class="product">
-              <% if invitation.gallery? %>
-                <%= cl_image_tag skill.photos.first.path, class: "product-image hidden-xs hidden-sm hidden-md" %>
-              <% else %>
-              <%= image_tag "img-placeholder.svg", class: "product-image hidden-xs hidden-sm hidden-md" %>
+    </div>
+    <div class="col-xs-9">
+      <div class="invitation-container">
+      <h2 class="super-title">My invitations</h2>
+        <div class="row">
+          <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="product pink-border">
+              <%= link_to new_invitation_path do %>
+                <%= image_tag "add.svg" %>
               <% end %>
-              <div class='product-body'>
-                <h3><%= invitation.og_title %></h3>
-                <p><%= invitation.og_description %></p>
-              </div>
-              <ul class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
-                <li>
-                  <%= link_to invitation_path(invitation) do %>
-                    <i class="fa fa-eye"></i>
+            </div>
+          </div>
+          <% current_user.invitations.each do |invitation| %>
+            <div class="col-xs-12 col-md-6 col-lg-4">
+              <div class="product">
+                <div class="product-image">
+                  <% if invitation.gallery? %>
+                    <%= cl_image_tag skill.photos.first.path %>
+                  <% else %>
+                  <%= image_tag "img-placeholder.svg" %>
                   <% end %>
-                </li>
-                <li>
+                </div>
+                <div class='product-body'>
+                  <h3><%= invitation.story_title %></h3>
+                  <p><%= invitation.wedding_description.nil? ? "" : invitation.wedding_description.slice(0..23).concat('...') %></p>
+                </div>
+                <div class="product-buttons-four text-center">
                   <%= link_to edit_invitation_path(invitation) do %>
-                    <i class="fa fa-pencil"></i>
+                    <i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="Edit"></i>
                   <% end %>
-                </li>
-                <li>
+                  <%= link_to invitation_path(invitation) do %>
+                    <i class="fa fa-eye" data-toggle="tooltip" data-placement="top" title="Preview"></i>
+                  <% end %>
+                  <%= link_to invitation_path(invitation) do %>
+                    <i class="fa fa-share" data-toggle="tooltip" data-placement="top" title="Share"></i>
+                  <% end %>
                   <%= link_to invitation_path(invitation), method: :delete do %>
-                    <i class="fa fa-trash"></i>
+                    <i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="Delete"></i>
                   <% end %>
-                </li>
-              </ul>
+                </div>
+                <div class="product-buttons-one text-center">
+                  <% if invitation.rsvp? %>
+                    <%= link_to invitation_guests_path(invitation) do %>
+                      <i class="fa fa-file-text" style="font-size: 14px" data-toggle="tooltip" data-placement="top" title="Guest List"></i>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
             </div>
           <% end %>
         </div>
