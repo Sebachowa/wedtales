@@ -59,7 +59,7 @@
                 </div>
                 <div class="product-buttons-one text-center">
                   <% if invitation.rsvp? %>
-                    <%= link_to "", "data-toggle" => "modal", 'data-target' => '#myModal'  do %>
+                    <%= link_to invitation_guest_list_path(invitation_id: invitation.id), remote: true  do %>
                       <i class="fa fa-file-text" style="font-size: 14px" data-toggle="tooltip" data-placement="top" title="Guest List"></i>
                     <% end %>
                   <% end %>
@@ -75,34 +75,5 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Guest List</h4>
-      </div>
-      <div class="modal-body">
-        <table class="table table-striped">
-          <tr>
-            <th>Name</th>
-            <th>Phone number</th>
-            <th>Email</th>
-            <th>Guests</th>
-          </tr>
-          <% @guests.each do |guest| %>
-            <tr>
-              <td><%= guest.full_name %></td>
-              <td><%= guest.phone_number %></td>
-              <td><%= guest.email %></td>
-              <td><%= guest.plus %></td>
-            </tr>
-          <% end %>
-        </table>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
+<div class="modal fade" id="guestListModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 </div>
