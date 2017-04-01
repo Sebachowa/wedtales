@@ -59,7 +59,7 @@
                 </div>
                 <div class="product-buttons-one text-center">
                   <% if invitation.rsvp? %>
-                    <%= link_to "", "data-toggle" => "modal", 'data-target' => '#myModal'  do %>
+                    <%= link_to invitation_guest_list_path, remote: true  do %>
                       <i class="fa fa-file-text" style="font-size: 14px" data-toggle="tooltip" data-placement="top" title="Guest List"></i>
                     <% end %>
                   <% end %>
@@ -75,4 +75,5 @@
 
 
 <!-- Modal -->
-<%= render partial: 'guest_list', locals: {invitation_guests: @guests} -%>
+<div class="modal fade" id="guestListModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+</div>
