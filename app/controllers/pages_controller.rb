@@ -9,4 +9,9 @@ class PagesController < ApplicationController
   def dashboard
     @guests = Guest.all
   end
+
+  def invitation_guest_list
+    invitation = Invitation.find params[:invitation_id]
+    @guests = invitation.guests
+  end
 end
