@@ -12,10 +12,12 @@
       <%= stylesheet_link_tag    'mastertemplate', media: 'all' %>
     </head>
     <body>
-      <div class="container main-container">
+<!--       <div class="container main-container"> -->
         <%= yield %>
-      </div>
-      <%= javascript_include_tag 'application' %>
+      <!-- </div> -->
+      <%#= javascript_include_tag 'application' %>
+      <%= javascript_include_tag 'main' %>
+      <%= javascript_include_tag 'swiper.jquery.min' %>
       <%= yield(:after_js) %>
       <%= cloudinary_js_config %>
       <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_API_BROWSER_KEY"]}&callback=initMap" %>
