@@ -1,19 +1,42 @@
-<div class='<%= @invitation.template.stylesheet %>'>
-<div class="swiper-container swiper-container-vertical">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide slide-1">
-      <h2 class="animated" data-ani-name="zoomInDown" data-ani-duration="1s" data-ani-delay="0.5s">Change your life!</h2>
+<!-- <div class='<%= @invitation.template.stylesheet %>'> -->
 
+<div class="swiper-container">
+
+<!-- <div class="swiper-pagination"></div> -->
+
+    <div class="swiper-wrapper">
+        <div class="swiper-slide slide-1">
+          <h2 class="animated" data-ani-name="zoomInDown" data-ani-duration="1s" data-ani-delay="0.5s"><%= @invitation.groom_name || "Groom" %> AND <%= @invitation.bride_name || "Bride" %></h2>
+          <div class="animated" data-ani-name="bounceInUp" data-ani-duration="1s" data-ani-delay="0.5s">
+            <h4 >Wedding Date</h4>
+            <%= @invitation.date %>
+            <h4>Wedding Address</h4>
+            <%= @invitation.location || "Shanghai" %>
+          </div>
+          <!-- get all animation names from https://daneden.github.io/animate.css/ -->
+        </div>
+        <div class="swiper-slide slide-2">
+          <h2 class="animated" data-ani-name="bounceInUp" data-ani-duration="1s" data-ani-delay="0.5s">Learn to code!</h2>
+
+        </div>
+        <div class="swiper-slide slide-3">
+          <h2 class="animated" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="0.5s">Join our journey...</h2>
+          <img class="animated" src="./images/github-3.png" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="1s">
+        </div>
     </div>
-    <div class="swiper-slide slide-2">
-      <h2 class="animated" data-ani-name="bounceInUp" data-ani-duration="1s" data-ani-delay="0.5s">Learn to code!</h2>
-    </div>
-    <div class="swiper-slide slide-3">
-      <h2 class="animated" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="0.5s">Join our journey...</h2>
-    </div>
-    </div>
-  </div>
 </div>
 
+<button class="up-arrow"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 
-</div>
+<!-- <button class="btn-music"><i class="fa fa-music"></i></button> -->
+<!-- <audio loop><source src="audios/background.mp3" type="audio/mpeg"></audio> -->
+
+<script type="text/javascript" src="https://lib.sinaapp.com/js/jquery/3.1.0/jquery-3.1.0.js"></script>
+
+<!-- </div> -->
+
+
+<!-- <script type="text/javascript" src="https://lib.sinaapp.com/js/jquery/3.1.0/jquery-3.1.0.js"></script>
+
+
+ -->
