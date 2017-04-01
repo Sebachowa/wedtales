@@ -1,4 +1,8 @@
 class Template < ApplicationRecord
-  has_attachment :photo
+
+  #  ------------ Associations ------------
   has_many :invitations
+
+  # ------------ Attachinary validations ------------
+  has_attachment :photo
 end
