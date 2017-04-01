@@ -1,0 +1,648 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.6.2
+-- Dumped by pg_dump version 9.6.2
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: active_admin_comments; Type: TABLE; Schema: public; Owner: Seba
+--
+
+CREATE TABLE active_admin_comments (
+    id integer NOT NULL,
+    namespace character varying,
+    body text,
+    resource_id character varying NOT NULL,
+    resource_type character varying NOT NULL,
+    author_type character varying,
+    author_id integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE active_admin_comments OWNER TO "Seba";
+
+--
+-- Name: active_admin_comments_id_seq; Type: SEQUENCE; Schema: public; Owner: Seba
+--
+
+CREATE SEQUENCE active_admin_comments_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE active_admin_comments_id_seq OWNER TO "Seba";
+
+--
+-- Name: active_admin_comments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Seba
+--
+
+ALTER SEQUENCE active_admin_comments_id_seq OWNED BY active_admin_comments.id;
+
+
+--
+-- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: Seba
+--
+
+CREATE TABLE ar_internal_metadata (
+    key character varying NOT NULL,
+    value character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE ar_internal_metadata OWNER TO "Seba";
+
+--
+-- Name: attachinary_files; Type: TABLE; Schema: public; Owner: Seba
+--
+
+CREATE TABLE attachinary_files (
+    id integer NOT NULL,
+    attachinariable_type character varying,
+    attachinariable_id integer,
+    scope character varying,
+    public_id character varying,
+    version character varying,
+    width integer,
+    height integer,
+    format character varying,
+    resource_type character varying,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE attachinary_files OWNER TO "Seba";
+
+--
+-- Name: attachinary_files_id_seq; Type: SEQUENCE; Schema: public; Owner: Seba
+--
+
+CREATE SEQUENCE attachinary_files_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE attachinary_files_id_seq OWNER TO "Seba";
+
+--
+-- Name: attachinary_files_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Seba
+--
+
+ALTER SEQUENCE attachinary_files_id_seq OWNED BY attachinary_files.id;
+
+
+--
+-- Name: guests; Type: TABLE; Schema: public; Owner: Seba
+--
+
+CREATE TABLE guests (
+    id integer NOT NULL,
+    full_name character varying,
+    email character varying,
+    phone_number character varying,
+    plus integer,
+    invitation_id integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE guests OWNER TO "Seba";
+
+--
+-- Name: guests_id_seq; Type: SEQUENCE; Schema: public; Owner: Seba
+--
+
+CREATE SEQUENCE guests_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE guests_id_seq OWNER TO "Seba";
+
+--
+-- Name: guests_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Seba
+--
+
+ALTER SEQUENCE guests_id_seq OWNED BY guests.id;
+
+
+--
+-- Name: invitations; Type: TABLE; Schema: public; Owner: Seba
+--
+
+CREATE TABLE invitations (
+    id integer NOT NULL,
+    user_id integer,
+    og_title character varying,
+    og_description text,
+    groom_name character varying,
+    bride_name character varying,
+    groom_bio text,
+    bride_bio text,
+    location character varying,
+    date timestamp without time zone,
+    wedding_description text,
+    rsvp boolean,
+    template_id integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    draft boolean DEFAULT true,
+    story_title character varying,
+    custom_url character varying,
+    latitude double precision,
+    longitude double precision
+);
+
+
+ALTER TABLE invitations OWNER TO "Seba";
+
+--
+-- Name: invitations_id_seq; Type: SEQUENCE; Schema: public; Owner: Seba
+--
+
+CREATE SEQUENCE invitations_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE invitations_id_seq OWNER TO "Seba";
+
+--
+-- Name: invitations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Seba
+--
+
+ALTER SEQUENCE invitations_id_seq OWNED BY invitations.id;
+
+
+--
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: Seba
+--
+
+CREATE TABLE schema_migrations (
+    version character varying NOT NULL
+);
+
+
+ALTER TABLE schema_migrations OWNER TO "Seba";
+
+--
+-- Name: templates; Type: TABLE; Schema: public; Owner: Seba
+--
+
+CREATE TABLE templates (
+    id integer NOT NULL,
+    title character varying,
+    description text,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    stylesheet character varying
+);
+
+
+ALTER TABLE templates OWNER TO "Seba";
+
+--
+-- Name: templates_id_seq; Type: SEQUENCE; Schema: public; Owner: Seba
+--
+
+CREATE SEQUENCE templates_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE templates_id_seq OWNER TO "Seba";
+
+--
+-- Name: templates_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Seba
+--
+
+ALTER SEQUENCE templates_id_seq OWNED BY templates.id;
+
+
+--
+-- Name: users; Type: TABLE; Schema: public; Owner: Seba
+--
+
+CREATE TABLE users (
+    id integer NOT NULL,
+    email character varying DEFAULT ''::character varying NOT NULL,
+    encrypted_password character varying DEFAULT ''::character varying NOT NULL,
+    reset_password_token character varying,
+    reset_password_sent_at timestamp without time zone,
+    remember_created_at timestamp without time zone,
+    sign_in_count integer DEFAULT 0 NOT NULL,
+    current_sign_in_at timestamp without time zone,
+    last_sign_in_at timestamp without time zone,
+    current_sign_in_ip inet,
+    last_sign_in_ip inet,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    provider character varying,
+    uid character varying,
+    facebook_picture_url character varying,
+    first_name character varying,
+    last_name character varying,
+    token character varying,
+    token_expiry timestamp without time zone,
+    admin boolean DEFAULT false NOT NULL
+);
+
+
+ALTER TABLE users OWNER TO "Seba";
+
+--
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: Seba
+--
+
+CREATE SEQUENCE users_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE users_id_seq OWNER TO "Seba";
+
+--
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Seba
+--
+
+ALTER SEQUENCE users_id_seq OWNED BY users.id;
+
+
+--
+-- Name: active_admin_comments id; Type: DEFAULT; Schema: public; Owner: Seba
+--
+
+ALTER TABLE ONLY active_admin_comments ALTER COLUMN id SET DEFAULT nextval('active_admin_comments_id_seq'::regclass);
+
+
+--
+-- Name: attachinary_files id; Type: DEFAULT; Schema: public; Owner: Seba
+--
+
+ALTER TABLE ONLY attachinary_files ALTER COLUMN id SET DEFAULT nextval('attachinary_files_id_seq'::regclass);
+
+
+--
+-- Name: guests id; Type: DEFAULT; Schema: public; Owner: Seba
+--
+
+ALTER TABLE ONLY guests ALTER COLUMN id SET DEFAULT nextval('guests_id_seq'::regclass);
+
+
+--
+-- Name: invitations id; Type: DEFAULT; Schema: public; Owner: Seba
+--
+
+ALTER TABLE ONLY invitations ALTER COLUMN id SET DEFAULT nextval('invitations_id_seq'::regclass);
+
+
+--
+-- Name: templates id; Type: DEFAULT; Schema: public; Owner: Seba
+--
+
+ALTER TABLE ONLY templates ALTER COLUMN id SET DEFAULT nextval('templates_id_seq'::regclass);
+
+
+--
+-- Name: users id; Type: DEFAULT; Schema: public; Owner: Seba
+--
+
+ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+
+
+--
+-- Data for Name: active_admin_comments; Type: TABLE DATA; Schema: public; Owner: Seba
+--
+
+COPY active_admin_comments (id, namespace, body, resource_id, resource_type, author_type, author_id, created_at, updated_at) FROM stdin;
+\.
+
+
+--
+-- Name: active_admin_comments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Seba
+--
+
+SELECT pg_catalog.setval('active_admin_comments_id_seq', 1, false);
+
+
+--
+-- Data for Name: ar_internal_metadata; Type: TABLE DATA; Schema: public; Owner: Seba
+--
+
+COPY ar_internal_metadata (key, value, created_at, updated_at) FROM stdin;
+environment	development	2017-03-30 04:53:06.468001	2017-03-30 04:53:06.468001
+\.
+
+
+--
+-- Data for Name: attachinary_files; Type: TABLE DATA; Schema: public; Owner: Seba
+--
+
+COPY attachinary_files (id, attachinariable_type, attachinariable_id, scope, public_id, version, width, height, format, resource_type, created_at, updated_at) FROM stdin;
+\.
+
+
+--
+-- Name: attachinary_files_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Seba
+--
+
+SELECT pg_catalog.setval('attachinary_files_id_seq', 1, false);
+
+
+--
+-- Data for Name: guests; Type: TABLE DATA; Schema: public; Owner: Seba
+--
+
+COPY guests (id, full_name, email, phone_number, plus, invitation_id, created_at, updated_at) FROM stdin;
+1	pepe	asd@asd.com	123123	2	5	2017-03-31 09:05:17.439091	2017-03-31 09:05:17.439091
+2	Seba	asd@asd.com	12321123	1	5	2017-04-01 08:47:19.786974	2017-04-01 08:47:19.786974
+\.
+
+
+--
+-- Name: guests_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Seba
+--
+
+SELECT pg_catalog.setval('guests_id_seq', 2, true);
+
+
+--
+-- Data for Name: invitations; Type: TABLE DATA; Schema: public; Owner: Seba
+--
+
+COPY invitations (id, user_id, og_title, og_description, groom_name, bride_name, groom_bio, bride_bio, location, date, wedding_description, rsvp, template_id, created_at, updated_at, draft, story_title, custom_url, latitude, longitude) FROM stdin;
+5	1	\N	\N	\N	\N	He is a handsome guy, smart, gentleman and enthusiastic.	She is a beautiful girl, sweet, gentlewomanly, and enthusiastic.	\N	2017-03-31 05:25:00	So today we’ve rounded up some of our favorites from the last open wedding vows thread. Here’s to hoping they inspire you to create meaningful marriage vows for yourselves, and not at 2AM.	t	1	2017-03-31 05:25:26.347432	2017-03-31 05:26:07.508	t	Wedding Day	sebswedding	\N	\N
+8	1	\N	\N	\N	\N	He is a handsome guy, smart, gentleman and enthusiastic.	She is a beautiful girl, sweet, gentlewomanly, and enthusiastic.	\N	2017-04-01 08:01:00	So today we’ve rounded up some of our favorites from the last open wedding vows thread. Here’s to hoping they inspire you to create meaningful marriage vows for yourselves, and not at 2AM.	t	1	2017-04-01 08:01:58.108733	2017-04-01 08:46:33.848704	t	Wedding Day		\N	\N
+\.
+
+
+--
+-- Name: invitations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Seba
+--
+
+SELECT pg_catalog.setval('invitations_id_seq', 8, true);
+
+
+--
+-- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: Seba
+--
+
+COPY schema_migrations (version) FROM stdin;
+20170330044228
+20170327102629
+20170327104237
+20170327104238
+20170327104440
+20170328044553
+20170328070332
+20170328070403
+20170328101005
+20170329045041
+20170329045245
+20170329050858
+20170330044538
+\.
+
+
+--
+-- Data for Name: templates; Type: TABLE DATA; Schema: public; Owner: Seba
+--
+
+COPY templates (id, title, description, created_at, updated_at, stylesheet) FROM stdin;
+1	Spring	Spring Template	2017-03-30 11:07:06.274958	2017-03-31 09:16:41.788763	template1
+2	asd	asd	2017-03-31 09:16:56.587998	2017-03-31 09:32:17.163938	template2
+\.
+
+
+--
+-- Name: templates_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Seba
+--
+
+SELECT pg_catalog.setval('templates_id_seq', 2, true);
+
+
+--
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: Seba
+--
+
+COPY users (id, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, created_at, updated_at, provider, uid, facebook_picture_url, first_name, last_name, token, token_expiry, admin) FROM stdin;
+2	test@gmail.com	$2a$11$swhWIDjR0JDoPWEaKzfMn.QS/z1609RQ.ffe1Jh.hprZ5ncmUYaRm	\N	\N	\N	2	2017-03-30 09:01:47.366444	2017-03-30 08:24:40.854753	::1	::1	2017-03-30 08:24:40.849228	2017-03-30 09:01:47.369141	\N	\N	\N	\N	\N	\N	\N	f
+1	snugnez@gmail.com	$2a$11$t3iySTkp6wIUWnYmQkxDQuNQADthGWZWyMZQJhBhXNbFeqLmhWcsy	\N	\N	\N	6	2017-03-31 09:04:07.258645	2017-03-30 11:00:52.254368	::1	::1	2017-03-30 04:53:35.121457	2017-03-31 09:04:07.260515	facebook	10154472872598947	https://graph.facebook.com/v2.6/10154472872598947/picture?type=square	Sebastián	Nugnez	EAAF5gDU1bsYBAI1v3rYDqzasfJt66ZBlBtefEeqJef6U4BhPDkcCoVXmDzNyBwuhZBkJZB0zYCNZC3XLupq4vy0HCkZA1LjqLFiPonk7KfLwZAPoDCqTkzR36LgdRipGGJA4vghTlFbXNPZBRAJtacvDuIhSszRfugZD	2017-05-30 09:04:04	t
+\.
+
+
+--
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Seba
+--
+
+SELECT pg_catalog.setval('users_id_seq', 2, true);
+
+
+--
+-- Name: active_admin_comments active_admin_comments_pkey; Type: CONSTRAINT; Schema: public; Owner: Seba
+--
+
+ALTER TABLE ONLY active_admin_comments
+    ADD CONSTRAINT active_admin_comments_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: ar_internal_metadata ar_internal_metadata_pkey; Type: CONSTRAINT; Schema: public; Owner: Seba
+--
+
+ALTER TABLE ONLY ar_internal_metadata
+    ADD CONSTRAINT ar_internal_metadata_pkey PRIMARY KEY (key);
+
+
+--
+-- Name: attachinary_files attachinary_files_pkey; Type: CONSTRAINT; Schema: public; Owner: Seba
+--
+
+ALTER TABLE ONLY attachinary_files
+    ADD CONSTRAINT attachinary_files_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: guests guests_pkey; Type: CONSTRAINT; Schema: public; Owner: Seba
+--
+
+ALTER TABLE ONLY guests
+    ADD CONSTRAINT guests_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: invitations invitations_pkey; Type: CONSTRAINT; Schema: public; Owner: Seba
+--
+
+ALTER TABLE ONLY invitations
+    ADD CONSTRAINT invitations_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: schema_migrations schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: Seba
+--
+
+ALTER TABLE ONLY schema_migrations
+    ADD CONSTRAINT schema_migrations_pkey PRIMARY KEY (version);
+
+
+--
+-- Name: templates templates_pkey; Type: CONSTRAINT; Schema: public; Owner: Seba
+--
+
+ALTER TABLE ONLY templates
+    ADD CONSTRAINT templates_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: Seba
+--
+
+ALTER TABLE ONLY users
+    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: by_scoped_parent; Type: INDEX; Schema: public; Owner: Seba
+--
+
+CREATE INDEX by_scoped_parent ON attachinary_files USING btree (attachinariable_type, attachinariable_id, scope);
+
+
+--
+-- Name: index_active_admin_comments_on_author_type_and_author_id; Type: INDEX; Schema: public; Owner: Seba
+--
+
+CREATE INDEX index_active_admin_comments_on_author_type_and_author_id ON active_admin_comments USING btree (author_type, author_id);
+
+
+--
+-- Name: index_active_admin_comments_on_namespace; Type: INDEX; Schema: public; Owner: Seba
+--
+
+CREATE INDEX index_active_admin_comments_on_namespace ON active_admin_comments USING btree (namespace);
+
+
+--
+-- Name: index_active_admin_comments_on_resource_type_and_resource_id; Type: INDEX; Schema: public; Owner: Seba
+--
+
+CREATE INDEX index_active_admin_comments_on_resource_type_and_resource_id ON active_admin_comments USING btree (resource_type, resource_id);
+
+
+--
+-- Name: index_guests_on_invitation_id; Type: INDEX; Schema: public; Owner: Seba
+--
+
+CREATE INDEX index_guests_on_invitation_id ON guests USING btree (invitation_id);
+
+
+--
+-- Name: index_invitations_on_template_id; Type: INDEX; Schema: public; Owner: Seba
+--
+
+CREATE INDEX index_invitations_on_template_id ON invitations USING btree (template_id);
+
+
+--
+-- Name: index_invitations_on_user_id; Type: INDEX; Schema: public; Owner: Seba
+--
+
+CREATE INDEX index_invitations_on_user_id ON invitations USING btree (user_id);
+
+
+--
+-- Name: index_users_on_email; Type: INDEX; Schema: public; Owner: Seba
+--
+
+CREATE UNIQUE INDEX index_users_on_email ON users USING btree (email);
+
+
+--
+-- Name: index_users_on_reset_password_token; Type: INDEX; Schema: public; Owner: Seba
+--
+
+CREATE UNIQUE INDEX index_users_on_reset_password_token ON users USING btree (reset_password_token);
+
+
+--
+-- Name: guests fk_rails_249a5cb876; Type: FK CONSTRAINT; Schema: public; Owner: Seba
+--
+
+ALTER TABLE ONLY guests
+    ADD CONSTRAINT fk_rails_249a5cb876 FOREIGN KEY (invitation_id) REFERENCES invitations(id);
+
+
+--
+-- Name: invitations fk_rails_7eae413fe6; Type: FK CONSTRAINT; Schema: public; Owner: Seba
+--
+
+ALTER TABLE ONLY invitations
+    ADD CONSTRAINT fk_rails_7eae413fe6 FOREIGN KEY (user_id) REFERENCES users(id);
+
+
+--
+-- Name: invitations fk_rails_fc5c1df235; Type: FK CONSTRAINT; Schema: public; Owner: Seba
+--
+
+ALTER TABLE ONLY invitations
+    ADD CONSTRAINT fk_rails_fc5c1df235 FOREIGN KEY (template_id) REFERENCES templates(id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+
