@@ -1,59 +1,42 @@
-<div class='<%= @invitation.template.stylesheet %>'>
-  <%#= @invitation.template.stylesheet %>
-  <h2>We are getting married!</h2>
-  <h4><%= @invitation.groom_name || "Groom" %> AND <%= @invitation.bride_name || "Bride" %></h4>
-  <h4>Wedding Date</h4>
-  <%= @invitation.date %>
-  <h4>Wedding Address</h4>
-  <%= @invitation.location || "Shanghai" %>
+<!-- <div class='<%= @invitation.template.stylesheet %>'> -->
 
-  <h2>About the couple</h2>
-  <% if @invitation.groom_photo? %>
-    <%= cl_image_tag @invitation.groom_photo.path, width: 200, height: 300, crop: :fill %>
-  <% end %>
-  <h4><%= @invitation.groom_name || "Groom" %></h4>
-  <%= @invitation.groom_bio || "He is a handsome guy, smart, gentleman and enthusiastic." %>
+<div class="swiper-container">
 
-  <% if @invitation.bride_photo? %>
-    <%= cl_image_tag @invitation.bride_photo.path, width: 200, height: 300, crop: :fill %>
-  <% end %>
-  <h4><%= @invitation.bride_name || "Bride" %></h4>
-  <%= @invitation.bride_bio || "She is a beautiful girl, sweet, gentlewomanly, and enthusiastic." %>
+<!-- <div class="swiper-pagination"></div> -->
 
-  <h2>Our Photos</h2>
-  <% @invitation.gallery.each do |photo| %>
-    <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
-  <% end %>
+    <div class="swiper-wrapper">
+        <div class="swiper-slide slide-1">
+          <h2 class="animated" data-ani-name="zoomInDown" data-ani-duration="1s" data-ani-delay="0.5s"><%= @invitation.groom_name || "Groom" %> AND <%= @invitation.bride_name || "Bride" %></h2>
+          <div class="animated" data-ani-name="bounceInUp" data-ani-duration="1s" data-ani-delay="0.5s">
+            <h4 >Wedding Date</h4>
+            <%= @invitation.date %>
+            <h4>Wedding Address</h4>
+            <%= @invitation.location || "Shanghai" %>
+          </div>
+          <!-- get all animation names from https://daneden.github.io/animate.css/ -->
+        </div>
+        <div class="swiper-slide slide-2">
+          <h2 class="animated" data-ani-name="bounceInUp" data-ani-duration="1s" data-ani-delay="0.5s">Learn to code!</h2>
 
-  <h2>Wedding Day</h2>
-  <%= @invitation.wedding_description || "So today we’ve rounded up some of our favorites from the last open wedding vows thread. Here’s to hoping they inspire you to create meaningful marriage vows for yourselves, and not at 2AM." %>
-
-
-  <div id="rsvp-button-container" class="container">
-    <% if @invitation.rsvp == true %>
-      <%= link_to "I'll be there", new_invitation_guest_path(@invitation), class: "btn btn-primary" %>
-    <% end %>
-  </div>
-
-  <div class="show-map">
-    <div id="map" style="width: 100%; height: 60vh;">
-      <%= content_for(:after_js) do %>
-        <script>
-
-          function initMap() {
-            var loc = {lat: <%= raw @invitation.latitude %>, lng: <%= raw @invitation.longitude %>};
-            var map = new google.maps.Map(document.getElementById('map'), {
-              zoom: 4,
-              center: loc
-            });
-            var marker = new google.maps.Marker({
-              position: loc,
-              map: map
-
-            });
-          }
-        </script>
-      <% end %>
+        </div>
+        <div class="swiper-slide slide-3">
+          <h2 class="animated" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="0.5s">Join our journey...</h2>
+          <img class="animated" src="./images/github-3.png" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="1s">
+        </div>
     </div>
-  </div>
 </div>
+
+<button class="up-arrow"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+
+<!-- <button class="btn-music"><i class="fa fa-music"></i></button> -->
+<!-- <audio loop><source src="audios/background.mp3" type="audio/mpeg"></audio> -->
+
+<script type="text/javascript" src="https://lib.sinaapp.com/js/jquery/3.1.0/jquery-3.1.0.js"></script>
+
+<!-- </div> -->
+
+
+<!-- <script type="text/javascript" src="https://lib.sinaapp.com/js/jquery/3.1.0/jquery-3.1.0.js"></script>
+
+
+ -->

@@ -2,45 +2,11 @@
 
 <!-- This is for pages, not templates -->
 <% if @livetemplate == true %>
-  <html>
-    <head>
-      <title>WedTales</title>
-      <%= csrf_meta_tags %>
-      <%= action_cable_meta_tag %>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <%= stylesheet_link_tag    'mastertemplate', media: 'all' %>
-    </head>
-    <body>
-      <div class="container main-container">
-        <%= yield %>
-      </div>
-      <%= javascript_include_tag 'application' %>
-      <%= yield(:after_js) %>
-      <%= cloudinary_js_config %>
-      <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_API_BROWSER_KEY"]}&callback=initMap" %>
-    </body>
-  </html>
-<!-- This is for templates -->
+  <%= render 'layouts/livetemplate' %>
+
+  <!-- This is for templates -->
 <% else %>
 
-  <html>
-    <head>
-      <title>WedTales</title>
-      <%= csrf_meta_tags %>
-      <%= action_cable_meta_tag %>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <%= stylesheet_link_tag    'application', media: 'all' %>
-    </head>
-    <body>
-      <%= render 'shared/navbar' %>
-      <%= render 'shared/flashes' %>
-      <div class="container main-container">
-        <%= yield %>
-      </div>
-      <%= javascript_include_tag 'application' %>
-      <%= cloudinary_js_config %>
-    </body>
-  </html>
+  <%= render 'layouts/main' %>
+
 <% end %>
