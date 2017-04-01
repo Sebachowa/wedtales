@@ -59,7 +59,7 @@
                 </div>
                 <div class="product-buttons-one text-center">
                   <% if invitation.rsvp? %>
-                    <%= link_to invitation_guest_list_path, remote: true  do %>
+                    <%= link_to invitation_guest_list_path(invitation_id: invitation.id), remote: true  do %>
                       <i class="fa fa-file-text" style="font-size: 14px" data-toggle="tooltip" data-placement="top" title="Guest List"></i>
                     <% end %>
                   <% end %>

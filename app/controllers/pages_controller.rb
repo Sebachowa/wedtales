@@ -11,6 +11,7 @@ class PagesController < ApplicationController
   end
 
   def invitation_guest_list
-    @guests = Guest.all
+    invitation = Invitation.find params[:invitation_id]
+    @guests = invitation.guests
   end
 end
