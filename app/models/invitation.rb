@@ -1,30 +1,33 @@
 class Invitation < ApplicationRecord
+
+  # ------------ Associations ------------
   belongs_to :user
   belongs_to :template
   has_many :guests
+
+  # ------------ Attachinary validations ------------
   has_attachment  :og_photo, accept: [:jpg, :png, :gif]
   has_attachment  :groom_photo, accept: [:jpg, :png, :gif]
   has_attachment  :bride_photo, accept: [:jpg, :png, :gif]
   has_attachments :gallery, maximum: 4
 
+  #  ------------ Google MAPS ------------
   geocoded_by :location
   after_validation(:geocode, { if: :location_changed? })
 
-
+  #  ------------ CallBacks ------------
   before_validation :check_if_still_a_draft?
   before_validation :remove_empty_strings
   # validates :draft, presence: true
 
-
+  #  ------------ Custom URL ------------
   def to_param
     custom_url.nil? ? id.to_s : "#{id}-#{custom_url}".parameterize
-    # custom_url.present? ? "#{id}-#{custom_url}".parameterize : id.to_s
   end
 
-  # check the form
+
+  # ------------ Checking draft status ------------
   def check_if_still_a_draft?
-    # puts "HELLO! IM GOING TO CHECK IF YOU ARE STILL A DRAFT"
-    # if everything is there
     if groom_name.present? && bride_name.present? && location.present? && date.present?
       self.draft = false
     else
@@ -32,7 +35,7 @@ class Invitation < ApplicationRecord
     end
   end
 
-  # debug the form || for show view
+  #  ------------ Cleaning the form ------------
   def remove_empty_strings
     self.og_title = nil             if self.groom_name == ""
     self.og_description = nil       if self.groom_name == ""
