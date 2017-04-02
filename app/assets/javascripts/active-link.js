@@ -1,4 +1,4 @@
-// $('navbar-links a').on('click', function(){
-//     $(this).removeClass('.active-link');
-//     $(this).addClass('.active-link');
-// });
+$('.navbar-wagon-link').on('click', function(){
+    $('.navbar-wagon-link').removeClass('active-link');
+    $(this).addClass('active-link');
+});
