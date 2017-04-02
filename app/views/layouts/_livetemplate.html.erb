@@ -6,20 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <%= stylesheet_link_tag    'mastertemplate', media: 'all' %>
+    <%#= stylesheet_link_tag     @invitation.template.stylesheet , media: 'all' %>
+     <link rel="stylesheet" media="all" href='/assets/templates/<%= @invitation.template.stylesheet %>.scss' />
 
   </head>
-  <body>
+
   <!--       <div class="container main-container"> -->
   <%= yield %>
   <!-- </div> -->
-   <%= javascript_include_tag 'application' %>
+  <script type="text/javascript" src="https://lib.sinaapp.com/js/jquery/3.1.0/jquery-3.1.0.js"></script>
+
+  <%= javascript_include_tag 'application' %>
   <%= javascript_include_tag 'app/main' %>
   <%= javascript_include_tag 'swiper.jquery.min' %>
-
+  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_API_BROWSER_KEY"]}&callback=initMap" %>
   <%= yield(:after_js) %>
   <%= cloudinary_js_config %>
-  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_API_BROWSER_KEY"]}&callback=initMap" %>
-  </body>
+
+
 </html>
 <!-- This is for templates -->
 
