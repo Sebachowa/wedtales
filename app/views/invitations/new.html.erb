@@ -29,22 +29,25 @@
             <div class="col-xs-12 col-md-6 col-lg-3 template-content">
               <div class="template-card pink-border">
                 <% if template.photo? %>
-                  <%= cl_image_tag template.photo.path %>
+                  <%= cl_image_tag template.photo.path, width: 108, height: 138, crop:"fill" %>
                 <% else %>
                   <%= image_tag "img-placeholder.svg" %>
                 <% end %>
+              </div>
+              <div class="radio-button-container">
+                <div class="radio-button <%= template.id %>">
+                </div>
               </div>
             </div>
           <% end %>
         </div>
         <div clas="row">
           <div class="col-xs-6">
-            <%= simple_form_for(@invitation) do |f| %>
-              <%= f.submit %>
-            <% end %>
+            CANCEL BUTTON
           </div>
           <div class="col-xs-6">
             <%= simple_form_for(@invitation) do |f| %>
+              <%= f.hidden_field :template_id, class: "hidden-field", value: "" %>
               <%= f.submit %>
             <% end %>
           </div>
@@ -73,4 +76,3 @@
   <% end %>
 </div>
  -->
-
