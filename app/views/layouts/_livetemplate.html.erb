@@ -19,9 +19,10 @@
   <%= javascript_include_tag 'application' %>
   <%= javascript_include_tag 'app/main' %>
   <%= javascript_include_tag 'swiper.jquery.min' %>
-  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_API_BROWSER_KEY"]}&callback=initMap" %>
+
   <%= yield(:after_js) %>
   <%= cloudinary_js_config %>
+  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_API_BROWSER_KEY"]}&callback=initMap" %>
 
 
 </html>
