@@ -14,22 +14,44 @@
             <h2 >Wedding Date</h2>
             <h2><%= @invitation.date %></h2>
             <h2>Wedding Address</h2>
-            <h2><%= @invitation.location || "Shanghai" %>
-          </div></h2>
+            <h2><%= @invitation.location || "Shanghai" %></h2>
+          </div>
           <!-- get all animation names from https://daneden.github.io/animate.css/ -->
         </div>
         <div class="swiper-slide slide-2">
           <div class="animated" data-ani-name="bounceInUp" data-ani-duration="1s" data-ani-delay="0.5s">
+            <h2>About the couple</h2>
+            <% if @invitation.groom_photo? %>
+              <%= cl_image_tag @invitation.groom_photo.path, width: 200, height: 300, crop: :fill %>
+            <% end %>
+            <h2><%= @invitation.groom_name || "Groom" %></h2>
+            <%= @invitation.groom_bio || "He is a handsome guy, smart, gentleman and enthusiastic." %>
+
+            <% if @invitation.bride_photo? %>
+              <%= cl_image_tag @invitation.bride_photo.path, width: 200, height: 300, crop: :fill %>
+            <% end %>
+            <h2><%= @invitation.bride_name || "Bride" %></h2>
+            <%= @invitation.bride_bio || "She is a beautiful girl, sweet, gentlewomanly, and enthusiastic." %>
 
           </div>
 
         </div>
         <div class="swiper-slide slide-3">
-          <h2 class="animated" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="0.5s">Join our journey...</h2>
-          <img class="animated" src="./images/github-3.png" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="1s">
-        </div>
-        <div class="swiper-slide slide-3">
+          <div class="animated" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="0.5s">
+            <h2>Wedding Day</h2>
+            <%= @invitation.wedding_description || "So today we’ve rounded up some of our favorites from the last open wedding vows thread. Here’s to hoping they inspire you to create meaningful marriage vows for yourselves, and not at 2AM." %>
+          </div>
 
+        </div>
+        <div class="swiper-slide slide-4">
+          <div class="animated" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="0.5s">
+            <h2>Our Photos</h2>
+            <% @invitation.gallery.each do |photo| %>
+            <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+            <% end %>
+          </div>
+        </div>
+        <div class="swiper-slide slide-5">
           <div class="show-map">
             <div id="map" style="width: 100%; height: 60vh;">
               <%= content_for(:after_js) do %>
@@ -51,11 +73,17 @@
               <% end %>
             </div>
           </div>
-
-
         </div>
-    </div>
-</div>
+
+        <div class="swiper-slide slide-6">
+          <div class="animated" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="0.5s">Join our journey...
+            <div id="rsvp-button-container" class="container">
+              <% if @invitation.rsvp == true %>
+                <%= link_to "I'll be there", new_invitation_guest_path(@invitation), class: "btn btn-primary" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
 
 <button class="up-arrow"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 
