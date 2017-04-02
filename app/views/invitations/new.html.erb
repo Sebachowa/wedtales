@@ -1,9 +1,76 @@
-<div class="padded text-center">
-  <h1> This is step 1 </h1>
+<div class="container top-space-big">
+  <div class="row">
+    <!-- TEMPLATE CONTAINER -->
+    <div class="col-xs-12 col-md-9">
+      <div class="template-container">
+        <div class="row">
+          <div class="col-xs-4 template-title">
+            <div class="step-bullet">
+              <div class="bullet">1</div>
+              <p>Choose a template</p>
+            </div>
+          </div>
+          <div class="col-xs-4 template-title">
+            <div class="step-bullet">
+              <div class="bullet">2</div>
+              <p>Enter wedding details </p>
+            </div>
+          </div>
+          <div class="col-xs-4 template-title">
+            <div class="step-bullet">
+              <div class="bullet">3</div>
+              <p>Share it</p>
+            </div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="row expand">
+          <% @templates.each do |template| %>
+            <div class="col-xs-12 col-md-6 col-lg-3 template-content">
+              <div class="template-card pink-border">
+                <% if template.photo? %>
+                  <%= cl_image_tag template.photo.path %>
+                <% else %>
+                  <%= image_tag "img-placeholder.svg" %>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div clas="row">
+          <div class="col-xs-6">
+            <%= simple_form_for(@invitation) do |f| %>
+              <%= f.submit %>
+            <% end %>
+          </div>
+          <div class="col-xs-6">
+            <%= simple_form_for(@invitation) do |f| %>
+              <%= f.submit %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- CELL-PHONE STYLE PREVIEW DISPLAYER -->
+    <div class="col-md-9 hidden-xs hidden-sm">
+    </div>
+  </div>
+</div>
+
+<!--
   <h3>List of templates:</h3>
+  <% @templates.each do |template| %>
+    <% if template.photo? %>
+      <%= cl_image_tag template.photo.path %>
+    <% else %>
+      <%= image_tag "img-placeholder.svg" %>
+    <% end %>
+  <% end %>
+
   <%= simple_form_for(@invitation) do |f| %>
     <%= f.association :template, as: :radio_buttons %>
     <%= f.submit %>
   <% end %>
 </div>
+ -->
 
