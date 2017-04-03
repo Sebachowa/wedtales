@@ -53,9 +53,9 @@
                     <%= f.input :story_title, placeholder:'Title', label: false, input_html: { class:'new-input' } %>
                     <%= f.input :wedding_description, label: false, placeholder: 'Description', input_html: { class:'new-input' } %>
                   </div>
-                  <div class="wedding-form wedding-form-photos">
+                  <div class="wedding-form wedding-form-photos attachinary_container">
                     <h4>Wedding Photos</h4>
-                    <%= f.input :gallery, label: 'Gallery', as: :attachinary %>
+                    <%= f.input :gallery, label: 'Gallery', label: false, as: :attachinary %>
                   </div>
                   <div class="wedding-form wedding-form-rsvp">
                     <h4>RSVP</h4>
