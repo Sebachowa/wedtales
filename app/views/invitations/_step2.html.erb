@@ -1,2 +1,75 @@
-<%= render 'form' %>
+<div class="container-s top-space-big">
+  <div class="row">
+    <!-- TEMPLATE CONTAINER -->
+    <div class="col-xs-12 col-lg-9">
+      <div class="template-container">
+        <div class="row">
+          <div class="col-xs-4 template-title">
+            <div class="step-bullet">
+              <div class="bullet">1</div>
+              <p>Choose a template</p>
+            </div>
+          </div>
+          <div class="col-xs-4 template-title">
+            <div class="step-bullet">
+              <div class="bullet bullet-active">2</div>
+              <p>Enter wedding details </p>
+            </div>
+          </div>
+          <div class="col-xs-4 template-title">
+            <div class="step-bullet">
+              <div class="bullet">3</div>
+              <p>Share it</p>
+            </div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="row" id="template-list">
+          <div class="scrollable-listing">
+            <div class="col-xs-12 template-content">
+              <div class="form-container">
+                <%= simple_form_for(@invitation) do |f| %>
+                  <%= f.error_notification %>
+                  <%= f.input :og_photo, label: 'Sharing Cover', as: :attachinary %>
+                  <%= f.input :og_title, label: 'Title', placeholder:'Enter a sharing title', input_html: { value: 'Welcome to our wedding ceremony!', class:'new-input' } %>
+                  <%= f.input :og_description, label: 'Description', placeholder:'Enter a sharing description', input_html: { value: 'We are getting married.', class:'new-input' } %>
+                  <%= f.input :groom_name, placeholder: 'Enter the groom name', input_html: { class:'new-input' } %>
+                  <%= f.input :bride_name, placeholder: 'Enter the bride name', input_html: { class:'new-input' } %>
+                  <%= f.input :groom_photo, label: 'Groom Photo', as: :attachinary %>
+                  <%= f.input :bride_photo, label: 'Bride Photo', as: :attachinary %>
+                  <%= f.input :date, placeholder: 'Enter your wedding date', input_html: { class:'new-input' } %>
+                  <%= f.input :location, placeholder: 'Enter your wedding address', input_html: { class:'new-input' } %>
+                  <%= f.input :groom_bio, placeholder: 'Enter the groom bio', input_html: { value: 'He is a handsome guy, smart, gentleman and enthusiastic.', class:'new-input' } %>
+                  <%= f.input :bride_bio, placeholder: 'Enter the bride bio', input_html: { value: 'She is a beautiful girl, sweet, gentlewomanly, and enthusiastic.', class:'new-input' } %>
+                  <%= f.input :story_title, placeholder:'Enter a title', input_html: { value: 'Wedding Day', class:'new-input' } %>
+                  <%= f.input :wedding_description, placeholder: 'Enter something to decribe your wedding day', input_html: { value: 'So today we’ve rounded up some of our favorites from the last open wedding vows thread. Here’s to hoping they inspire you to create meaningful marriage vows for yourselves, and not at 2AM.', class:'new-input' } %>
+                  <%= f.input :gallery, label: 'Gallery', as: :attachinary %>
+                  <%= f.hidden_field :template_id, placeholder: 'Select your template', input_html: { class:'new-input' } %>
+                  <%= f.input :rsvp %>
+                  <%= f.hidden_field :step, value: @step %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6 text-center" style="margin-top: 20px">
+            <%= link_to "Cancel", root_path, class: "btn btn-profile", id: "btn-cancel" %>
+          </div>
+          <div class="col-xs-6 text-center" style="margin-top: 20px">
+              <%= f.submit "Next" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- CELL-PHONE STYLE PREVIEW DISPLAYER -->
+    <div class="col-lg-3 hidden-xs hidden-sm hidden-md">
+      <div id="iphone">
+        <iframe src="http://u4033421.viewer.maka.im/k/HB2PASW6" class="iphone-screen">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
 

@@ -50,6 +50,7 @@
           <div class="col-xs-6 text-center" style="margin-top: 20px">
             <%= simple_form_for(@invitation) do |f| %>
               <%= f.hidden_field :template_id, class: "hidden-field", value: "" %>
+              <%= f.hidden_field :step, value: @step %>
               <%= f.submit "Next" %>
             <% end %>
           </div>
