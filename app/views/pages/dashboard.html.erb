@@ -34,7 +34,7 @@
               <div class="product">
                 <div class="product-image">
                   <% if invitation.gallery? %>
-                    <%= cl_image_tag skill.photos.first.path %>
+                    <%= cl_image_tag invitation.photos.first.path, width: 108, height: 138, crop:'fill' %>
                   <% else %>
                   <%= image_tag "img-placeholder.svg" %>
                   <% end %>
