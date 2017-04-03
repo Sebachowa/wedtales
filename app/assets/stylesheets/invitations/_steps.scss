@@ -1,6 +1,9 @@
 .top-space-big {
   margin-top: 120px;
 }
+.container-s {
+  width: 100%;
+}
 
 .template-card {
   margin: 0 auto 25px;
@@ -37,6 +40,11 @@
   }
 }
 
+.scrollable-listing {
+  overflow: scroll;
+  height: 100%;
+}
+
 .template-title {
   background-color: #ffffff;
   margin-top: 5px;
@@ -52,6 +60,18 @@
   padding-top: 30px;
   background-color: #ffffff;
 }
+
+#template-list {
+  height: 350px;
+  background-color: #ffffff;
+}
+
+.button-row {
+  height: 100px;
+  background-color: #ffffff;
+}
+
+
 .radio-button-container {
   display: flex;
   justify-content: space-around;
@@ -72,11 +92,6 @@
 .radio-button-active {
   background-color: rgba(249, 181, 179, 0.5);
 }
-
-.expand {
-  min-height: 100%;
-}
-
 
 .step-bullet {
   margin-top: -30px;
@@ -101,6 +116,21 @@
   font-size: 35px;
   text-align: center;
   color: #545454;
+}
+
+.bullet-active {
+  background-color: #f9e099;
+}
+
+#iphone {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.iphone-screen {
+  width: 80%;
+  height: 70%;
 }
 
 #profile-card {
@@ -295,3 +325,11 @@
    color: #A8ACB9;
  }
 }
+
+#iphone {
+  width: 90%;
+  height: 450px;
+  border-radius: 40px;
+  background-color: black;
+}
+

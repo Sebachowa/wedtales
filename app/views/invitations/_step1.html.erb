@@ -1,8 +1,15 @@
-  <h1> This is step <%= @step %> </h1>
-
-  <h3>List of templates:</h3>
-  <%= simple_form_for(@invitation) do |f| %>
-    <%= f.association :template, as: :radio_buttons %>
-    <%= f.hidden_field :step, value: @step %>
-    <%= f.submit "Next" %>
-  <% end %>
+<% @templates.each do |template| %>
+  <div class="col-xs-12 col-md-6 col-lg-3 template-content">
+    <div class="template-card pink-border">
+      <% if template.photo? %>
+        <%= cl_image_tag template.photo.path, width: 108, height: 138, crop:"fill" %>
+      <% else %>
+        <%= image_tag "img-placeholder.svg" %>
+      <% end %>
+    </div>
+    <div class="radio-button-container">
+      <div class="radio-button" data-template-id="<%= template.id %>">
+      </div>
+    </div>
+  </div>
+<% end %>

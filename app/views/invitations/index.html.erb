@@ -1,41 +1,41 @@
-  <div class="container padded">
-    <h4>All Invitations</h4>
-    <% @invitations.each do |invitation| %>
-      <div style="background-image:  cl_image_path(invitation.og_photo.first.path, width: 750, height: 450, crop: :fill) : ''%>);">
+<div class="container padded">
+  <h4>All Invitations</h4>
+  <% @invitations.each do |invitation| %>
+    <div style="background-image:  cl_image_path(invitation.og_photo.first.path, width: 750, height: 450, crop: :fill) : ''%>);">
 
 
-        <%= link_to invitation_path(invitation) do%>
-          <% if invitation.og_title.present? %>
-            <h2><%= invitation.og_title %></h2>
-          <% else %>
-            <h2>Welcome to our wedding!</h2>
-          <% end %>
-        <% end %>
-
-        <% if invitation.og_description.present? %>
-          <p><%= invitation.og_description %></p>
+      <%= link_to invitation_path(invitation) do%>
+        <% if invitation.og_title.present? %>
+          <h2><%= invitation.og_title %></h2>
         <% else %>
-          <p>Welcome to our wedding ceremony.</p>
+          <h2>Welcome to our wedding!</h2>
         <% end %>
-        <%= link_to "", invitation_path(invitation), class: "card-link" %>
-        <% if invitation.check_if_still_a_draft? == true %>
-          <p><strong>Draft</strong></p>
-          <% else %>
-          <p><strong>Finished</strong></p>
-        <% end %>
+      <% end %>
+
+      <% if invitation.og_description.present? %>
+        <p><%= invitation.og_description %></p>
+      <% else %>
+        <p>Welcome to our wedding ceremony.</p>
+      <% end %>
+      <%= link_to "", invitation_path(invitation), class: "card-link" %>
+      <% if invitation.check_if_still_a_draft? == true %>
+        <p><strong>Draft</strong></p>
+        <% else %>
+        <p><strong>Finished</strong></p>
+      <% end %>
 
 
-        <ul>
-          <li><%= link_to invitation_path(invitation) do %>
-                <i class="fa fa-eye"></i>
-              <% end %></li>
-          <li><%= link_to edit_invitation_path(invitation) do %>
-                <i class="fa fa-pencil"></i>
-              <% end %></li>
-          <li><%= link_to invitation_path(invitation), method: :delete do %>
-                <i class="fa fa-trash"></i>
-              <% end %></li>
-        </ul>
-      </div>
-    <% end %>
-  </div>
+      <ul>
+        <li><%= link_to invitation_path(invitation) do %>
+              <i class="fa fa-eye"></i>
+            <% end %></li>
+        <li><%= link_to edit_invitation_path(invitation) do %>
+              <i class="fa fa-pencil"></i>
+            <% end %></li>
+        <li><%= link_to invitation_path(invitation), method: :delete do %>
+              <i class="fa fa-trash"></i>
+            <% end %></li>
+      </ul>
+    </div>
+  <% end %>
+</div>
