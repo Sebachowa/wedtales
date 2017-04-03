@@ -34,3 +34,35 @@
 .decoration_1 {
   background-image: url('images/map.png');
 }
+
+
+.slide-1 .test {
+
+  animation-name: fadeIn;
+  animation-duration: 5s;
+}
+
+// @-webkit-keyframes mytest {
+//   from {
+//     opacity: 0;
+//   }
+
+//   to {
+//     opacity: 1;
+//   }
+// }
+
+// @keyframes mytest {
+//   from {
+//     opacity: 0;
+//   }
+
+//   to {
+//     opacity: 1;
+//   }
+// }
+
+// .mytest {
+//   -webkit-animation-name: fadeIn;
+//   animation-name: fadeIn;
+// }
