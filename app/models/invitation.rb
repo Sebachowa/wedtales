@@ -3,7 +3,7 @@ class Invitation < ApplicationRecord
   # ------------ Associations ------------
   belongs_to :user
   belongs_to :template
-  has_many :guests
+  has_many :guests, dependent: :destroy
 
   # ------------ Attachinary validations ------------
   has_attachment  :og_photo, accept: [:jpg, :png, :gif]
