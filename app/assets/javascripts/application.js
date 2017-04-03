@@ -1,6 +1,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require swiper.jquery.min
+//= require app/main
+
 //= require bootstrap-sprockets
 //= require jquery-fileupload/basic
 //= require cloudinary/jquery.cloudinary

@@ -9,8 +9,9 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 Rails.application.config.assets.precompile += %w( mastertemplate.scss )
+# do i need???
 # Rails.application.config.assets.precompile += %w( swiper.jquery.min.js )
-Rails.application.config.assets.precompile += %w( app/main.js )
+# Rails.application.config.assets.precompile += %w( app/main.js )
 Rails.application.config.assets.precompile += %w( active_link.js )
 Rails.application.config.assets.precompile += %w( three_steps.js )
 Rails.application.config.assets.precompile += %w( smooth_scroll.js )
