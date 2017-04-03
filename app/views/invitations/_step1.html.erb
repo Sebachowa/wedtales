@@ -1,15 +1,67 @@
-<% @templates.each do |template| %>
-  <div class="col-xs-12 col-md-6 col-lg-3 template-content">
-    <div class="template-card pink-border">
-      <% if template.photo? %>
-        <%= cl_image_tag template.photo.path, width: 108, height: 138, crop:"fill" %>
-      <% else %>
-        <%= image_tag "img-placeholder.svg" %>
-      <% end %>
+<div class="container-s top-space-big">
+  <div class="row">
+    <!-- TEMPLATE CONTAINER -->
+    <div class="col-xs-12 col-lg-9">
+      <div class="template-container">
+        <div class="row">
+          <div class="col-xs-4 template-title">
+            <div class="step-bullet">
+              <div class="bullet bullet-active">1</div>
+              <p>Choose a template</p>
+            </div>
+          </div>
+          <div class="col-xs-4 template-title">
+            <div class="step-bullet">
+              <div class="bullet">2</div>
+              <p>Enter wedding details </p>
+            </div>
+          </div>
+          <div class="col-xs-4 template-title">
+            <div class="step-bullet">
+              <div class="bullet">3</div>
+              <p>Share it</p>
+            </div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="row" id="template-list">
+          <div class="scrollable-listing">
+            <% @templates.each do |template| %>
+              <div class="col-xs-12 col-md-6 col-lg-3 template-content">
+                <div class="template-card pink-border">
+                  <% if template.photo? %>
+                    <%= cl_image_tag template.photo.path, width: 108, height: 138, crop:"fill" %>
+                  <% else %>
+                    <%= image_tag "img-placeholder.svg" %>
+                  <% end %>
+                </div>
+                <div class="radio-button-container">
+                  <div class="radio-button" data-template-id="<%= template.id %>">
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6 text-center" style="margin-top: 20px">
+            <%= link_to "Cancel", root_path, class: "btn btn-profile", id: "btn-cancel" %>
+          </div>
+          <div class="col-xs-6 text-center" style="margin-top: 20px">
+            <%= simple_form_for(@invitation) do |f| %>
+              <%= f.hidden_field :template_id, class: "hidden-field", value: "" %>
+              <%= f.submit "Next" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="radio-button-container">
-      <div class="radio-button" data-template-id="<%= template.id %>">
+    <!-- CELL-PHONE STYLE PREVIEW DISPLAYER -->
+    <div class="col-lg-3 hidden-xs hidden-sm hidden-md">
+      <div id="iphone">
+        <iframe src="http://u4033421.viewer.maka.im/k/HB2PASW6" class="iphone-screen">
+        </iframe>
       </div>
     </div>
   </div>
-<% end %>
+</div>
