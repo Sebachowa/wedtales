@@ -6,6 +6,7 @@ class InvitationsController < ApplicationController
   # ------------ Skiping AppController Callback ------------
   skip_before_action :authenticate_user!, only: [:index, :show]
 
+
   # ------------ CRUD Actions ------------
   def index
     @invitations = Invitation.all
@@ -20,6 +21,7 @@ class InvitationsController < ApplicationController
     @invitation = Invitation.new
   end
 
+
   def create
     @invitation = Invitation.new(invitation_params)
     @invitation.user_id = current_user.id
@@ -31,6 +33,7 @@ class InvitationsController < ApplicationController
   end
 
   def edit
+    @templates = Template.all
     @step = params[:step].to_i
     if @step < 1 || @step > 3
       @step = 1
