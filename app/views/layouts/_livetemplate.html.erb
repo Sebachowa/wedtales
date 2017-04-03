@@ -17,8 +17,8 @@
   <script type="text/javascript" src="https://lib.sinaapp.com/js/jquery/3.1.0/jquery-3.1.0.js"></script>
 
   <%= javascript_include_tag 'application' %>
-  <%= javascript_include_tag 'app/main' %>
-  <%= javascript_include_tag 'swiper.jquery.min' %>
+  <%#= javascript_include_tag 'app/main' %>
+  <%#= javascript_include_tag 'swiper.jquery.min' %>
 
   <%= yield(:after_js) %>
   <%= cloudinary_js_config %>
@@ -28,3 +28,4 @@
 </html>
 <!-- This is for templates -->
 
+<%#= @invitation.template.stylesheet %>

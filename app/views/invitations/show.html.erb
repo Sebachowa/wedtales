@@ -1,5 +1,3 @@
-
-
 <body>
 
 
@@ -8,15 +6,18 @@
 
     <div class="swiper-wrapper">
         <div class="swiper-slide slide-1">
-          <h2 class="animated" data-ani-name="zoomInDown" data-ani-duration="1s" data-ani-delay="0.5s"><%= @invitation.groom_name || "Groom" %> AND <%= @invitation.bride_name || "Bride" %></h2>
+          <h2 class="animated" data-ani-name="zoomInDown" data-ani-duration="1s" data-ani-delay="0.5s">
+          <h2>Wedding</h2>
+          <h2><%= @invitation.groom_name || "Groom" %> AND <%= @invitation.bride_name || "Bride" %></h2>
           <div class="animated" data-ani-name="bounceInUp" data-ani-duration="1s" data-ani-delay="0.5s">
-            <h2 >Wedding Date</h2>
+            <div class="decoration_1"></div>
+            <h2>PICUTRE</h2>
             <h2><%= @invitation.date %></h2>
-            <h2>Wedding Address</h2>
             <h2><%= @invitation.location || "Shanghai" %></h2>
           </div>
           <!-- get all animation names from https://daneden.github.io/animate.css/ -->
         </div>
+
         <div class="swiper-slide slide-2">
           <div class="animated" data-ani-name="bounceInUp" data-ani-duration="1s" data-ani-delay="0.5s">
             <h2>About the couple</h2>
@@ -24,13 +25,13 @@
               <%= cl_image_tag @invitation.groom_photo.path, width: 200, height: 300, crop: :fill %>
             <% end %>
             <h2><%= @invitation.groom_name || "Groom" %></h2>
-            <%= @invitation.groom_bio || "He is a handsome guy, smart, gentleman and enthusiastic." %>
+            <h2> <%= @invitation.groom_bio || "He is a handsome guy, smart, gentleman and enthusiastic." %></h2>
 
             <% if @invitation.bride_photo? %>
               <%= cl_image_tag @invitation.bride_photo.path, width: 200, height: 300, crop: :fill %>
             <% end %>
             <h2><%= @invitation.bride_name || "Bride" %></h2>
-            <%= @invitation.bride_bio || "She is a beautiful girl, sweet, gentlewomanly, and enthusiastic." %>
+            <h2><%= @invitation.bride_bio || "She is a beautiful girl, sweet, gentlewomanly, and enthusiastic." %></h2>
 
           </div>
 
