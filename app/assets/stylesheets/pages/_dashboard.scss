@@ -245,5 +245,53 @@
  }
 }
 
+.modal {
+  border-radius: 5px;
+  border: solid 0 #f9b5b4;
+  text-align: center;
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px;
+  }
+}
+
+.modal-dialog {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.modal-title {
+  font-size: 32px;
+  color: #545454;
+}
+
+.modal-header {
+  img {
+    margin-top: -70px;
+    height: 100px;
+  }
+}
+
+.modal-body {
+  padding: 40px;
+  h6 {
+    font-size: 22px;
+    line-height: 0.64;
+    color: #545454;
+  }
+  p {
+    font-size: 16px;
+    color: #a7a7a7;
+  }
+  img {
+    height: 120px;
+  }
+}
+
+
+
 
 
