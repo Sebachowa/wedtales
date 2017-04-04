@@ -45,12 +45,17 @@
         </div>
         <div class="row">
           <div class="col-xs-6 text-center" style="margin-top: 20px">
-            <%= link_to "Cancel", root_path, class: "btn btn-profile", id: "btn-cancel" %>
+            <% if @step == 1 %>
+              <%= link_to "Cancel", root_path, class: "btn btn-steps" %>
+            <% else %>
+              <%= link_to "Back", edit_invitation_path(step: @step - 1 ), class: "btn btn-steps" %>
+            <% end %>
           </div>
           <div class="col-xs-6 text-center" style="margin-top: 20px">
             <%= simple_form_for(@invitation) do |f| %>
               <%= f.hidden_field :template_id, class: "hidden-field", value: "" %>
-              <%= f.submit "Next" %>
+              <%= f.hidden_field :step, value: @step %>
+              <%= f.submit "Next", class: "btn btn-steps"  %>
             <% end %>
           </div>
         </div>
@@ -59,8 +64,8 @@
     <!-- CELL-PHONE STYLE PREVIEW DISPLAYER -->
     <div class="col-lg-3 hidden-xs hidden-sm hidden-md">
       <div id="iphone">
-        <iframe src="http://u4033421.viewer.maka.im/k/HB2PASW6" class="iphone-screen">
-        </iframe>
+        <!-- <iframe src="http://u4033421.viewer.maka.im/k/HB2PASW6" class="iphone-screen">
+        </iframe> -->
       </div>
     </div>
   </div>

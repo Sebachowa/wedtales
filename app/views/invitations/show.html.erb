@@ -1,6 +1,7 @@
 <body>
   <div class="swiper-container">
     <div class="swiper-wrapper">
+
       <div class="swiper-slide slide-1">
         <div class="border">
           <div class="title-image"></div>
@@ -9,6 +10,7 @@
             <h3><%= @invitation.groom_name || "Groom" %></h3>
             <h3>&</h3>
             <h3><%= @invitation.bride_name || "Bride" %></h3>
+        
           </div>
 
           <div class="deco-image"></div>
@@ -74,6 +76,7 @@
           <div class="deco-image"></div>
           <%= cl_image_tag @invitation.gallery.last.path, width: 300, height: 200, crop: :fill %>
         </div>
+
         <!-- get all animation names from https://daneden.github.io/animate.css/ -->
       </div>
 
@@ -103,27 +106,12 @@
           <hr class="short-divider">
           <%#= image_tag "template1/location.svg" %>
           <h2><%= @invitation.location || "NAKED HUB, NANJING XILU, SHANGHAI" %></h2>
-          <div class="show-map">
-            <div id="map" style="width: 100%; height: 60vh;">
-              <%= content_for(:after_js) do %>
-              <script>
+           <!-- This is the static map. Geocoding MUST happen on CREATE. Geocoding AND static map are Google. If we have time Jing can help with AMap Docs and change to A -->
+          <img src='https://maps.googleapis.com/maps/api/staticmap?center=<%= @invitation.latitude %>,<%= @invitation.longitude %>&zoom=12&size=500x500&key=<%= #{ENV["GOOGLE_API_BROWSER_KEY"]} %>' alt="">
+          <%= @invitation.latitude %>
+          <%= @invitation.longitude %>
 
-                function initMap() {
-                  var loc = {lat: <%= raw @invitation.latitude %>, lng: <%= raw @invitation.longitude %>};
-                  var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 4,
-                    center: loc
-                  });
-                  var marker = new google.maps.Marker({
-                    position: loc,
-                    map: map
 
-                  });
-                }
-              </script>
-              <% end %>
-            </div>
-          </div>
         </div>
       </div>
 

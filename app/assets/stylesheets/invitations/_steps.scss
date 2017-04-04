@@ -71,6 +71,10 @@
   background-color: #ffffff;
 }
 
+.form-container {
+  margin: 0 auto;
+  width: 90%;
+}
 
 .radio-button-container {
   display: flex;
@@ -331,5 +335,31 @@
   height: 450px;
   border-radius: 40px;
   background-color: black;
+}
+
+.wedding-form {
+  h4 {
+    margin-bottom: 30px;
+    text-align: left;
+    font-size: 18px;
+    color: #7d7d7d;
+  }
+}
+
+.new-input {
+  height: 40px;
+  border: solid 1px #f9b5b4;
+  border-radius: 5px;
+}
+
+.groom_info {
+}
+
+.file-upload {
+  // border: solid 1px #f9b5b4;
+  // border-radius: 5px;
+}
+
+.person-content {
 }
 
