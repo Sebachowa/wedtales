@@ -46,7 +46,11 @@ class InvitationsController < ApplicationController
     @step = params[:invitation][:step].to_i
     if @invitation.update(invitation_params)
       if @step == 3
-        redirect_to invitation_path(@invitation)
+        if @invitation.custom_url.present?
+          redirect_to custom_url_of_invitation_path(id: @invitation.custom_url)
+        else
+          redirect_to invitation_path(@invitation)
+        end
       else
         redirect_to edit_invitation_path(@invitation, step: @step + 1)
       end
