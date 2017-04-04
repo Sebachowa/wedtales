@@ -107,9 +107,20 @@ p {
 }
 .slide-3 {
   .deco-image {
-    background-image: url('template1/branch.svg');
-    width: 234px;
-    height: 62px;
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 60px;
+      background-image: url('template1/branch.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: top center;
+    }
+    padding-top: 30px;
     background-repeat: no-repeat;
     margin-left: auto;
     margin-right: auto;
