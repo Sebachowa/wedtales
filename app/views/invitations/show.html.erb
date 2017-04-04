@@ -48,27 +48,11 @@
 
         </div>
         <div class="swiper-slide slide-5">
-          <div class="show-map">
-            <div id="map" style="width: 100%; height: 60vh;">
-              <%= content_for(:after_js) do %>
-                <script>
 
-                  function initMap() {
-                    var loc = {lat: <%= raw @invitation.latitude %>, lng: <%= raw @invitation.longitude %>};
-                    var map = new google.maps.Map(document.getElementById('map'), {
-                      zoom: 4,
-                      center: loc
-                    });
-                    var marker = new google.maps.Marker({
-                      position: loc,
-                      map: map
-
-                    });
-                  }
-                </script>
-              <% end %>
-            </div>
-          </div>
+        <!-- This is the static map. Geocoding MUST happen on CREATE. Geocoding AND static map are Google. If we have time Jing can help with AMap Docs and change to A -->
+          <img src='https://maps.googleapis.com/maps/api/staticmap?center=<%= @invitation.latitude %>,<%= @invitation.longitude %>&zoom=12&size=500x500&key=' alt="">
+          <%= @invitation.latitude %>
+          <%= @invitation.longitude %>
         </div>
 
         <div class="swiper-slide slide-6">
