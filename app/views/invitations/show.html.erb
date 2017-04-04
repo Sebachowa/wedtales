@@ -57,13 +57,11 @@
         <div class="border">
           <div class="animated" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="0.5s">
             <div class="deco-image">
-              <% @invitation.gallery.each_slice(3) do |photos| %>
-                <div class="row">
-                  <% photos.each  do |photo| %>
+              <div class="row">
+                <% @invitation.gallery.first(3).each do |photo| %>
                   <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
-                  <% end %>
-                </div>
-              <% end %>
+                <% end %>
+              </div>
             </div> <!-- .deco-image -->
           </div> <!-- .animated -->
         </div> <!-- .border -->
