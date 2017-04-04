@@ -23,11 +23,23 @@
   padding: 0 5px;
   color: #f9f9f9;
   font-size: 15px;
-  &:hover {
+  text-decoration: none;
+  &:hover, &:active, &:focus {
     color: #C99D9A;
     transition: all 0.3s ease;
     opacity: 80%;
     border-bottom: 3px solid #C99D9A;
+    text-decoration: none;
+  }
+
+}
+
+.navbar-wagon-link {
+  text-decoration: none;
+  &:hover {
+    transition: all 0.3s ease;
+    color: #C99D9A;
+    text-decoration: none;
   }
 }
 
@@ -36,6 +48,7 @@
   transition: all 0.3s ease;
   opacity: 80%;
   border-bottom: 3px solid #C99D9A;
+  text-decoration: none;
 }
 
 .fa {
@@ -82,11 +95,6 @@
 
 
 
-.navbar-wagon-link:hover {
-  transition: all 0.3s ease;
-  color: #C99D9A;
-  text-decoration: none;
-}
 
 /* Navbar right button */
 .navbar-wagon-button {
