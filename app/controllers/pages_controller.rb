@@ -14,4 +14,13 @@ class PagesController < ApplicationController
     invitation = Invitation.find params[:invitation_id]
     @guests = invitation.guests
   end
+
+  def invitation_share_link
+    invitation = Invitation.find params[:invitation_id]
+    if invitation.custom_url.present?
+      @share_link = "http://localhost:3000/#{invitation.custom_url}"
+    else
+      @share_link = "http://localhost:3000/invitations/#{invitation.id}"
+    end
+  end
 end

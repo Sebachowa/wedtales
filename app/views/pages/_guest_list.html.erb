@@ -1,10 +1,10 @@
 <div class="modal-dialog" role="document">
   <div class="modal-content">
     <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <h6 class="modal-title" id="myModalLabel">Total: <%= invitation_guests.sum(:plus) %> RSVP</h6>
+      <%= image_tag "img-placeholder.svg" %>
+      <h6 class="modal-title" id="myModalLabel">GUESTS</h6>
     </div>
-    <div class="modal-body">
+    <div class="modal-body" style="overflow: scroll">
       <table class="table table-striped">
         <tr>
           <th>Name</th>
@@ -22,8 +22,6 @@
         <% end %>
       </table>
     </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-    </div>
+    <p>Total: <%= invitation_guests.sum(:plus) %> RSVP</p>
   </div>
 </div>

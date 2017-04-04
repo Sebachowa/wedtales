@@ -50,7 +50,7 @@
                   <%= link_to invitation_path(invitation) do %>
                     <i class="fa fa-eye" data-toggle="tooltip" data-placement="top" title="Preview"></i>
                   <% end %>
-                  <%= link_to invitation_path(invitation) do %>
+                  <%= link_to invitation_share_link_path(invitation_id: invitation.id), remote: true do %>
                     <i class="fa fa-share" data-toggle="tooltip" data-placement="top" title="Share"></i>
                   <% end %>
                   <%= link_to invitation_path(invitation), method: :delete do %>
@@ -73,7 +73,9 @@
   </div>
 </div>
 
-
 <!-- Modal -->
 <div class="modal fade" id="guestListModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+</div>
+
+<div class="modal fade" id="invitationShareLink" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 </div>
