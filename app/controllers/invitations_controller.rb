@@ -53,6 +53,12 @@ class InvitationsController < ApplicationController
     end
   end
 
+  def choose
+    @template = params[:id]
+    @invitation = Invitation.create(template_id: @template)
+    redirect_to edit_invitation_path(@invitation, step: 2)
+  end
+
   def destroy
     @invitation.destroy
     redirect_to dashboard_path
