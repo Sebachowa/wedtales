@@ -1,95 +1,147 @@
 <body>
-
-
-<div class="swiper-container">
-
-
+  <div class="swiper-container">
     <div class="swiper-wrapper">
-        <div class="swiper-slide slide-1">
-          <h2 class="animated" data-ani-name="zoomInDown" data-ani-duration="1s" data-ani-delay="0.5s">
-          <h2>Wedding</h2>
-          <h2><%= @invitation.groom_name || "Groom" %> AND <%= @invitation.bride_name || "Bride" %></h2>
-          <div class="animated" data-ani-name="bounceInUp" data-ani-duration="1s" data-ani-delay="0.5s">
-            <div class="decoration_1"></div>
-            <h2>PICUTRE</h2>
-            <h2><%= @invitation.date %></h2>
-            <h2><%= @invitation.location || "Shanghai" %></h2>
+      <div class="swiper-slide slide-1">
+        <div class="border">
+          <div class="title-image"></div>
+          <hr class="short-divider">
+          <div class="couple-names">
+            <h3><%= @invitation.groom_name || "Groom" %></h3>
+            <h3>&</h3>
+            <h3><%= @invitation.bride_name || "Bride" %></h3>
           </div>
+
+          <div class="deco-image"></div>
+          <h4><%= @invitation.date %></h4>
+          <hr class="short-divider">
+          <p><%= @invitation.location || "NAKED HUB, NANJING XILU, SHANGHAI" %></p>
           <!-- get all animation names from https://daneden.github.io/animate.css/ -->
         </div>
+      </div>
 
-        <div class="swiper-slide slide-2">
+      <div class="swiper-slide slide-2">
+        <div class="border">
           <div class="animated" data-ani-name="bounceInUp" data-ani-duration="1s" data-ani-delay="0.5s">
-            <h2>About the couple</h2>
-            <% if @invitation.groom_photo? %>
-              <%= cl_image_tag @invitation.groom_photo.path, width: 200, height: 300, crop: :fill %>
-            <% end %>
-            <h2><%= @invitation.groom_name || "Groom" %></h2>
-            <h2> <%= @invitation.groom_bio || "He is a handsome guy, smart, gentleman and enthusiastic." %></h2>
+            <h2>The Couple</h2>
+            <hr class="short-divider">
 
-            <% if @invitation.bride_photo? %>
-              <%= cl_image_tag @invitation.bride_photo.path, width: 200, height: 300, crop: :fill %>
-            <% end %>
-            <h2><%= @invitation.bride_name || "Bride" %></h2>
-            <h2><%= @invitation.bride_bio || "She is a beautiful girl, sweet, gentlewomanly, and enthusiastic." %></h2>
-
+            <div class="groom">
+              <div class="deco-flower">
+                <% if @invitation.groom_photo? %>
+                <%= cl_image_tag @invitation.groom_photo.path, width: 200, height: 300, crop: :fill, class: 'groom-photo'%>
+                <% end %>
+              </div>
+              <div class="info">
+                <h3><%= @invitation.groom_name || "Groom" %></h3>
+                <p> <%= @invitation.groom_bio || "He is a handsome guy, smart, gentleman and enthusiastic." %></p>
+              </div>
+            </div>
+            <div class="bride">
+              <div class="deco-flower">
+                <% if @invitation.bride_photo? %>
+                <%= cl_image_tag @invitation.bride_photo.path, width: 200, height: 300, crop: :fill, class: 'bride-photo' %>
+                <% end %>
+              </div>
+              <div class="info">
+                <h3><%= @invitation.bride_name || "Bride" %></h3>
+                <p><%= @invitation.bride_bio || "She is a beautiful girl, sweet, gentlewomanly, and enthusiastic." %></p>
+              </div>
+            </div>
           </div>
-
         </div>
-        <div class="swiper-slide slide-3">
+      </div>
+
+      <div class="swiper-slide slide-3">
+      <div class="border">
+        <div class="animated" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="0.5s">
+
+            <div class="deco-image">
+              <% @invitation.gallery.each_slice(3) do |photos| %>
+              <div class="row">
+                <% photos.each  do |photo| %>
+                <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+                <% end %>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <!-- get all animation names from https://daneden.github.io/animate.css/ -->
+      </div>
+
+      <div class="swiper-slide slide-4">
+        <div class="animated" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="0.5s">
+          <div class="deco-image"></div>
+          <%= cl_image_tag @invitation.gallery.last.path, width: 300, height: 200, crop: :fill %>
+        </div>
+        <!-- get all animation names from https://daneden.github.io/animate.css/ -->
+      </div>
+
+      <div class="swiper-slide slide-5">
+        <div class="border">
           <div class="animated" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="0.5s">
-            <h2>Wedding Day</h2>
-            <%= @invitation.wedding_description || "So today we’ve rounded up some of our favorites from the last open wedding vows thread. Here’s to hoping they inspire you to create meaningful marriage vows for yourselves, and not at 2AM." %>
+            <h2><%= @invitation.story_title %></h2>
+            <hr class="short-divider">
+            <%= @invitation.wedding_description || "So today we’ve rounded up some of our favorites from the last open wedding vows thread.
+            <br>
+            Here’s to hoping they inspire you to create meaningful marriage vows for yourselves, and not at 2AM.
+            <br>
+            Meals Plan
+            <br>
+            Lunch Time - 12:00
+            <br>
+            Dinner Time - 18:00"
+            %>
+            <div class="deco-image"></div>
           </div>
+        </div>
+      </div>
 
-        </div>
-        <div class="swiper-slide slide-4">
-          <div class="animated" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="0.5s">
-            <h2>Our Photos</h2>
-            <% @invitation.gallery.each do |photo| %>
-            <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
-            <% end %>
-          </div>
-        </div>
-        <div class="swiper-slide slide-5">
+      <div class="swiper-slide slide-6">
+        <div class="border">
+          <h2>Wedding Address</h2>
+          <hr class="short-divider">
+          <%#= image_tag "template1/location.svg" %>
+          <h2><%= @invitation.location || "NAKED HUB, NANJING XILU, SHANGHAI" %></h2>
           <div class="show-map">
             <div id="map" style="width: 100%; height: 60vh;">
               <%= content_for(:after_js) do %>
-                <script>
+              <script>
 
-                  function initMap() {
-                    var loc = {lat: <%= raw @invitation.latitude %>, lng: <%= raw @invitation.longitude %>};
-                    var map = new google.maps.Map(document.getElementById('map'), {
-                      zoom: 4,
-                      center: loc
-                    });
-                    var marker = new google.maps.Marker({
-                      position: loc,
-                      map: map
+                function initMap() {
+                  var loc = {lat: <%= raw @invitation.latitude %>, lng: <%= raw @invitation.longitude %>};
+                  var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 4,
+                    center: loc
+                  });
+                  var marker = new google.maps.Marker({
+                    position: loc,
+                    map: map
 
-                    });
-                  }
-                </script>
+                  });
+                }
+              </script>
               <% end %>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="swiper-slide slide-6">
-          <h4>page 6</h4>
-        </div>
-        </div>
-        <div class="swiper-slide slide-7">
-          <h4>page 7</h4>
-        </div>
-        <div class="swiper-slide slide-8">
-          <h4>page 8</h4>
-        </div>
-<button class="up-arrow"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+      <div class="swiper-slide slide-7">
+        <div class="border">
+         <h2>RSVP</h2>
+       </div>
+     </div>
 
-<!-- <button class="btn-music"><i class="fa fa-music"></i></button> -->
-<!-- <audio loop><source src="audios/background.mp3" type="audio/mpeg"></audio> -->
+     <div class="swiper-slide slide-8">
+       <h2>Promotion</h2>
+     </div>
 
+     <button class="up-arrow"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 
-  </body>
+     <!-- <button class="btn-music"><i class="fa fa-music"></i></button> -->
+     <!-- <audio loop><source src="audios/background.mp3" type="audio/mpeg"></audio> -->
+   </div>
+ </div>
+</body>
 
