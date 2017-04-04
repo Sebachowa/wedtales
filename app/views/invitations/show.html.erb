@@ -57,11 +57,12 @@
         <div class="border">
           <div class="animated" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="0.5s">
             <div class="deco-image">
-              <div class="row">
                 <% @invitation.gallery.first(3).each do |photo| %>
-                  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+                  <div class="image-wrapper">
+                    <div class="image" style="background-image: url(<%= cl_image_path photo.path %>)">
+                    </div>
+                  </div>
                 <% end %>
-              </div>
             </div> <!-- .deco-image -->
           </div> <!-- .animated -->
         </div> <!-- .border -->
@@ -69,12 +70,16 @@
       </div>
 
       <div class="swiper-slide slide-4">
-        <div class="animated" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="0.5s">
-          <div class="deco-image"></div>
-          <%#= cl_image_tag @invitation.gallery.last.path, width: 300, height: 200, crop: :fill %>
+        <div class="border">
+          <div class="animated" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="0.5s">
+            <div class="deco-image">
+              <div class="image-wrapper">
+                <div class="image" style="background-image: url(<%= cl_image_path @invitation.gallery.last.path %>)">
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <!-- get all animation names from https://daneden.github.io/animate.css/ -->
       </div>
 
       <div class="swiper-slide slide-5">

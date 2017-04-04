@@ -125,5 +125,24 @@ p {
     margin-left: auto;
     margin-right: auto;
     margin-top: 40px;
+    width: 90%;
+  }
+  .image-wrapper {
+    float: left;
+    width: 50%;
+    padding: 8px;
+    .image {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      padding-top: 135%;
+      border: solid 2px #EFEFEF;
+    }
+    &:first-child {
+      width: 100%;
+      .image {
+        padding-top: 85%;
+      }
+    }
   }
 }
