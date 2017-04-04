@@ -54,20 +54,19 @@
       </div>
 
       <div class="swiper-slide slide-3">
-      <div class="border">
-        <div class="animated" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="0.5s">
-
+        <div class="border">
+          <div class="animated" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="0.5s">
             <div class="deco-image">
               <% @invitation.gallery.each_slice(3) do |photos| %>
-              <div class="row">
-                <% photos.each  do |photo| %>
-                <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
-                <% end %>
-              </div>
-            </div>
-            <% end %>
-          </div>
-        </div>
+                <div class="row">
+                  <% photos.each  do |photo| %>
+                  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+                  <% end %>
+                </div>
+              <% end %>
+            </div> <!-- .deco-image -->
+          </div> <!-- .animated -->
+        </div> <!-- .border -->
         <!-- get all animation names from https://daneden.github.io/animate.css/ -->
       </div>
 
