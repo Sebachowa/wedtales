@@ -1,68 +1,118 @@
+.slide-1, .slide-2, .slide-3, .slide-4, .slide-5, .slide-6, .slide-7, .slide-8 {
+  // background-image: url('template1/bg-square.png');
+  background-color: #A6DCD4;
+  height: 100vh;
+  width: 100%;
+  background-repeat: repeat-x;
+  background-repeat: repeat-y;
+  text-align: center;
+}
+.border {
+  height: 93%;
+  width: 90%;
+  border: solid 2px #ffffff;
+  position: relative;
+}
+.short-divider {
+  width: 100px;
+  // height: 1px;
+  border: solid 1px #ffffff;
+}
+h2, h3, h4, p {
+  color: white;
+  font-family: Cinzel;
+  font-weight: bold;
+  line-height: 15px;
+}
+p {
+  margin-left: 26px;
+  margin-right: 26px;
+}
 .slide-1 {
-  background-color: #F95959;
+  h3 {
+    font-size: 20px;
+    line-height: 6px;
+  }
+  h4 {
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+  p {
+    padding-bottom: 20px;
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .title-image {
+    background-image: url('template1/cover-title.svg');
+    height:108px;
+    width: 221px;
+    background-repeat: no-repeat;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .deco-image {
+    background-image: url('template1/birds.svg');
+    width: 148px;
+    height: 139px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .couple-names {
+    text-align: center;
+    margin-bottom: 30px;
+  }
 }
-
 .slide-2 {
-  background-color: #718CA1;
+  h3, h4, p {
+    font-family: Cinzel;
+  }
+  h2 {
+    font-family: bromello;
+    font-size: 45px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+  h3 {
+    margin-top: 0px;
+  }
+  p {
+    font-size: 13px;
+    margin-top: -8px;
+  }
+  .groom-photo, .bride-photo {
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    border: solid 2px #EFEFEF;
+  }
+  .deco-flower {
+    background-image: url('template1/flower.svg');
+    width: 166px;
+    height: 76px;
+    background-repeat: no-repeat;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+  }
+  .info {
+    margin-top: 40px;
+  }
+  .groom, .bride {
+    margin-top: 36px;
+  }
 }
-
 .slide-3 {
-  background-color: #7AB7FF;
+  .deco-image {
+    background-image: url('template1/branch.svg');
+    width: 234px;
+    height: 62px;
+    background-repeat: no-repeat;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+  }
 }
-
-.slide-4 {
-  background-color: #718CA1;
-}
-
-.slide-5 {
-  background-color: #F95959;
-}
-
-.slide-6 {
-  background-color: #F95959;
-}
-
-.slide-7 {
-  background-color: #F95959;
-}
-
-.slide-8 {
-  background-color: #F95959;
-}
-
-
-.decoration_1 {
-  background-image: url('images/map.png');
-}
-
-
-.slide-1 .test {
-
-  animation-name: fadeIn;
-  animation-duration: 5s;
-}
-
-// @-webkit-keyframes mytest {
-//   from {
-//     opacity: 0;
-//   }
-
-//   to {
-//     opacity: 1;
-//   }
-// }
-
-// @keyframes mytest {
-//   from {
-//     opacity: 0;
-//   }
-
-//   to {
-//     opacity: 1;
-//   }
-// }
-
-// .mytest {
-//   -webkit-animation-name: fadeIn;
-//   animation-name: fadeIn;
-// }
