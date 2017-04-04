@@ -83,6 +83,7 @@
               <h3><%= template.title %></h3>
               <p><%= template.description.nil? ? "" : template.description.slice(0..20).concat('...') %></p>
             </div>
+            <%= link_to "", invitations_choose_template_path(id: template.id), class: "card-link", method: :post %>
           </div>
         </div>
       <% end %>

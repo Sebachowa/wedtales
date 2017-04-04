@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'pages#dashboard'
   get 'invitation_guest_list', to: 'pages#invitation_guest_list'
   resources :templates
+
+  post 'invitations_choose_template', to: 'invitations#choose'
   resources :invitations do
     resources :guests
   end
