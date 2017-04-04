@@ -21,9 +21,9 @@ class Invitation < ApplicationRecord
   # validates :draft, presence: true
 
   #  ------------ Custom URL ------------
-  def to_param
-    custom_url.nil? ? id.to_s : "#{id}-#{custom_url}".parameterize
-  end
+  # def to_param
+  #   custom_url.nil? ? id.to_s : "#{id}-#{custom_url}".parameterize
+  # end
 
 
   # ------------ Checking draft status ------------
