@@ -13,6 +13,8 @@ class InvitationsController < ApplicationController
   end
 
   def show
+    @invitation ||= Invitation.find_by(custom_url: params[:id])
+
     @livetemplate = true
   end
 
@@ -71,6 +73,6 @@ private
   end
 
   def find_invitation
-    @invitation = Invitation.find(params[:id])
+    @invitation = Invitation.find_by(id: params[:id])
   end
 end

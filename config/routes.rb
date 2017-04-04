@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :invitations do
     resources :guests
   end
+  resources :invitations, path: '', as: 'custom_url_of_invitation', only: :show
 end
