@@ -67,13 +67,27 @@
 
 <div class="wrapper text-center" id="templates">
   <h1>OUR TEMPLATES</h1>
-  <p>TEMPLATE</p>
-  <p>TEMPLATE</p>
-  <p>TEMPLATE</p>
-  <p>TEMPLATE</p>
-  <p>TEMPLATE</p>
-  <p>TEMPLATE</p>
-  <p>TEMPLATE</p>
+  <div class="container">
+    <div class="row">
+      <% @templates.each do |template| %>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="product">
+            <div class="product-image">
+              <% if template.photo? %>
+                <%= cl_image_tag template.photo.path, width: 168, height: 138, crop:'fill' %>
+              <% else %>
+                <%= image_tag "img-placeholder.svg" %>
+              <% end %>
+            </div>
+            <div class='product-body'>
+              <h3><%= template.title %></h3>
+              <p><%= template.description.nil? ? "" : template.description.slice(0..20).concat('...') %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <div class="wrapper" id="map">
