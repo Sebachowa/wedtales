@@ -66,8 +66,12 @@ class InvitationsController < ApplicationController
   end
 
   def destroy
+    @invitation = Invitation.find(params[:id])
     @invitation.destroy
-    redirect_to dashboard_path
+    respond_to do |format|
+      format.html { redirect_to dashboard_path }
+      format.js
+    end
   end
 
 private

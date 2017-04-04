@@ -53,7 +53,7 @@
                   <%= link_to invitation_share_link_path(invitation_id: invitation.id), remote: true do %>
                     <i class="fa fa-share" data-toggle="tooltip" data-placement="top" title="Share"></i>
                   <% end %>
-                  <%= link_to invitation_path(invitation), method: :delete do %>
+                  <%= link_to invitation_path(invitation), method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: "delete-invitation" do %>
                     <i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="Delete"></i>
                   <% end %>
                 </div>
@@ -79,3 +79,4 @@
 
 <div class="modal fade" id="invitationShareLink" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 </div>
+
