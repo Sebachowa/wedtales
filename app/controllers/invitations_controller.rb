@@ -1,7 +1,7 @@
 class InvitationsController < ApplicationController
 
   # ------------ Callback ------------
-  before_action :find_invitation, only: [:show, :edit, :update, :destroy]
+  before_action :find_invitation, only: [:show, :edit, :update]
 
   # ------------ Skiping AppController Callback ------------
   skip_before_action :authenticate_user!, only: [:index, :show]
@@ -68,10 +68,10 @@ class InvitationsController < ApplicationController
   def destroy
     @invitation = Invitation.find(params[:id])
     @invitation.destroy
-    respond_to do |format|
-      format.html { redirect_to dashboard_path }
-      format.js
-    end
+    # respond_to do |format|
+    #   format.html { redirect_to dashboard_path }
+    #   format.js
+    # end
   end
 
 private
