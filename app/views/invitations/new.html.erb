@@ -44,13 +44,13 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-xs-6 text-center" style="margin-top: 20px">
-            <%= link_to "Cancel", root_path, class: "btn btn-profile", id: "btn-cancel" %>
+          <div class="col-xs-6 text-center">
+            <%= link_to "Cancel", root_path, class: "btn btn-steps" %>
           </div>
-          <div class="col-xs-6 text-center" style="margin-top: 20px">
+          <div class="col-xs-6 text-center">
             <%= simple_form_for(@invitation) do |f| %>
               <%= f.hidden_field :template_id, class: "hidden-field", value: "" %>
-              <%= f.submit "Next" %>
+              <%= f.submit "Next", class: "btn btn-steps"  %>
             <% end %>
           </div>
         </div>

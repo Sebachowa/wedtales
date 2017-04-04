@@ -37,15 +37,23 @@
                   </div>
                   <div class="wedding-form wedding-form-groombride">
                     <h4>Groom & Bride Info</h4>
-                    <div class="person_info">
-                      <%= f.input :groom_photo, label: 'Groom Photo', label: false, as: :attachinary %>
-                      <%= f.input :groom_name, placeholder: 'Groom name', label: false, input_html: { class:'new-input' } %>
-                      <%= f.input :groom_bio, placeholder: 'Groom bio', label: false, input_html: { class:'new-input' } %>
+                    <div class="groom_info">
+                      <div class="file-upload">
+                        <%= f.input :groom_photo, label: 'Groom Photo', label: false, as: :attachinary, input_html: { class:'input-file' }  %>
+                      </div>
+                      <div class="person-content">
+                        <%= f.input :groom_name, placeholder: 'Groom name', label: false, input_html: { class:'new-input' } %>
+                        <%= f.input :groom_bio, placeholder: 'Groom bio', label: false, input_html: { class:'new-input' } %>
+                      </div>
                     </div>
-                    <div class="person_info">
-                      <%= f.input :bride_photo, label: 'Bride Photo', label: false, as: :attachinary %>
-                      <%= f.input :bride_name, placeholder: 'Bride name', label: false, input_html: { class:'new-input' } %>
-                      <%= f.input :bride_bio, placeholder: 'Bride bio', label: false, input_html: { class:'new-input' } %>
+                    <div class="bride_info">
+                      <div class="file-upload">
+                        <%= f.input :bride_photo, label: 'Bride Photo', label: false, as: :attachinary %>
+                      </div>
+                      <div class="person-content">
+                        <%= f.input :bride_name, placeholder: 'Bride name', label: false, input_html: { class:'new-input' } %>
+                        <%= f.input :bride_bio, placeholder: 'Bride bio', label: false, input_html: { class:'new-input' } %>
+                      </div>
                     </div>
                   </div>
                   <div class="wedding-form wedding-form-story">
@@ -69,10 +77,14 @@
         </div>
         <div class="row">
           <div class="col-xs-6 text-center" style="margin-top: 20px">
-            <%= link_to "Cancel", root_path, class: "btn btn-profile", id: "btn-cancel" %>
+            <% if @step == 1 %>
+              <%= link_to "Cancel", root_path, class: "btn btn-steps" %>
+            <% else %>
+              <%= link_to "Back", edit_invitation_path(step: @step - 1 ), class: "btn btn-steps" %>
+            <% end %>
           </div>
           <div class="col-xs-6 text-center" style="margin-top: 20px">
-              <%= f.submit "Next" %>
+              <%= f.submit "Next", class: "btn btn-steps"  %>
             <% end %>
           </div>
         </div>

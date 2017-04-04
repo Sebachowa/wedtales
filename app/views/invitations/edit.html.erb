@@ -8,10 +8,6 @@
   <% else %>
     <%= render 'error' %>
   <% end %>
-
-  <% if @step > 1 %>
-    <%= link_to "Back", edit_invitation_path(step: @step - 1 ) %>
-  <% end %>
 </div>
 
 
