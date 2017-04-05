@@ -30,7 +30,7 @@
             </div>
           </div>
           <% current_user.invitations.each do |invitation| %>
-            <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="col-xs-12 col-md-6 col-lg-4" id="invitation_<%= invitation.id -%>">
               <div class="product">
                 <div class="product-image">
                   <% if invitation.gallery? %>
