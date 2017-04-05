@@ -22,5 +22,12 @@ class PagesController < ApplicationController
     else
       @share_link = "http://localhost:3000/invitations/#{invitation.id}"
     end
+    qrcode = RQRCode::QRCode.new( @share_link )
+
+    @svg = qrcode.as_svg(offset: 0, color: '000',
+                   shape_rendering: 'crispEdges',
+                   module_size: 3)
+    return
+      @share_link
   end
 end

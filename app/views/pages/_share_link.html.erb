@@ -8,6 +8,7 @@
       <h6>URL</h6>
       <p id="share_url"><%= invitation_share_link %></p>
       <button class="btn btn-steps" id="share-button" data-clipboard-action="copy" data-clipboard-target="#share_url">Copy to clipboard</button>
-      <%= image_tag "QR.png" %>
+      <%= raw @svg %>
   </div>
 </div>
+
