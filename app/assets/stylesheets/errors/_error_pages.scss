@@ -1,0 +1,26 @@
+.error-container {
+  margin: 0 auto;
+  margin-top: 100px;
+  width: 400px;
+  min-height: 500px;
+  background-color: white;
+  padding: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  h1 {
+    font-size: 50px;
+    line-height: 0.68;
+    color: #545454;
+  }
+  h6 {
+    margin-top: 40px;
+    font-size: 22px;
+    line-height: 0.64;
+    color: #7d7d7d;
+  }
+  a {
+    margin-top: 40px;
+  }
+}
