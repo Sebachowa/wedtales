@@ -17,7 +17,7 @@
             </div>
           </div>
           <div class="col-xs-4 template-title">
-            <div class="step-bullet">
+            <div class="step-bullet step-bullet-active">
               <div class="bullet bullet-active">3</div>
               <p>Share it</p>
             </div>
@@ -28,11 +28,17 @@
           <div class="scrollable-listing">
             <div class="col-xs-12 template-content">
               <%= simple_form_for(@invitation) do |f| %>
-                <%= f.input :og_photo, label: 'Sharing Cover', as: :attachinary %>
-                <%= f.input :og_title, label: 'Title', placeholder:'Enter a sharing title', input_html: { value: 'Welcome to our wedding ceremony!', class:'new-input' } %>
-                <%= f.input :og_description, label: 'Description', placeholder:'Enter a sharing description', input_html: { value: 'We are getting married.', class:'new-input' } %>
-                <%= f.input :custom_url, placeholder: 'Customize your URL', input_html: { class:'new-input' } %>
-                <%= f.hidden_field :step, value: @step %>
+                <div class="wedding-form">
+                  <h4>Share Information</h4>
+                  <%= f.input :og_photo, label: false, as: :attachinary %>
+                  <%= f.input :og_title, label: false, placeholder:'Enter a sharing title', input_html: { value: 'Welcome to our wedding ceremony!', class:'new-input' } %>
+                  <%= f.input :og_description, label: false, placeholder:'Enter a sharing description', input_html: { value: 'We are getting married.', class:'new-input' } %>
+                </div>
+                <div class="wedding-form wedding-form-custom-link">
+                  <h4>Customize your link</h4>
+                  <p>www.wedtales.com/</p><%= f.input :custom_url, placeholder: 'Customize your URL', label: false, input_html: { class:'new-input' } %>
+                  <%= f.hidden_field :step, value: @step %>
+                </div>
             </div>
           </div>
         </div>
@@ -54,8 +60,8 @@
     <!-- CELL-PHONE STYLE PREVIEW DISPLAYER -->
     <div class="col-lg-3 hidden-xs hidden-sm hidden-md">
       <div id="iphone">
-        <iframe src="http://u4033421.viewer.maka.im/k/HB2PASW6" class="iphone-screen">
-        </iframe>
+       <!--  <iframe src="http://u4033421.viewer.maka.im/k/HB2PASW6" class="iphone-screen">
+        </iframe> -->
       </div>
     </div>
   </div>
