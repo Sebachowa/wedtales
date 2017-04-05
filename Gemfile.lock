@@ -97,6 +97,7 @@ GEM
       thor (~> 0.19)
     builder (3.2.3)
     byebug (9.0.6)
+    clipboard-rails (1.6.1)
     cloudinary (1.1.7)
       aws_cf_signer
       rest-client
@@ -313,6 +314,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass
+  clipboard-rails
   cloudinary
   coffee-rails
   data-confirm-modal

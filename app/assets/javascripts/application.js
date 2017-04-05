@@ -10,4 +10,5 @@
 //= require underscore
 //= require gmaps/google
 //= require data-confirm-modal
+//= require clipboard
 //= require_tree .
