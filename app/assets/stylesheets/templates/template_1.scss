@@ -20,7 +20,6 @@
 }
 .short-divider {
   width: 100px;
-  // height: 1px;
   border: solid 1px #ffffff;
 }
 h2 {
@@ -97,16 +96,15 @@ p {
     border-radius: 50%;
     border: solid 2px #EFEFEF;
   }
-  .deco-flower {
+  .deco-flower1, .deco-flower2 {
     &:after {
       content: "";
       display: block;
       position: absolute;
       left: 0;
       right: 0;
-      top: 0;
+      top: 120px;
       background-image: url('template1/flower.svg');
-      width: 166px;
       height: 76px;
       background-size: contain;
       background-repeat: no-repeat;
@@ -114,13 +112,7 @@ p {
     }
       margin-left: auto;
       margin-right: auto;
-      margin-bottom: 40px;
-  }
-  .info {
-    margin-top: 40px;
-  }
-  .groom, .bride {
-    margin-top: 36px;
+      width: 100%;
   }
 }
 .slide-3 {
@@ -168,7 +160,6 @@ p {
   .image-wrapper {
     width: 100%;
     padding-top: 40px;
-
   }
   .image {
     background-size: cover;
@@ -178,6 +169,7 @@ p {
     background-position:center;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 40px;
     border: solid 2px #EFEFEF;
   }
   .deco-image {
@@ -204,12 +196,19 @@ p {
 }
 .slide-5 {
   .story-title {
-    width: 80%;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   p {
     font-size: 13px;
     line-height: 18px;
     margin-top: 40px;
+  }
+  .content-wrapper {
+    height: 100%;
+  }
+  .flipInY {
+    height: 100%;
   }
   .deco-image {
     &:after {
@@ -218,7 +217,7 @@ p {
       position: absolute;
       left: 0;
       right: 0;
-      top: 0;
+      bottom: 66px;
       height: 158px;
       background-image: url('template1/deer.svg');
       background-size: contain;
@@ -275,7 +274,7 @@ p {
     border: solid 2px #efefef;
     border-radius: 5px;
     margin-top: 10px;
-    font-family: BalooBhai;
+    font-family: Baloo Bhai;
     color: #b6b6b6;
     font-size: 14px;
   }
@@ -297,15 +296,16 @@ p {
 }
 .slide-8 {
   .logo {
-    width: 130px;
+    width: 120px;
+    margin-top: 50px;
   }
   p {
     color: white;
     font-size: 14px;
-    font-family: BalooBhai;
+    font-family: Baloo Bhai;
   }
   .btn-create {
-    font-family: BalooBhai;
+    font-family: Baloo Bhai;
     font-size: 14px;
     color: #ff887b;
     border-radius: 100px;
