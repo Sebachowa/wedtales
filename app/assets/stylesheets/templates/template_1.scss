@@ -18,13 +18,22 @@
   // height: 1px;
   border: solid 1px #ffffff;
 }
-h2, h3, h4, p {
+h2 {
+  color: white;
+  font-family: bromello;
+  font-weight: normal;
+  font-size: 45px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  }
+h3, h4, p {
   color: white;
   font-family: Cinzel;
   font-weight: bold;
   line-height: 15px;
 }
 p {
+  font-size: 13px;
   margin-left: 26px;
   margin-right: 26px;
 }
@@ -70,12 +79,6 @@ p {
   h3, h4, p {
     font-family: Cinzel;
   }
-  h2 {
-    font-family: bromello;
-    font-size: 45px;
-    margin-top: 50px;
-    margin-bottom: 30px;
-  }
   h3 {
     margin-top: 0px;
   }
@@ -106,6 +109,24 @@ p {
   }
 }
 .slide-3 {
+  .image-wrapper {
+    float: left;
+    width: 50%;
+    padding: 8px;
+    .image {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      padding-top: 135%;
+      border: solid 2px #EFEFEF;
+    }
+    &:first-child {
+      width: 100%;
+      .image {
+        padding-top: 85%;
+      }
+    }
+  }
   .deco-image {
     &:after {
       content: "";
@@ -127,22 +148,73 @@ p {
     margin-top: 40px;
     width: 90%;
   }
+}
+.slide-4 {
   .image-wrapper {
-    float: left;
-    width: 50%;
-    padding: 8px;
-    .image {
-      background-size: cover;
+    width: 100%;
+    padding-top: 60px;
+  }
+  .image {
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 130%;
+    width: 80%;
+    background-position:center;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 2px #EFEFEF;
+  }
+  .deco-image {
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 158px;
+      background-image: url('template1/blue-flower.svg');
+      background-size: contain;
       background-repeat: no-repeat;
-      background-position: center;
-      padding-top: 135%;
-      border: solid 2px #EFEFEF;
+      background-position: top center;
     }
-    &:first-child {
-      width: 100%;
-      .image {
-        padding-top: 85%;
-      }
-    }
+    padding-bottom: 30px;
+    background-repeat: no-repeat;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    width: 90%;
   }
 }
+.slide-5 {
+  .story-title {
+    width: 80%;
+  }
+  p {
+    font-size: 13px;
+    line-height: 18px;
+    margin-top: 40px;
+  }
+  .deco-image {
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 158px;
+      background-image: url('template1/deer.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: bottom right;
+    }
+    padding-top: 30px;
+    background-repeat: no-repeat;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    width: 90%;
+  }
+}
+
