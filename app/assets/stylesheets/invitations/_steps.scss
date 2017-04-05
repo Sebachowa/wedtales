@@ -1,9 +1,14 @@
 .top-space-big {
-  margin-top: 120px;
+  margin-top: 100px;
 }
 .container-s {
   width: 100%;
 }
+
+.form-control {
+  color: #a7a7a7;
+ }
+
 
 .template-card {
   margin: 0 auto 25px;
@@ -107,7 +112,7 @@
   p {
     margin-top: 10px;
     font-size: 12px;
-    color: #545454;
+    color: #B9B9B9;
   }
 }
 
@@ -119,11 +124,18 @@
   border-radius: 50%;
   font-size: 35px;
   text-align: center;
-  color: #545454;
+  color: #B9B9B9;
 }
 
 .bullet-active {
   background-color: #f9e099;
+  color: #545454;
+}
+
+ .step-bullet-active {
+  p {
+    color: #545454;
+  }
 }
 
 #iphone {
@@ -338,11 +350,17 @@
 }
 
 .wedding-form {
+  margin-top: 30px;
   h4 {
-    margin-bottom: 30px;
     text-align: left;
     font-size: 18px;
     color: #7d7d7d;
+  }
+}
+
+.wedding-form-rsvp {
+  .checkbox {
+    text-align: left;
   }
 }
 
@@ -352,14 +370,12 @@
   border-radius: 5px;
 }
 
-.groom_info {
-}
-
-.file-upload {
-  // border: solid 1px #f9b5b4;
-  // border-radius: 5px;
-}
-
-.person-content {
+.wedding-form-custom-link {
+  p {
+    float: left;
+  }
+  a {
+    float: right;
+  }
 }
 

@@ -11,7 +11,7 @@
             </div>
           </div>
           <div class="col-xs-4 template-title">
-            <div class="step-bullet">
+            <div class="step-bullet step-bullet-active">
               <div class="bullet bullet-active">2</div>
               <p>Enter wedding details </p>
             </div>
@@ -67,7 +67,7 @@
                   </div>
                   <div class="wedding-form wedding-form-rsvp">
                     <h4>RSVP</h4>
-                    <%= f.input :rsvp %>
+                    <%= f.input :rsvp, label: "I need RSVP" %>
                     <%= f.hidden_field :template_id, label: false, input_html: { class:'new-input' } %>
                     <%= f.hidden_field :step, value: @step %>
                   </div>
@@ -93,9 +93,9 @@
     <!-- CELL-PHONE STYLE PREVIEW DISPLAYER -->
     <div class="col-lg-3 hidden-xs hidden-sm hidden-md">
       <div id="iphone">
-        <iframe src="http://u4033421.viewer.maka.im/k/HB2PASW6" class="iphone-screen">
+<!--         <iframe src="http://u4033421.viewer.maka.im/k/HB2PASW6" class="iphone-screen">
         </iframe>
-      </div>
+ -->      </div>
     </div>
   </div>
 </div>
