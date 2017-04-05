@@ -15,6 +15,11 @@ class PagesController < ApplicationController
     @guests = invitation.guests
   end
 
+  def invitation_delete_link
+    invitation = Invitation.find params[:invitation_id]
+    @invitation = invitation
+  end
+
   def invitation_share_link
     invitation = Invitation.find params[:invitation_id]
     if invitation.custom_url.present?

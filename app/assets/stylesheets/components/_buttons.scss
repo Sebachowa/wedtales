@@ -2,8 +2,6 @@
   color: #333333;
 }
 
-
-
 .btn-steps {
   width: 150px;
   height: 40px;
@@ -14,4 +12,53 @@
   font-size: 16px;
   line-height: 1.88;
   color: #545454;
+}
+
+#fb-link {
+  margin-top: 15px;
+  border: none;
+  color: white;
+  background-color: #4b6cb5;
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px 0;
+  transition: all 0.8s ease;
+  &:hover {
+    background-color: #375AA7;
+    color: white;
+    cursor: pointer;
+  }
+}
+
+.btn-devise {
+  opacity: 1;
+  width: 100%;
+  margin-bottom: 10px;
+  &:hover {
+    background-color: white;
+    cursor: pointer;
+    border: solid 1px #f9b5b4;
+    transition: all 0.3s ease;
+    box-shadow: none;
+  }
+}
+
+#wechat-link {
+  margin-top: 15px;
+  border: none;
+  color: white;
+  background-color: #6FC114;
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px 0;
+  transition: all 0.8s ease;
+  &:hover {
+    background-color: #6FAE3F;
+    color: white;
+    cursor: pointer;
+  }
+}
+
+#btn-signup {
+  margin-top: 20px;
 }
