@@ -31,7 +31,7 @@
             <div class="groom">
               <div class="deco-flower">
                 <% if @invitation.groom_photo? %>
-                <%= cl_image_tag @invitation.groom_photo.path, width: 200, height: 300, crop: :fill, class: 'groom-photo'%>
+                <%= cl_image_tag @invitation.groom_photo.path, width: 300, height: 300, gravity: 'faces', crop: :fill, class: 'groom-photo' %>
                 <% end %>
               </div>
               <div class="info">
@@ -42,7 +42,7 @@
             <div class="bride">
               <div class="deco-flower">
                 <% if @invitation.bride_photo? %>
-                <%= cl_image_tag @invitation.bride_photo.path, width: 200, height: 300, crop: :fill, class: 'bride-photo' %>
+                <%= cl_image_tag @invitation.bride_photo.path, width: 300, height: 300, gravity: 'faces', crop: :fill, class: 'bride-photo' %>
                 <% end %>
               </div>
               <div class="info">
