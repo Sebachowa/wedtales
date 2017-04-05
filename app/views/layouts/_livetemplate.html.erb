@@ -3,12 +3,11 @@
     <title>WedTales</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=375, initial-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <%= stylesheet_link_tag    'mastertemplate', media: 'all' %>
     <%#= stylesheet_link_tag     @invitation.template.stylesheet , media: 'all' %>
-     <link rel="stylesheet" media="all" href='/assets/templates/<%= @invitation.template.stylesheet %>.scss' />
-
+    <link rel="stylesheet" media="all" href='/assets/templates/<%= @invitation.template.stylesheet %>.scss' />
   </head>
 
   <!--       <div class="container main-container"> -->
@@ -24,7 +23,22 @@
   <%= cloudinary_js_config %>
   <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_API_BROWSER_KEY"]}&callback=initMap" %>
 
-
+  <script>
+    /*
+     * Auto scale viewport
+     */
+    (function() {
+      /*
+       * Then ideal viewport for the template is height=605px and width=375px
+       * Calculate the ratio between the actual window size and ideal viewport size,
+       * and set the ratio to viewport meta tag in <head>
+       * e.g <meta name="viewport" content="width=375, initial-scale=[?], user-scalable=no">
+       */
+      var r = Math.min(window.innerHeight / 608, window.innerWidth / 375);
+      r = Math.round(r * 100) / 100;
+      $('meta[name=viewport]').attr('content', 'width=375, user-scalable=no, initial-scale=' + r);
+    })();
+  </script>
 </html>
 <!-- This is for templates -->
 

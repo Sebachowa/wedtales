@@ -1,3 +1,13 @@
+.image-wrapper {
+  .image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 100%;
+    background-color: #F5F5F5;
+  }
+}
+
 .slide-1, .slide-2, .slide-3, .slide-4, .slide-5, .slide-6, .slide-7, .slide-8 {
   background-image: url('template1/bg-square.png');
   // background-color: #A6DCD4;
@@ -12,7 +22,7 @@
   width: 90%;
   border: solid 2px #ffffff;
   position: relative;
-  > .animate {
+  > .animated {
     position: relative;
     height: 100%;
     overflow: hidden;
@@ -29,7 +39,7 @@ h2 {
   font-size: 45px;
   margin-top: 50px;
   margin-bottom: 30px;
-  }
+}
 h3, h4, p {
   color: white;
   font-family: Cinzel;
@@ -61,7 +71,7 @@ p {
     height:108px;
     width: 221px;
     background-repeat: no-repeat;
-    margin-top: 20px;
+    margin-top: 40px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -95,24 +105,26 @@ p {
     height: 92px;
     border-radius: 50%;
     border: solid 2px #EFEFEF;
+    overflow: hidden;
+    margin: 20px auto;
   }
-  .deco-flower1, .deco-flower2 {
+  .deco-flower {
+    position: relative;
+    margin-right: auto;
+    width: 100%;
     &:after {
       content: "";
       display: block;
       position: absolute;
       left: 0;
       right: 0;
-      top: 120px;
+      top: 15px;
       background-image: url('template1/flower.svg');
       height: 76px;
       background-size: contain;
       background-repeat: no-repeat;
       background-position: top center;
     }
-      margin-left: auto;
-      margin-right: auto;
-      width: 100%;
   }
 }
 .slide-3 {
@@ -121,11 +133,8 @@ p {
     width: 50%;
     padding: 8px;
     .image {
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
       padding-top: 135%;
-      border: solid 2px #EFEFEF;
+      border: 2px solid #EFEFEF;
     }
     &:first-child {
       width: 100%;
@@ -135,6 +144,7 @@ p {
     }
   }
   .deco-image {
+    position: relative;
     &:after {
       content: "";
       display: block;
@@ -158,46 +168,41 @@ p {
 }
 .slide-4 {
   .image-wrapper {
-    width: 100%;
-    padding-top: 40px;
-  }
-  .image {
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding-top: 130%;
     width: 82%;
-    background-position:center;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 40px;
     border: solid 2px #EFEFEF;
+    .image {
+      padding-top: 160%;
+    }
   }
   .deco-image {
+    position: relative;
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
     &:after {
       content: "";
       display: block;
       position: absolute;
       left: 0;
       right: 6px;
-      bottom: -48px;
+      bottom: -25px;
       height: 155px;
       background-image: url('template1/blue-flower.svg');
       background-size: contain;
       background-repeat: no-repeat;
       background-position: bottom right;
     }
-    padding-top: 30px;
     margin-left: auto;
     margin-right: auto;
-    // margin-top: 40px;
     width: 90%;
-    height: 100%;
   }
 }
 .slide-5 {
   .story-title {
     padding-left: 20px;
     padding-right: 20px;
+    overflow: hidden;
   }
   p {
     font-size: 13px;
@@ -211,26 +216,21 @@ p {
     height: 100%;
   }
   .deco-image {
+    position: relative;
+    height: 100%;
     &:after {
       content: "";
       display: block;
       position: absolute;
       left: 0;
       right: 0;
-      bottom: 66px;
+      bottom: 0;
       height: 158px;
       background-image: url('template1/deer.svg');
       background-size: contain;
       background-repeat: no-repeat;
       background-position: bottom right;
     }
-    padding-top: 30px;
-    background-repeat: no-repeat;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 40px;
-    width: 90%;
-    height: 100%;
   }
 }
 .slide-6 {
@@ -295,6 +295,8 @@ p {
   }
 }
 .slide-8 {
+  background-color: rgba(#000, 0.6);
+  background-image: none;
   .logo {
     width: 120px;
     margin-top: 50px;

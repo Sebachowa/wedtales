@@ -27,12 +27,14 @@
           <div class="animated" data-ani-name="bounceInUp" data-ani-duration="1s" data-ani-delay="0.5s">
             <h2>The Couple</h2>
             <hr class="short-divider">
-
             <div class="groom">
-              <div class="deco-flower1">
-                <% if @invitation.groom_photo? %>
-                <%= cl_image_tag @invitation.groom_photo.path, width: 200, height: 300, crop: :fill, class: 'groom-photo'%>
-                <% end %>
+              <div class="deco-flower">
+                <%# if @invitation.groom_photo? %>
+                <%#= cl_image_tag @invitation.groom_photo.path, width: 300, height: 300, gravity: 'faces', crop: :fill, class: 'groom-photo' %>
+                <%# end %>
+                <div class="image-wrapper groom-photo">
+                  <div class="image" style="background-image: url('<%= cl_image_path @invitation.groom_photo.path, width:300, height:300, gravity:"faces", crop:"fill" %>')"></div>
+                </div>
               </div>
               <div class="info">
                 <h3><%= @invitation.groom_name || "Groom" %></h3>
@@ -40,10 +42,13 @@
               </div>
             </div>
             <div class="bride">
-              <div class="deco-flower2">
-                <% if @invitation.bride_photo? %>
-                <%= cl_image_tag @invitation.bride_photo.path, width: 200, height: 300, crop: :fill, class: 'bride-photo' %>
-                <% end %>
+              <div class="deco-flower">
+                <%# if @invitation.bride_photo? %>
+                <%#= cl_image_tag @invitation.bride_photo.path, width: 300, height: 300, gravity: 'faces', crop: :fill, class: 'bride-photo' %>
+                <%# end %>
+                <div class="image-wrapper bride-photo">
+                  <div class="image" style="background-image: url('<%= cl_image_path @invitation.bride_photo.path, width:300, height:300, gravity:"faces", crop:"fill" %>')"></div>
+                </div>
               </div>
               <div class="info">
                 <h3><%= @invitation.bride_name || "Bride" %></h3>
@@ -72,14 +77,13 @@
 
       <div class="swiper-slide slide-4">
         <div class="border">
-
           <div class="animated" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="0.5s">
             <div class="deco-image">
-              <div class="image" style="background-image: url('<%= cl_image_path @invitation.gallery.last.path, width:1000, height:1200, gravity:"faces", crop:"thumb" %>')">
+              <div class="image-wrapper">
+                <div class="image" style="background-image: url('<%= cl_image_path @invitation.gallery.last.path, width:1000, height:1200, gravity:"faces", crop:"thumb" %>')"></div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
 
@@ -87,11 +91,11 @@
         <div class="border">
           <div class="content-wrapper">
             <div class="animated" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="0.5s">
-            <div class="story-title">
-                <h2><%= @invitation.story_title %></h2>
-              </div>
-              <hr class="short-divider">
               <div class="deco-image">
+                <div class="story-title">
+                  <h2><%= @invitation.story_title %></h2>
+                </div>
+                <hr class="short-divider">
                 <p><%= @invitation.wedding_description || "So today we’ve rounded up some of our favorites from the last open wedding vows thread.
                   <br>
                   Here’s to hoping they inspire you to create meaningful marriage vows for yourselves, and not at 2AM.
@@ -147,11 +151,9 @@
        <%= link_to "Create My Invitation", new_invitation_path, class:"btn-create" %>
      </div>
 
-     <button class="up-arrow"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
-
      <!-- <button class="btn-music"><i class="fa fa-music"></i></button> -->
      <!-- <audio loop><source src="audios/background.mp3" type="audio/mpeg"></audio> -->
    </div>
  </div>
+ <button class="up-arrow"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
-
