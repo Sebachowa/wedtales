@@ -55,61 +55,69 @@
       </div>
 
       <div class="swiper-slide slide-3">
-      <div class="border">
-        <div class="animated" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="0.5s">
-
+        <div class="border">
+          <div class="animated" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="0.5s">
             <div class="deco-image">
-              <% @invitation.gallery.each_slice(3) do |photos| %>
-              <div class="row">
-                <% photos.each  do |photo| %>
-                <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+                <% @invitation.gallery.first(3).each do |photo| %>
+                  <div class="image-wrapper">
+                    <div class="image" style="background-image: url(<%= cl_image_path photo.path %>)">
+                    </div>
+                  </div>
                 <% end %>
-              </div>
-            </div>
-            <% end %>
-          </div>
-        </div>
+            </div> <!-- .deco-image -->
+          </div> <!-- .animated -->
+        </div> <!-- .border -->
         <!-- get all animation names from https://daneden.github.io/animate.css/ -->
       </div>
 
       <div class="swiper-slide slide-4">
-        <div class="animated" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="0.5s">
-          <div class="deco-image"></div>
-          <%#= cl_image_tag @invitation.gallery.last.path, width: 300, height: 200, crop: :fill %>
-        </div>
+        <div class="border">
+          <div class="animated" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="0.5s">
+            <div class="deco-image">
+                <div class="image-wrapper">
+                <div class="image" style="background-image: url('<%= cl_image_path @invitation.gallery.last.path, width:1000, height:1200, gravity:"faces", crop:"thumb" %>')">
 
-        <!-- get all animation names from https://daneden.github.io/animate.css/ -->
+                </div>
+                </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="swiper-slide slide-5">
         <div class="border">
           <div class="animated" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="0.5s">
+            <div class="sotry-title">
             <h2><%= @invitation.story_title %></h2>
+            </div>
             <hr class="short-divider">
-            <%= @invitation.wedding_description || "So today we’ve rounded up some of our favorites from the last open wedding vows thread.
-            <br>
-            Here’s to hoping they inspire you to create meaningful marriage vows for yourselves, and not at 2AM.
-            <br>
-            Meals Plan
-            <br>
-            Lunch Time - 12:00
-            <br>
-            Dinner Time - 18:00"
-            %>
-            <div class="deco-image"></div>
+            <div class="deco-image">
+              <p><%= @invitation.wedding_description || "So today we’ve rounded up some of our favorites from the last open wedding vows thread.
+              <br>
+              Here’s to hoping they inspire you to create meaningful marriage vows for yourselves, and not at 2AM.
+              <br>
+              Meals Plan
+              <br>
+              Lunch Time - 12:00
+              <br>
+              Dinner Time - 18:00"
+              %>
+            </p>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="swiper-slide slide-6">
         <div class="border">
-          <h2>Wedding Address</h2>
+          <h2>Wedding<br>Address</h2>
           <hr class="short-divider">
           <%#= image_tag "template1/location.svg" %>
-          <h2><%= @invitation.location || "NAKED HUB, NANJING XILU, SHANGHAI" %></h2>
+          <p><%= @invitation.location || "NAKED HUB, NANJING XILU, SHANGHAI" %></p>
            <!-- This is the static map. Geocoding MUST happen on CREATE. Geocoding  -->
 
              <img src='<%= @mapurl %>' alt="">
+
           <%= @invitation.latitude %>
           <%= @invitation.longitude %>
         </div>

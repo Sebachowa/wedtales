@@ -1,0 +1,12 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <%= image_tag "illus-delete.svg" %>
+      <h6 class="modal-title" id="myModalLabel">DELETE</h6>
+    </div>
+    <div class="modal-body">
+      <h6>Are you sure you want to delete the story?</h6>
+      <p>You won't be able to restore the deleted story</p>
+      <%= link_to "DO IT!", invitation_path(id: invitation_delete_link.id), remote: true, method: :delete, class: "btn btn-steps" %>
+  </div>
+</div>
