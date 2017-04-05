@@ -14,8 +14,8 @@ class InvitationsController < ApplicationController
 
   def show
     @invitation ||= Invitation.find_by(custom_url: params[:id])
-
     @livetemplate = true
+    @guest = Guest.new
 
      qrcode = RQRCode::QRCode.new( urlgen )
 
