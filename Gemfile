@@ -19,6 +19,7 @@ gem 'omniauth-wechat-oauth2'
 gem 'data-confirm-modal'
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'clipboard-rails'
 
 gem 'attachinary', github: 'assembler/attachinary'
 gem 'cloudinary' # locked by attachinary at 1.1.7
