@@ -114,13 +114,12 @@
           <hr class="short-divider">
           <%#= image_tag "template1/location.svg" %>
           <p><%= @invitation.location || "NAKED HUB, NANJING XILU, SHANGHAI" %></p>
-           <!-- This is the static map. Geocoding MUST happen on CREATE. Geocoding AND static map are Google. If we have time Jing can help with AMap Docs and change to A -->
-          <img src='https://maps.googleapis.com/maps/api/staticmap?center=<%= @invitation.latitude %>,<%= @invitation.longitude %>&zoom=12&size=500x500&key=' alt="">
+           <!-- This is the static map. Geocoding MUST happen on CREATE. Geocoding  -->
+
+             <img src='<%= @mapurl %>' alt="">
 
           <%= @invitation.latitude %>
           <%= @invitation.longitude %>
-
-
         </div>
       </div>
 

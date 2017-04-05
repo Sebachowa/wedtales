@@ -17,8 +17,11 @@ class InvitationsController < ApplicationController
 
     @livetemplate = true
 
-     # qrcode = RQRCode::QRCode.new( urlgen )
 
+    @mapurl = 'http://restapi.amap.com/v3/staticmap?location=' + @invitation.longitude.to_s + ',' + @invitation.latitude.to_s + '&zoom=15&size=1000*1000&markers=large,,A:' + @invitation.longitude.to_s + ',' + @invitation.latitude.to_s + '&key=' + ENV["AMAP_KEY"]
+
+
+     # qrcode = RQRCode::QRCode.new( urlgen )
      # @svg = qrcode.as_svg(offset: 0, color: '000',
      #               shape_rendering: 'crispEdges',
      #               module_size: 11)
