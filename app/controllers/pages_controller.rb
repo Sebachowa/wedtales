@@ -23,9 +23,9 @@ class PagesController < ApplicationController
   def invitation_share_link
     invitation = Invitation.find params[:invitation_id]
     if invitation.custom_url.present?
-      @share_link = "http://localhost:3000/#{invitation.custom_url}"
+      @share_link = "https://wedtales.herokuapp.com/#{invitation.custom_url}"
     else
-      @share_link = "http://localhost:3000/invitations/#{invitation.id}"
+      @share_link = "https://wedtales.herokuapp.com/invitations/#{invitation.id}"
     end
     qrcode = RQRCode::QRCode.new( @share_link )
 
