@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="67px" height="75px" viewBox="0 0 67 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>illus-guests</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.100996377 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Dashboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Guests" transform="translate(-672.000000, -121.000000)">
+            <g id="PopUp" filter="url(#filter-1)" transform="translate(410.000000, 131.000000)">
+                <g id="illus-guests" transform="translate(272.000000, 0.000000)">
+                    <path d="M1.08045977,0 L41.0574713,0 C41.654193,0 42.137931,0.483721839 42.137931,1.08045977 L42.137931,50.7816092 C42.137931,51.3783298 41.654193,51.862069 41.0574713,51.862069 L1.08045977,51.862069 C0.483738046,51.862069 0,51.3783298 0,50.7816092 L0,1.08045977 C0,0.483721839 0.483738046,0 1.08045977,0 Z" id="Fill-1" fill="#D5B9AE"></path>
+                    <path d="M5.94252874,3.24137931 L45.9195402,3.24137931 C46.516262,3.24137931 47,3.72511736 47,4.32183908 L47,54.0229885 C47,54.6197094 46.516262,55.1034483 45.9195402,55.1034483 L5.94252874,55.1034483 C5.34580701,55.1034483 4.86206897,54.6197094 4.86206897,54.0229885 L4.86206897,4.32183908 C4.86206897,3.72511736 5.34580701,3.24137931 5.94252874,3.24137931 Z" id="Fill-3" fill="#F6E6D7"></path>
+                    <path d="M21.2417148,16.2068966 C18.4610598,16.2068966 16.2068966,18.4208721 16.2068966,21.1519448 C16.2068966,21.9733428 16.4108009,22.7479676 16.7716043,23.4296459 L17.0496282,23.8916937 C17.2667682,24.2115584 17.5208491,24.5051679 17.8058906,24.7666338 L26.2765385,34.5666308 L34.7471864,24.7666338 C35.0322225,24.5051679 35.2863034,24.2115584 35.5034489,23.8916937 C35.5034489,23.8916937 35.8371326,23.4571166 35.7810946,23.430359 C36.1421302,22.7485078 36.3461751,21.9736291 36.3461751,21.1519448 C36.3461751,18.4208721 34.0920118,16.2068966 31.3113568,16.2068966 C28.8153651,16.2068966 26.7435889,17.990768 26.3455583,20.3312546 C26.322377,20.3309251 26.2993632,20.3307576 26.2765385,20.3307576 C26.253676,20.3307576 26.2306676,20.3309089 26.2075133,20.3312168 C25.8094611,17.9907464 23.7376903,16.2068966 21.2417148,16.2068966 Z" id="Fill-4" fill="#9FDCD7"></path>
+                    <path d="M13.7758621,43.2183908 L39.1724147,43.2183908" id="Stroke-5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-dasharray="8,7,23,5"></path>
+                    <path d="M13.7758621,45.9195402 L39.1724147,45.9195402" id="Stroke-6" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-dasharray="22,7,23,5"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
