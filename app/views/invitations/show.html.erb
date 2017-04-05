@@ -11,7 +11,7 @@
             <h3>&</h3>
             <h3><%= @invitation.bride_name || "Bride" %></h3>
             <%#= raw @svg %>
-
+<!-- QR CODE -->
           </div>
 
           <div class="deco-image"></div>
@@ -116,7 +116,7 @@
           <hr class="short-divider">
           <div class="location-icon"><%#= image_tag "template1/location.svg" %></div>
           <p><%= @invitation.location || "NAKED HUB, NANJING XILU, SHANGHAI" %></p>
-          
+
           <!-- This is the static map. Geocoding MUST happen on CREATE. Geocoding AND static map are Google. If we have time Jing can help with AMap Docs and change to A -->
           <div class="deco-image"></div>
           <% if @invitation.latitude? %>
