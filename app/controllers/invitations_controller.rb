@@ -14,8 +14,8 @@ class InvitationsController < ApplicationController
 
   def show
     @invitation ||= Invitation.find_by(custom_url: params[:id])
-
     @livetemplate = true
+    @guest = Guest.new
 
 
     @mapurl = 'http://restapi.amap.com/v3/staticmap?location=' + @invitation.longitude.to_s + ',' + @invitation.latitude.to_s + '&zoom=15&size=1000*1000&markers=large,,A:' + @invitation.longitude.to_s + ',' + @invitation.latitude.to_s + '&key=' + ENV["AMAP_KEY"]

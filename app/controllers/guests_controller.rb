@@ -16,10 +16,12 @@ class GuestsController < ApplicationController
   end
 
   def new
+    @livetemplate = true
     @guest = Guest.new
   end
 
   def create
+    @livetemplate = true
     @guest = @invitation.guests.new(guest_params)
     if @guest.save
       redirect_to invitation_path(@invitation)

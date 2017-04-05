@@ -10,7 +10,7 @@
             <h3><%= @invitation.groom_name || "Groom" %></h3>
             <h3>&</h3>
             <h3><%= @invitation.bride_name || "Bride" %></h3>
-            <%= raw @svg %>
+            <%#= raw @svg %>
 
           </div>
 
@@ -29,7 +29,7 @@
             <hr class="short-divider">
 
             <div class="groom">
-              <div class="deco-flower">
+              <div class="deco-flower1">
                 <% if @invitation.groom_photo? %>
                 <%= cl_image_tag @invitation.groom_photo.path, width: 200, height: 300, crop: :fill, class: 'groom-photo'%>
                 <% end %>
@@ -40,7 +40,7 @@
               </div>
             </div>
             <div class="bride">
-              <div class="deco-flower">
+              <div class="deco-flower2">
                 <% if @invitation.bride_photo? %>
                 <%= cl_image_tag @invitation.bride_photo.path, width: 200, height: 300, crop: :fill, class: 'bride-photo' %>
                 <% end %>
@@ -58,13 +58,13 @@
         <div class="border">
           <div class="animated" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="0.5s">
             <div class="deco-image">
-                <% @invitation.gallery.first(3).each do |photo| %>
-                  <div class="image-wrapper">
-                    <div class="image" style="background-image: url(<%= cl_image_path photo.path %>)">
-                    </div>
-                  </div>
-                <% end %>
-            </div> <!-- .deco-image -->
+              <% @invitation.gallery.first(3).each do |photo| %>
+              <div class="image-wrapper">
+                <div class="image" style="background-image: url(<%= cl_image_path photo.path %>)">
+                </div>
+              </div>
+              <% end %>
+            </div>
           </div> <!-- .animated -->
         </div> <!-- .border -->
         <!-- get all animation names from https://daneden.github.io/animate.css/ -->
@@ -72,37 +72,38 @@
 
       <div class="swiper-slide slide-4">
         <div class="border">
+
           <div class="animated" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="0.5s">
             <div class="deco-image">
-                <div class="image-wrapper">
-                <div class="image" style="background-image: url('<%= cl_image_path @invitation.gallery.last.path, width:1000, height:1200, gravity:"faces", crop:"thumb" %>')">
-
-                </div>
-                </div>
+              <div class="image" style="background-image: url('<%= cl_image_path @invitation.gallery.last.path, width:1000, height:1200, gravity:"faces", crop:"thumb" %>')">
+              </div>
             </div>
           </div>
+
         </div>
       </div>
 
       <div class="swiper-slide slide-5">
         <div class="border">
-          <div class="animated" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="0.5s">
-            <div class="sotry-title">
-            <h2><%= @invitation.story_title %></h2>
-            </div>
-            <hr class="short-divider">
-            <div class="deco-image">
-              <p><%= @invitation.wedding_description || "So today we’ve rounded up some of our favorites from the last open wedding vows thread.
-              <br>
-              Here’s to hoping they inspire you to create meaningful marriage vows for yourselves, and not at 2AM.
-              <br>
-              Meals Plan
-              <br>
-              Lunch Time - 12:00
-              <br>
-              Dinner Time - 18:00"
-              %>
-            </p>
+          <div class="content-wrapper">
+            <div class="animated" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="0.5s">
+            <div class="story-title">
+                <h2><%= @invitation.story_title %></h2>
+              </div>
+              <hr class="short-divider">
+              <div class="deco-image">
+                <p><%= @invitation.wedding_description || "So today we’ve rounded up some of our favorites from the last open wedding vows thread.
+                  <br>
+                  Here’s to hoping they inspire you to create meaningful marriage vows for yourselves, and not at 2AM.
+                  <br>
+                  Meals Plan
+                  <br>
+                  Lunch Time - 12:00
+                  <br>
+                  Dinner Time - 18:00"
+                  %>
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -110,13 +111,19 @@
 
       <div class="swiper-slide slide-6">
         <div class="border">
+
           <h2>Wedding<br>Address</h2>
           <hr class="short-divider">
-          <%#= image_tag "template1/location.svg" %>
+          <div class="location-icon"><%#= image_tag "template1/location.svg" %></div>
           <p><%= @invitation.location || "NAKED HUB, NANJING XILU, SHANGHAI" %></p>
-           <!-- This is the static map. Geocoding MUST happen on CREATE. Geocoding  -->
-
-             <img src='<%= @mapurl %>' alt="">
+          
+          <!-- This is the static map. Geocoding MUST happen on CREATE. Geocoding AND static map are Google. If we have time Jing can help with AMap Docs and change to A -->
+          <div class="deco-image"></div>
+          <% if @invitation.latitude? %>
+            <img src='<%= @mapurl %>' alt="">
+          <% else %>
+            <%= image_tag "map.png", class:"map-image" %>
+          <% end %>
 
           <%= @invitation.latitude %>
           <%= @invitation.longitude %>
@@ -125,12 +132,19 @@
 
       <div class="swiper-slide slide-7">
         <div class="border">
-         <h2>RSVP</h2>
+          <div class="guest-image">
+           <h2>RSVP</h2>
+           <div class="guests-form">
+             <%= render 'guests/form'  %>
+           </div>
+         </div>
        </div>
      </div>
 
      <div class="swiper-slide slide-8">
-       <h2>Promotion</h2>
+       <%= image_tag "templates/template1/logo-promotion.svg", class:"logo" %>
+       <p>Best Wedding Invitation App</p>
+       <%= link_to "Create My Invitation", new_invitation_path, class:"btn-create" %>
      </div>
 
      <button class="up-arrow"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
