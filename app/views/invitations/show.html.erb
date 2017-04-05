@@ -29,9 +29,12 @@
             <hr class="short-divider">
             <div class="groom">
               <div class="deco-flower">
-                <% if @invitation.groom_photo? %>
-                <%= cl_image_tag @invitation.groom_photo.path, width: 300, height: 300, gravity: 'faces', crop: :fill, class: 'groom-photo' %>
-                <% end %>
+                <%# if @invitation.groom_photo? %>
+                <%#= cl_image_tag @invitation.groom_photo.path, width: 300, height: 300, gravity: 'faces', crop: :fill, class: 'groom-photo' %>
+                <%# end %>
+                <div class="image-wrapper groom-photo">
+                  <div class="image" style="background-image: url('<%= cl_image_path @invitation.groom_photo.path, width:300, height:300, gravity:"faces", crop:"fill" %>')"></div>
+                </div>
               </div>
               <div class="info">
                 <h3><%= @invitation.groom_name || "Groom" %></h3>
@@ -40,9 +43,12 @@
             </div>
             <div class="bride">
               <div class="deco-flower">
-                <% if @invitation.bride_photo? %>
-                <%= cl_image_tag @invitation.bride_photo.path, width: 300, height: 300, gravity: 'faces', crop: :fill, class: 'bride-photo' %>
-                <% end %>
+                <%# if @invitation.bride_photo? %>
+                <%#= cl_image_tag @invitation.bride_photo.path, width: 300, height: 300, gravity: 'faces', crop: :fill, class: 'bride-photo' %>
+                <%# end %>
+                <div class="image-wrapper bride-photo">
+                  <div class="image" style="background-image: url('<%= cl_image_path @invitation.bride_photo.path, width:300, height:300, gravity:"faces", crop:"fill" %>')"></div>
+                </div>
               </div>
               <div class="info">
                 <h3><%= @invitation.bride_name || "Bride" %></h3>

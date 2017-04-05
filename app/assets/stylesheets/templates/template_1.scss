@@ -105,6 +105,8 @@ p {
     height: 92px;
     border-radius: 50%;
     border: solid 2px #EFEFEF;
+    overflow: hidden;
+    margin: 20px auto;
   }
   .deco-flower {
     position: relative;
@@ -116,7 +118,7 @@ p {
       position: absolute;
       left: 0;
       right: 0;
-      top: 37px;
+      top: 15px;
       background-image: url('template1/flower.svg');
       height: 76px;
       background-size: contain;
