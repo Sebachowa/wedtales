@@ -16,6 +16,12 @@ class InvitationsController < ApplicationController
     @invitation ||= Invitation.find_by(custom_url: params[:id])
 
     @livetemplate = true
+
+     qrcode = RQRCode::QRCode.new( urlgen )
+
+     @svg = qrcode.as_svg(offset: 0, color: '000',
+                   shape_rendering: 'crispEdges',
+                   module_size: 11)
   end
 
   def new
@@ -83,4 +89,15 @@ private
   def find_invitation
     @invitation = Invitation.find_by(id: params[:id])
   end
+
+  def urlgen
+    if find_invitation.custom_url
+      path = find_invitation.custom_url
+     else
+      path = params[:id]
+    end
+
+    url = "http://localhost:3000/invitations/" + find_invitation.id.to_s
+
+   end
 end
