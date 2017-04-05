@@ -44,10 +44,10 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-xs-6 text-center">
+          <div class="col-xs-6 text-center" style="margin-top: 20px">
             <%= link_to "Cancel", root_path, class: "btn btn-steps" %>
           </div>
-          <div class="col-xs-6 text-center">
+          <div class="col-xs-6 text-center" style="margin-top: 20px">
             <%= simple_form_for(@invitation) do |f| %>
               <%= f.hidden_field :template_id, class: "hidden-field", value: "" %>
               <%= f.submit "Next", class: "btn btn-steps"  %>
