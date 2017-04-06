@@ -5,6 +5,16 @@
     <%= action_cable_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <script>
+      (function() {
+        if (/\/preview/.test(location.pathname) &&
+          /iPhone|Android|iPad|Windows Phone/i.test(navigator.userAgent)) {
+          var match = location.search.match(/invitation_id=([0-9]+)/);
+          var invitation_id = match[1];
+          location.replace('/' + invitation_id);
+        }
+      })();
+    </script>
     <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
 
