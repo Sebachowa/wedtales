@@ -1,4 +1,8 @@
 <body>
+    <div class="loading-overlay">
+      <div class="logo"></div>
+      <div class="anima"><p>Loading...</p></div>
+    </div>
   <div class="swiper-container">
     <div class="swiper-wrapper">
 
@@ -104,7 +108,7 @@
                 <% if @invitation.story_title? %>
                   <h2><%= @invitation.story_title %></h2>
                 <% else %>
-                  <h2>Wedding Day</h2>
+                  <h2 class="animated" data-ani-name="rollIn" data-ani-duration="2s" data-ani-delay="0s">Wedding Day</h2>
                 <% end %>
                 </div>
                 <hr class="short-divider">
