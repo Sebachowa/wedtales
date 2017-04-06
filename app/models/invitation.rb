@@ -34,7 +34,6 @@ class Invitation < ApplicationRecord
       self.draft = true
     end
   end
-
   #  ------------ Cleaning the form ------------
   def remove_empty_strings
     self.og_title = nil             if self.groom_name == ""

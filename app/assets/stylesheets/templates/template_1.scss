@@ -107,6 +107,14 @@ p {
     border: solid 2px #EFEFEF;
     overflow: hidden;
     margin: 20px auto;
+    .groom-placeholder {
+      background-image: url('template1/groom.svg');
+      height: 92px;
+    }
+    .bride-placeholder {
+      background-image: url('template1/bride.svg');
+      height: 92px;
+    }
   }
   .deco-flower {
     position: relative;
@@ -244,17 +252,26 @@ p {
     margin-top: 20px;
   }
   .deco-image {
+    width: 100%;
     height: 40px;
     background-image: url('template1/bird-yellow.svg');
     background-repeat: no-repeat;
     margin-right: 20px;
     background-position: right;
-  }
-  .map-image {
-    width: 80%;
-    height: 40%;
-    margin-top: 0;
-    border-radius: 10px;
+    .image-wrapper {
+      width: 82%;
+      .map-image {
+        padding-top: 80%;
+        margin-top: 0;
+        border-radius: 10px;
+        .map-placeholder {
+          padding-top: 100%;
+          margin-top: 0;
+          background-image: url('template1/map.png');
+          background-repeat: no-repeat;
+        }
+      }
+    }
   }
 }
 .slide-7 {
