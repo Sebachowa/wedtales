@@ -10,7 +10,7 @@ body {
 
 .main-container {
   background-color: white;
-  background-image: url("sec4-repeat.png");
+  background-image: image-url("sec4-repeat.png");
   background-repeat: repeat;
   width: 90%;
   margin: 0 auto;
@@ -83,7 +83,7 @@ body {
 #map {
   height: 100vh;
   width: 100%;
-  background-image: url("map.png");
+  background-image: image-url("map.png");
   background-size: cover;
   position: relative;
   z-index: 0;
@@ -129,22 +129,3 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-// // FIXED 4 SIDES PINK MARGIN
-// #top, #bottom, #left, #right {
-//   background: #f9b6b4;
-//   position: fixed;
-//   z-index: 999;
-//   }
-//   #left, #right {
-//     top: 0; bottom: 0;
-//     width: 50px;
-//     }
-//     #left { left: 0; }
-//     #right { right: 0; }
-
-//   #top, #bottom {
-//     left: 0; right: 0;
-//     height: 50px;
-//     }
-//     #top { top: 0; }
-//     #bottom { bottom: 0; }
