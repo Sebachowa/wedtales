@@ -25,7 +25,6 @@
         $upArrow.show();
       },
       onProgress: function(swiper, progress) {
-        console.log(progress)
         if (progress > 6/7) {
           var h = parseInt($(window).height() * (progress - 6/7) * 7);
           $('.slide-7').css('transform', 'translate3d(0,' + h + 'px,0)');

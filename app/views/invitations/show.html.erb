@@ -134,14 +134,14 @@
           <p><%= @invitation.location || "NAKED HUB, 89 TAIXINGLU SHANGHAI" %></p>
 
           <!-- This is the static map. Geocoding MUST happen on CREATE. Geocoding AND static map are Google. If we have time Jing can help with AMap Docs and change to A -->
-          <div class="deco-image"></div>
-          <div class="image-wrapper">
-            <% if @invitation.latitude? %>
-              <div class="map-image" style="background-image: url('<%= image_tag "@mapurl" %>')">
-              </div>
-            <% else %>
-              <div class="map-placeholder"></div>
-            <% end %>
+          <div class="deco-image">
+            <div class="image-wrapper">
+              <% if @invitation.latitude? %>
+                <div class="map-image" style="background-image: url('<%= image_tag "@mapurl" %>')"></div>
+              <% else %>
+                <div class="map-placeholder"></div>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
