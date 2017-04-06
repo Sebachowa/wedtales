@@ -81,6 +81,13 @@
                 </div>
               </div>
               <% end %>
+              <% if @invitation.gallery.length < 3 %>
+                <% (3 - @invitation.gallery.length).times do %>
+                  <div class="image-wrapper">
+                    <div class="image image-placeholder"></div>
+                  </div>
+                <% end %>
+              <% end %>
             </div>
           </div> <!-- .animated -->
         </div> <!-- .border -->
