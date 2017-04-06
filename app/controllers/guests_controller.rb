@@ -24,10 +24,12 @@ class GuestsController < ApplicationController
     @livetemplate = true
     @guest = @invitation.guests.new(guest_params)
     if @guest.save
-      redirect_to "/#{@invitation.custom_url}?rsvp=success&guest=#{@guest.id}"
+      # redirect_to "/#{@invitation.custom_url}?rsvp=success&guest=#{@guest.id}"
+      redirect_to custom_url_of_invitation_path(@invitation, rsvp: 'success', guest: @guest.id)
     else
       # render :new
-      redirect_to "/#{@invitation.custom_url}?rsvp=fail"
+      # redirect_to "/#{@invitation.custom_url}?rsvp=fail"
+      redirect_to custom_url_of_invitation_path(@invitation, rsvp: 'fail')
     end
   end
 

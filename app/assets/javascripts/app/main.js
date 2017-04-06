@@ -76,13 +76,20 @@
     // hide loading animation since everything is ready
 
     if (/rsvp=success/.test(location.search)) {
-      // alert('RSVP success !');
-      // location.replace(location.pathname);
       mySwiper.slideTo(6, 0);
-      $('.toast').removeClass('hidden');
+      $('.toast').removeClass('hidden').find('div').text('Done !');
       setTimeout(function() {
         $('.toast').addClass('hidden');
-        location.replace(location.pathname);
+        history.replaceState({}, document.title, location.pathname);
+      }, 2000);
+    }
+
+    if (/rsvp=fail/.test(location.search)) {
+      mySwiper.slideTo(6, 0);
+      $('.toast').addClass('fail').removeClass('hidden').find('div').text('No Empty !');
+      setTimeout(function() {
+        $('.toast').addClass('hidden');
+        history.replaceState({}, document.title, location.pathname);
       }, 2000);
     }
 
