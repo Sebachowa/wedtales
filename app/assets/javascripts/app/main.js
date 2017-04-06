@@ -75,5 +75,10 @@
     $('.loading-overlay').slideUp();
     // hide loading animation since everything is ready
 
+    if (/rsvp=success/.test(location.search)) {
+      alert('RSVP success !');
+      location.replace(location.pathname);
+    }
+
   });
 
