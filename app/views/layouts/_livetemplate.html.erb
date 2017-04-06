@@ -21,7 +21,7 @@
 
   <%= yield(:after_js) %>
   <%= cloudinary_js_config %>
-  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_API_BROWSER_KEY"]}&callback=initMap" %>
+  <%#= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_API_BROWSER_KEY"]}&callback=initMap" %>
 
   <script>
     /*
