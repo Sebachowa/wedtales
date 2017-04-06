@@ -14,6 +14,10 @@ class InvitationsController < ApplicationController
 
   def show
     @invitation ||= Invitation.find_by(custom_url: params[:id])
+    if !@invitation
+      raise ActiveRecord::RecordNotFound
+    end
+
     @livetemplate = true
     @guest = Guest.new
 
