@@ -47,7 +47,7 @@
                   <%= link_to edit_invitation_path(invitation) do %>
                     <i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="Edit"></i>
                   <% end %>
-                  <%= link_to invitation_path(invitation) do %>
+                  <%= link_to preview_path(invitation_id: invitation.id) do %>
                     <i class="fa fa-eye" data-toggle="tooltip" data-placement="top" title="Preview"></i>
                   <% end %>
                   <%= link_to invitation_share_link_path(invitation_id: invitation.id), remote: true do %>

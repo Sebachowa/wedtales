@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'dashboard', to: 'pages#dashboard'
+  get 'preview', to: 'pages#preview'
   get 'invitation_guest_list', to: 'pages#invitation_guest_list'
   get 'invitation_share_link', to: 'pages#invitation_share_link'
   get 'invitation_delete_link', to: 'pages#invitation_delete_link'
