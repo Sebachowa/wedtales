@@ -2,6 +2,7 @@
   <div class="preview-container">
     <div class="preview-qr-container">
       <h1>QR CODE</h1>
+      <%= raw @svg %>
       <%= link_to "Go Back", dashboard_path, class: "btn btn-devise btn-steps" %>
     </div>
     <div class="iphone-container">
@@ -13,6 +14,6 @@
     </div>
   </div>
 </div>
+<%#= invitation_share_link %>
 
-<%= raw @svg %>
 
