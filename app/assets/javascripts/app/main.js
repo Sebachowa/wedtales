@@ -72,12 +72,18 @@
         });
     }
 
-    $('.loading-overlay').slideUp();
+    $('.loading-overlay').slideUp( 500 ).delay( 1800 );
     // hide loading animation since everything is ready
 
     if (/rsvp=success/.test(location.search)) {
-      alert('RSVP success !');
-      location.replace(location.pathname);
+      // alert('RSVP success !');
+      // location.replace(location.pathname);
+      mySwiper.slideTo(6, 0);
+      $('.toast').removeClass('hidden');
+      setTimeout(function() {
+        $('.toast').addClass('hidden');
+        location.replace(location.pathname);
+      }, 2000);
     }
 
   });

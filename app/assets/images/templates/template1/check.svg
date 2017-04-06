@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="50px" height="36px" viewBox="0 0 50 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>check</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Template1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Template1-RSVP-Submmit" transform="translate(-163.000000, -304.000000)" fill="#FFFFFF">
+            <g id="浮层/完成" transform="translate(128.000000, 274.000000)">
+                <g id="check">
+                    <g>
+                        <path d="M35.3477184,49.761316 C35.1556788,49.5625646 35.1297543,49.2248905 35.2981781,48.9957195 L37.3920301,46.1466553 C37.5567093,45.9225794 37.8674836,45.8768015 38.0867293,46.0448408 L49.7519354,54.9855523 C50.4077375,55.488187 51.4529601,55.4677909 52.09184,54.9355522 L81.6417657,30.3180742 C81.8526306,30.1424067 82.1837986,30.158241 82.3752681,30.3473355 L84.3620808,32.3095052 C84.556318,32.5013333 84.5479803,32.8200109 84.3573179,33.0076511 L51.6516201,65.1949431 C51.2577085,65.582611 50.6342218,65.5820892 50.2432792,65.177483 L35.3477184,49.761316 Z"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
