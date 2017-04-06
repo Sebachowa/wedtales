@@ -13,9 +13,9 @@ class PagesController < ApplicationController
   def preview
     invitation = Invitation.find params[:invitation_id]
     if invitation.custom_url?
-      @invitation_url = "http://localhost:3000/#{invitation.custom_url}"
+      @invitation_url = "https://wedtales.herokuapp.com/#{invitation.custom_url}"
     else
-      @invitation_url = "http://localhost:3000/invitations/#{invitation.id}"
+      @invitation_url = "https://wedtales.herokuapp.com/invitations/#{invitation.id}"
     end
   end
 
