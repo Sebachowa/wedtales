@@ -10,7 +10,12 @@ class PagesController < ApplicationController
   def dashboard
   end
 
+  def preview
+    @invitation = current_user.invitations.last
+  end
+
   def invitation_guest_list
+    raise
     invitation = Invitation.find params[:invitation_id]
     @guests = invitation.guests
   end

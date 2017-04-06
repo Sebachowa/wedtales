@@ -138,17 +138,6 @@
   }
 }
 
-#iphone {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.iphone-screen {
-  width: 80%;
-  height: 70%;
-}
-
 #profile-card {
   height: 450px;
   min-width: 210px;
@@ -340,13 +329,6 @@
   a {
    color: #A8ACB9;
  }
-}
-
-#iphone {
-  width: 90%;
-  height: 450px;
-  border-radius: 40px;
-  background-color: black;
 }
 
 .wedding-form {
