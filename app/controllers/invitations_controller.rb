@@ -1,5 +1,5 @@
 class InvitationsController < ApplicationController
-
+  # wechat_api
   # ------------ Callback ------------
   before_action :find_invitation, only: [:show, :edit, :update]
 
@@ -19,8 +19,7 @@ class InvitationsController < ApplicationController
 
 
     @mapurl = 'http://restapi.amap.com/v3/staticmap?location=' + @invitation.longitude.to_s + ',' + @invitation.latitude.to_s + '&zoom=15&size=1000*1000&markers=large,,A:' + @invitation.longitude.to_s + ',' + @invitation.latitude.to_s + '&key=' + ENV["AMAP_KEY"]
-
-
+    @thisurl = urlgen
      # qrcode = RQRCode::QRCode.new( urlgen )
      # @svg = qrcode.as_svg(offset: 0, color: '000',
      #               shape_rendering: 'crispEdges',
@@ -89,14 +88,29 @@ private
     @invitation = Invitation.find_by(id: params[:id])
   end
 
-  # def urlgen
-  #   if find_invitation.custom_url
-  #     path = find_invitation.custom_url
-  #    else
-  #     path = params[:id]
+  def urlgen
+    if find_invitation.custom_url
+      path = find_invitation.custom_url
+     else
+      path = params[:id]
+    end
+
+    @url = "http://localhost:3000/invitations/" + find_invitation.id.to_s
+
+   end
+  # def invitation_share_link
+  #   invitation = Invitation.find_by(id: params[:id])
+  #   if invitation.custom_url.present?
+  #     @share_link = "https://wedtales.herokuapp.com/#{invitation.custom_url}"
+  #   else
+  #     @share_link = "https://wedtales.herokuapp.com/invitations/#{invitation.id}"
   #   end
+  #   qrcode = RQRCode::QRCode.new( @share_link )
 
-  #   url = "http://localhost:3000/invitations/" + find_invitation.id.to_s
-
-  #  end
+  #   @svg = qrcode.as_svg(offset: 0, color: '000',
+  #                  shape_rendering: 'crispEdges',
+  #                  module_size: 3)
+  #   return
+  #     @share_link
+  # end
 end
