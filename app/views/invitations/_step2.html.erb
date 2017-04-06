@@ -32,7 +32,7 @@
                   <%= f.error_notification %>
                   <div class="wedding-form wedding-form-dateaddress">
                     <h4>Date & Adrress</h4>
-                    <%= f.input :date, label: false, input_html: { class:'new-input' } %>
+                    <%= f.input :date, label: false, minute_step: 30, input_html: { class:'new-input' } %>
                     <%= f.input :location, placeholder: 'Wedding address', label: false, input_html: { class:'new-input' } %>
                   </div>
                   <div class="wedding-form wedding-form-groombride">
