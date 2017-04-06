@@ -13,17 +13,15 @@ class PagesController < ApplicationController
   def preview
     invitation = Invitation.find params[:invitation_id]
     if invitation.custom_url.present?
-      @share_link = "https://wedtales.herokuapp.com/#{invitation.custom_url}"
+      @invitation_url = "http://localhost:3000/#{invitation.custom_url}"
     else
-      @share_link = "https://wedtales.herokuapp.com/invitations/#{invitation.id}"
+      @invitation_url = "http://localhost:3000/invitations/#{invitation.id}"
     end
-    qrcode = RQRCode::QRCode.new( @share_link )
+    qrcode = RQRCode::QRCode.new( @invitation_url )
 
     @svg = qrcode.as_svg(offset: 0, color: '000',
                    shape_rendering: 'crispEdges',
                    module_size: 3)
-    return
-      @share_link
   end
 
 
