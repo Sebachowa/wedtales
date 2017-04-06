@@ -1,6 +1,6 @@
 default: &default
   appid: <%= Figaro.env.we_id %>
-  secret: <%= Figaro.env.wechat_secret %>
+  secret: <%= Figaro.env.we_secret %>
   token:  <%= Figaro.env.wechat_token %>
   encrypt_mode: <%= Figaro.env.wechat_encrypt_mode == "true" %>
   encoding_aes_key: <%= Figaro.env.wechat_encoding_aes_key %>
