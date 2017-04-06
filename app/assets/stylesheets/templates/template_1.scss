@@ -343,3 +343,23 @@ p {
   }
 }
 
+.toast {
+  &.hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
+  transition: all .35s ease-in-out;
+  text-align: center;
+  border-radius: 5px;
+  z-index: 9999;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  width: 140px;
+  height: 140px;
+  padding-top: 100px;
+  color: #fff;
+  background: rgba(#000, 0.7) url('template1/check.svg') no-repeat center;
+  background-size: 40px 40px;
+}
