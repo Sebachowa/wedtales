@@ -10,7 +10,7 @@ Geocoder.configure(
   # api_key: nil,               # API key for geocoding service
   # cache: nil,                 # cache object (must respond to #[], #[]=, and #keys)
   # cache_prefix: 'geocoder:',  # prefix (string) to use for all cache keys
-  # api_key: "qbPs6ifPVFLKuuptHF20C15bUs8Cs0H7",
+  # api_key: ENV["BAIDU_KEY"],
 
   # Exceptions that should not be rescued by default
   # (if you want to implement custom error handling);
