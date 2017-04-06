@@ -22,7 +22,7 @@ class InvitationsController < ApplicationController
     @guest = Guest.new
 
 
-    @mapurl = 'http://restapi.amap.com/v3/staticmap?location=' + @invitation.longitude.to_s + ',' + @invitation.latitude.to_s + '&zoom=15&size=1000*1000&markers=large,,A:' + @invitation.longitude.to_s + ',' + @invitation.latitude.to_s + '&key=' + ENV["AMAP_KEY"]
+    @mapurl = 'http://restapi.amap.com/v3/staticmap?location=' + @invitation.longitude.to_s + ',' + @invitation.latitude.to_s + '&scale=2&zoom=17&size=500*500&markers=large,,A:' + @invitation.longitude.to_s + ',' + @invitation.latitude.to_s + '&key=' + ENV["AMAP_KEY"]
     # @thisurl = urlgen
      # qrcode = RQRCode::QRCode.new( urlgen )
      # @svg = qrcode.as_svg(offset: 0, color: '000',

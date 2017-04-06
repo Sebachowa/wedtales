@@ -304,10 +304,11 @@ p {
     .image-wrapper {
       width: 90%;
       margin: 0 auto;
+      border: solid 2px #EFEFEF;
+      border-radius: 6px;
       .map-image {
         padding-top: 80%;
         margin-top: 0;
-        border-radius: 10px;
       }
     }
     .map-placeholder {
@@ -315,7 +316,6 @@ p {
       margin-top: 0;
       background-image: url('template1/map.png');
       background-repeat: no-repeat;
-      border-radius: 6px;
     }
   }
 }
