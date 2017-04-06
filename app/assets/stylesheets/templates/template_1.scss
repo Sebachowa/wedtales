@@ -1,3 +1,10 @@
+body {
+  background-image: url('template1/bg-square.png');
+  background-size: 100px 100px;
+  background-repeat: repeat;
+  text-align: center;
+}
+
 .image-wrapper {
   .image {
     background-size: cover;
@@ -5,6 +12,13 @@
     background-repeat: no-repeat;
     padding-top: 100%;
     background-color: #F5F5F5;
+    &.image-placeholder.image-placeholder {
+      background-image: url('template1/img-placeholder.svg');
+      background-size: 60px auto;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #F5F5F5;
+    }
   }
 }
 
@@ -348,8 +362,10 @@ p {
   }
 }
 .slide-8 {
-  background-color: rgba(#000, 0.6);
-  background-image: none;
+  &.slide-8 {
+    background-color: rgba(#000, 0.6);
+    background-image: none;
+  }
   .logo {
     width: 120px;
     margin-top: 50px;

@@ -1,28 +1,30 @@
 <body>
-    <div class="loading-overlay">
-      <div class="logo"></div>
-      <div class="anima"><p>Loading...</p></div>
-    </div>
+  <div class="loading-overlay">
+    <div class="logo"></div>
+    <div class="anima"><p>Loading...</p></div>
+  </div>
   <div class="swiper-container">
     <div class="swiper-wrapper">
 
       <div class="swiper-slide slide-1">
         <div class="border">
-          <div class="title-image"></div>
-          <hr class="short-divider">
-          <div class="couple-names">
-            <h3><%= @invitation.groom_name || "Groom" %></h3>
-            <h3>&</h3>
-            <h3><%= @invitation.bride_name || "Bride" %></h3>
-            <%#= raw @svg %>
-<!-- QR CODE -->
-          </div>
+        <div class="animated" data-ani-name="flipInX" data-ani-duration="1s" data-ani-delay="0.5s">
+            <div class="title-image"></div>
+            <hr class="short-divider">
+            <div class="couple-names">
+              <h3><%= @invitation.groom_name || "Groom" %></h3>
+              <h3>&</h3>
+              <h3><%= @invitation.bride_name || "Bride" %></h3>
+              <%#= raw @svg %>
+              <!-- QR CODE -->
+            </div>
 
-          <div class="deco-image"></div>
-          <h4><%= @invitation.date %></h4>
-          <hr class="short-divider">
-          <p><%= @invitation.location || "NAKED HUB, NANJING XILU, SHANGHAI" %></p>
-          <!-- get all animation names from https://daneden.github.io/animate.css/ -->
+            <div class="deco-image"></div>
+            <h4><%= @invitation.date %></h4>
+            <hr class="short-divider">
+            <p><%= @invitation.location || "NAKED HUB, NANJING XILU, SHANGHAI" %></p>
+            <!-- get all animation names from https://daneden.github.io/animate.css/ -->
+          </div>
         </div>
       </div>
 
@@ -37,11 +39,11 @@
                 <%#= cl_image_tag @invitation.groom_photo.path, width: 300, height: 300, gravity: 'faces', crop: :fill, class: 'groom-photo' %>
                 <%# end %>
                 <div class="image-wrapper groom-photo">
-                <% if @invitation.groom_photo? %>
+                  <% if @invitation.groom_photo? %>
                   <div class="image" style="background-image: url('<%= cl_image_path @invitation.groom_photo.path, width:300, height:300, gravity:"faces", crop:"fill" %>')"></div>
-                <% else %>
+                  <% else %>
                   <div class="groom-placeholder"></div>>
-                <% end %>
+                  <% end %>
                 </div>
               </div>
               <div class="info">
@@ -56,9 +58,9 @@
                 <%# end %>
                 <div class="image-wrapper bride-photo">
                   <% if @invitation.bride_photo? %>
-                    <div class="image" style="background-image: url('<%= cl_image_path @invitation.bride_photo.path, width:300, height:300, gravity:"faces", crop:"fill" %>')"></div>
+                  <div class="image" style="background-image: url('<%= cl_image_path @invitation.bride_photo.path, width:300, height:300, gravity:"faces", crop:"fill" %>')"></div>
                   <% else %>
-                    <div class="bride-placeholder"></div>>
+                  <div class="bride-placeholder"></div>>
                   <% end %>
                 </div>
               </div>
@@ -81,6 +83,13 @@
                 </div>
               </div>
               <% end %>
+              <% if @invitation.gallery.length < 3 %>
+              <% (3 - @invitation.gallery.length).times do %>
+              <div class="image-wrapper">
+                <div class="image image-placeholder"></div>
+              </div>
+              <% end %>
+              <% end %>
             </div>
           </div> <!-- .animated -->
         </div> <!-- .border -->
@@ -89,7 +98,7 @@
 
       <div class="swiper-slide slide-4">
         <div class="border">
-          <div class="animated" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="0.5s">
+          <div class="animated" data-ani-name="flipInX" data-ani-duration="1s" data-ani-delay="0.5s">
             <div class="deco-image">
               <div class="image-wrapper">
                 <div class="image" style="background-image: url('<%= cl_image_path @invitation.gallery.last.path, width:1000, height:1200, gravity:"faces", crop:"thumb" %>')"></div>
@@ -102,14 +111,14 @@
       <div class="swiper-slide slide-5">
         <div class="border">
           <div class="content-wrapper">
-            <div class="animated" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="0.5s">
+            <div class="animated" data-ani-name="flipInY" data-ani-duration="0.5s" data-ani-delay="0.5s">
               <div class="deco-image">
                 <div class="story-title">
-                <% if @invitation.story_title? %>
+                  <% if @invitation.story_title? %>
                   <h2><%= @invitation.story_title %></h2>
-                <% else %>
-                  <h2 class="animated" data-ani-name="rollIn" data-ani-duration="2s" data-ani-delay="0s">Wedding Day</h2>
-                <% end %>
+                  <% else %>
+                  <h2 class="animated" data-ani-name="slideInUp" data-ani-duration="0.6s" data-ani-delay="0.5s">Wedding Day</h2>
+                  <% end %>
                 </div>
                 <hr class="short-divider">
                 <p><%= @invitation.wedding_description || "So today we’ve rounded up some of our favorites from the last open wedding vows thread.
@@ -131,7 +140,7 @@
 
       <div class="swiper-slide slide-6">
         <div class="border">
-
+          <div class="animated" data-ani-name="zoomIn" data-ani-duration="0.6s" data-ani-delay="0.5s">
           <h2>Wedding<br>Address</h2>
           <hr class="short-divider">
           <div class="location-icon"><%#= image_tag "template1/location.svg" %></div>
@@ -141,23 +150,26 @@
           <div class="deco-image">
             <div class="image-wrapper">
               <% if @invitation.latitude? %>
-                <div class="map-image" style="background-image: url('<%= image_tag "@mapurl" %>')"></div>
+              <div class="map-image" style="background-image: url('<%= image_tag "@mapurl" %>')"></div>
               <% else %>
-                <div class="map-placeholder"></div>
+              <div class="map-placeholder"></div>
               <% end %>
             </div>
+          </div>
           </div>
         </div>
       </div>
 
       <div class="swiper-slide slide-7">
         <div class="border">
+        <div class="animated" data-ani-name="bounceInLeft" data-ani-duration="0.7s" data-ani-delay="0.5s">
           <div class="guest-image">
            <h2>RSVP</h2>
            <div class="guests-form">
              <%= render 'guests/form'  %>
            </div>
          </div>
+       </div>
        </div>
      </div>
 

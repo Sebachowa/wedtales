@@ -72,7 +72,7 @@
         });
     }
 
-    $('.loading-overlay').slideUp( 500 ).delay( 1800 );
+    $('.loading-overlay').slideUp(500).delay(3000);
     // hide loading animation since everything is ready
 
     if (/rsvp=success/.test(location.search)) {
