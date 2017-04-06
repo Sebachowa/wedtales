@@ -269,10 +269,11 @@ p {
       }
     }
     .map-placeholder {
-      padding-top: 100%;
+      padding-top: 85%;
       margin-top: 0;
       background-image: url('template1/map.png');
       background-repeat: no-repeat;
+      border-radius: 6px;
     }
   }
 }
