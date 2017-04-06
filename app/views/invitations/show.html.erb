@@ -150,9 +150,9 @@
           <div class="deco-image">
             <div class="image-wrapper">
               <% if @invitation.latitude? %>
-              <div class="map-image" style="background-image: url('<%= image_path @mapurl %>')"></div>
+              <div class="image map-image" style="background-image: url('<%= image_path @mapurl %>')"></div>
               <% else %>
-              <div class="map-placeholder"></div>
+              <div class="image map-placeholder"></div>
               <% end %>
             </div>
           </div>
