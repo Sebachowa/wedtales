@@ -104,9 +104,7 @@
               <% if @invitation.gallery.last != nil %>
                 <div class="image" style="background-image: url('<%= cl_image_path @invitation.gallery.last.path, width:1000, height:1200, gravity:"faces", crop:"thumb" %>')"></div>
               <% else %>
-                <div class="image-wrapper">
-                  <div class="image image-placeholder"></div>
-                </div>
+                <div class="image image-placeholder"></div>
               <% end %>
               </div>
             </div>
