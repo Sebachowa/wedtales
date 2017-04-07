@@ -65,29 +65,70 @@
   </div>
 </div>
 
-<div class="wrapper text-center" id="templates">
+<!-- <div class="wrapper text-center" id="templates">
   <h1>OUR TEMPLATES</h1>
   <div class="container">
     <div class="row">
-      <% @templates.each do |template| %>
+      <%# @templates.each do |template| %>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
           <div class="product">
             <div class="product-image">
-              <% if template.photo? %>
-                <%= cl_image_tag template.photo.path, width: 168, height: 138, crop:'fill' %>
-              <% else %>
-                <%= image_tag "img-placeholder.svg" %>
-              <% end %>
+              <%# if template.photo? %>
+                <%#= cl_image_tag template.photo.path, width: 168, height: 138, crop:'fill' %>
+              <%# else %>
+                <%#= image_tag "img-placeholder.svg" %>
+              <%# end %>
             </div>
             <div class='product-body'>
-              <h3><%= template.title %></h3>
-              <p><%= template.description.nil? ? "" : template.description.slice(0..20).concat('...') %></p>
+              <h3><%#= template.title %></h3>
+              <p><%#= template.description.nil? ? "" : template.description.slice(0..20).concat('...') %></p>
             </div>
-            <%= link_to "", invitations_choose_template_path(id: template.id), class: "card-link", method: :post %>
+            <%#= link_to "", invitations_choose_template_path(id: template.id), class: "card-link", method: :post %>
           </div>
         </div>
-      <% end %>
+      <%# end %>
     </div>
+  </div>
+</div> -->
+<% @invitations = [{
+  title: 'We are getting married!',
+  description: 'What a nice day...',
+  image: 'invitation1.jpg',
+  url: 'http://wedtales.shanghaiwogeng.com/preview?invitation_id=3'
+ }, {
+  title: 'Welcome to our wedding!',
+  description: 'We are getting married...',
+  image: 'invitation2.jpg',
+  url: 'http://wedtales.shanghaiwogeng.com/preview?invitation_id=11'
+ }, {
+  title: 'What a nice day!',
+  description: 'Welcome to our wedding...',
+  image: 'invitation3.jpg',
+  url: 'http://wedtales.shanghaiwogeng.com/preview?invitation_id=13'
+ }, {
+  title: 'I love you!',
+  description: 'Nice to meet you...',
+  image: 'invitation4.jpg',
+  url: 'http://wedtales.shanghaiwogeng.com/preview?invitation_id=12'
+}] %>
+
+<div class="wrapper text-center" id="templates">
+  <h1>INVITATIONS</h1>
+  <div class="row">
+    <% @invitations.each do |invitation| %>
+      <div class="col-md-6 col-lg-3">
+        <div class="product">
+          <div class="image-wrapper">
+             <div class="image" style="background-image: url(<%= image_path invitation[:image] %>)"></div>
+             <div class="caption">
+               <h5><%=invitation[:title].capitalize %></h5>
+               <p><%=invitation[:description] %></p>
+              </div>
+          </div>
+          <%= link_to "", invitation[:url], class: "card-link", target: '_blank' %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
 
