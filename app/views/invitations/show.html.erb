@@ -20,7 +20,7 @@
             </div>
 
             <div class="deco-image"></div>
-            <h4><%= @invitation.date %></h4>
+            <h4><%= @invitation.date.strftime("On %B %d at %I:%M %p")   %></h4>
             <hr class="short-divider">
             <p><%= @invitation.location || "NAKED HUB, NANJING XILU, SHANGHAI" %></p>
             <!-- get all animation names from https://daneden.github.io/animate.css/ -->
