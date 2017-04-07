@@ -101,7 +101,13 @@
           <div class="animated" data-ani-name="flipInX" data-ani-duration="1s" data-ani-delay="0.5s">
             <div class="deco-image">
               <div class="image-wrapper">
+              <% if @invitation.gallery.last != nil %>
                 <div class="image" style="background-image: url('<%= cl_image_path @invitation.gallery.last.path, width:1000, height:1200, gravity:"faces", crop:"thumb" %>')"></div>
+              <% else %>
+                <div class="image-wrapper">
+                  <div class="image image-placeholder"></div>
+                </div>
+              <% end %>
               </div>
             </div>
           </div>
@@ -149,8 +155,8 @@
           <!-- This is the static map. Geocoding MUST happen on CREATE. Geocoding AND static map are Google. If we have time Jing can help with AMap Docs and change to A -->
           <div class="deco-image">
             <div class="image-wrapper">
-              <% if @invitation.latitude? %>
-              <div class="image map-image" style="background-image: url('<%= image_path @mapurl %>')"></div>
+              <% if @invitation.latitude != nil && @invitation.longitude != nil %>
+                <div class="image map-image" style="background-image: url('<%= image_path @mapurl %>')"></div>
               <% else %>
               <div class="image map-placeholder"></div>
               <% end %>
