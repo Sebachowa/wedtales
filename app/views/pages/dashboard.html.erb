@@ -3,83 +3,91 @@
     <div class="col-xs-12 col-md-3">
       <div id="profile-card" class="text-center">
         <% if current_user.facebook_picture_url %>
-          <%= image_tag current_user.facebook_picture_url, class: "avatar-huge hidden-xs hidden-sm" %>
-          <p><%= current_user.first_name %> <%= current_user.last_name %></p>
-          <hr class="separator">
-          <p><%= current_user.email %></p>
+        <%= image_tag current_user.facebook_picture_url, class: "avatar-huge hidden-xs hidden-sm" %>
+        <p><%= current_user.first_name %> <%= current_user.last_name %></p>
+        <hr class="separator">
+        <p><%= current_user.email %></p>
         <% else %>
-          <%= image_tag "profile-big.svg", class: "avatar-huge hidden-xs hidden-sm" %>
-          <p><%= current_user.first_name %> <%= current_user.last_name %></p>
-          <hr class="separator">
-          <p><%= current_user.email %><p>
-        <% end %>
-        <div id='profile-card-button'>
-          <%= link_to t(".top_call_to_action", default: "Edit profile"), edit_user_registration_path, class: "btn btn-profile" %>
+        <%= image_tag "profile-big.svg", class: "avatar-huge hidden-xs hidden-sm" %>
+        <p><%= current_user.first_name %> <%= current_user.last_name %></p>
+        <hr class="separator">
+        <p><%= current_user.email %><p>
+          <% end %>
+          <div id='profile-card-button'>
+            <%= link_to t(".top_call_to_action", default: "Edit profile"), edit_user_registration_path, class: "btn btn-profile" %>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-xs-12 col-md-9">
-      <div class="invitation-container">
-      <h2 class="super-title">My invitations</h2>
-        <div class="row">
-          <div class="col-xs-12 col-md-6 col-lg-4">
-            <div class="product pink-border">
-              <%= link_to new_invitation_path do %>
+      <div class="col-xs-12 col-md-9">
+        <div class="invitation-container">
+          <h2 class="super-title">My invitations</h2>
+          <div class="row">
+            <div class="col-xs-12 col-md-6 col-lg-4">
+              <div class="product pink-border">
+                <%= link_to new_invitation_path do %>
                 <%= image_tag "add.svg" %>
-              <% end %>
+                <% end %>
+              </div>
             </div>
-          </div>
-          <% current_user.invitations.each do |invitation| %>
+            <% current_user.invitations.each do |invitation| %>
             <div class="col-xs-12 col-md-6 col-lg-4" id="invitation_<%= invitation.id -%>">
               <div class="product">
-                <div class="product-image">
+                <div class="image-wrapper">
                   <% if invitation.gallery? %>
-                    <%= cl_image_tag invitation.gallery.first.path, width: 108, height: 138, crop:'fill' %>
+                  <div class="product-image image" style="background-image: url('<%= cl_image_path invitation.gallery.first.path, gravity:"faces", crop:"fill" %>')">
+                  </div>
                   <% else %>
-                  <%= image_tag "img-placeholder.svg" %>
+                  <div class="image image-placeholder"></div>
                   <% end %>
                 </div>
+
                 <div class='product-body'>
-                  <h3><%= invitation.story_title %></h3>
-                  <p><%= invitation.wedding_description.nil? ? "" : invitation.wedding_description.slice(0..23).concat('...') %></p>
+                  <h3><%= invitation.story_title || "Welcome to our wedding!" %></h3>
+                  <p>
+                    <% if invitation.wedding_description != nil %>
+                    <%= invitation.wedding_description.slice(0..23).concat('...') %>
+                    <% else %>
+                    We are getting married...
+                    <% end %>
+                  </p>
                 </div>
                 <div class="product-buttons-four text-center">
                   <%= link_to edit_invitation_path(invitation) do %>
-                    <i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="Edit"></i>
+                  <i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="Edit"></i>
                   <% end %>
                   <%= link_to preview_path(invitation_id: invitation.id) do %>
-                    <i class="fa fa-eye" data-toggle="tooltip" data-placement="top" title="Preview"></i>
+                  <i class="fa fa-eye" data-toggle="tooltip" data-placement="top" title="Preview"></i>
                   <% end %>
                   <%= link_to invitation_share_link_path(invitation_id: invitation.id), remote: true do %>
-                    <i class="fa fa-share" data-toggle="tooltip" data-placement="top" title="Share"></i>
+                  <i class="fa fa-share" data-toggle="tooltip" data-placement="top" title="Share"></i>
                   <% end %>
                   <%= link_to invitation_delete_link_path(invitation_id: invitation.id), remote: true do %>
-                    <i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="Delete"></i>
+                  <i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="Delete"></i>
                   <% end %>
                 </div>
                 <div class="product-buttons-one text-center">
                   <% if invitation.rsvp? %>
-                    <%= link_to invitation_guest_list_path(invitation_id: invitation.id), remote: true  do %>
-                      <i class="fa fa-file-text" style="font-size: 14px" data-toggle="tooltip" data-placement="top" title="Guest List"></i>
-                    <% end %>
+                  <%= link_to invitation_guest_list_path(invitation_id: invitation.id), remote: true  do %>
+                  <i class="fa fa-file-text" style="font-size: 14px" data-toggle="tooltip" data-placement="top" title="Guest List"></i>
+                  <% end %>
                   <% end %>
                 </div>
               </div>
             </div>
-          <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Modal -->
-<div class="modal fade" id="guestListModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-</div>
+  <!-- Modal -->
+  <div class="modal fade" id="guestListModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  </div>
 
-<div class="modal fade" id="invitationShareLink" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-</div>
+  <div class="modal fade" id="invitationShareLink" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  </div>
 
-<div class="modal fade" id="invitationDeleteLink" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-</div>
+  <div class="modal fade" id="invitationDeleteLink" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  </div>
 

@@ -1,0 +1,38 @@
+
+$fontPath: 'https://theme.heidiancdn.com/1491545469138/Name/theme/assets/fonts/';
+
+@font-face {
+  font-family: 'Baloo Bhai';
+  src: url('#{$fontPath}baloobhai-webfont.eot');
+  src: url('#{$fontPath}baloobhai-webfont.eot?#iefix') format('embedded-opentype'),
+       url('#{$fontPath}baloobhai-webfont.woff2') format('woff2'),
+       url('#{$fontPath}baloobhai-webfont.woff') format('woff'),
+       url('#{$fontPath}baloobhai-webfont.ttf') format('truetype'),
+       url('#{$fontPath}baloobhai-webfont.svg#baloo_bhairegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'bromello';
+  src: url('#{$fontPath}bromello-webfont.eot');
+  src: url('#{$fontPath}bromello-webfont.eot?#iefix') format('embedded-opentype'),
+       url('#{$fontPath}bromello-webfont.woff2') format('woff2'),
+       url('#{$fontPath}bromello-webfont.woff') format('woff'),
+       url('#{$fontPath}bromello-webfont.ttf') format('truetype'),
+       url('#{$fontPath}bromello-webfont.svg#bromelloregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  src: url('#{$fontPath}cinzel-webfont.eot');
+  src: url('#{$fontPath}cinzel-webfont.eot?#iefix') format('embedded-opentype'),
+       url('#{$fontPath}cinzel-webfont.woff2') format('woff2'),
+       url('#{$fontPath}cinzel-webfont.woff') format('woff'),
+       url('#{$fontPath}cinzel-webfont.ttf') format('truetype'),
+       url('#{$fontPath}cinzel-webfont.svg#cinzelbold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

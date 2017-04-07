@@ -112,6 +112,23 @@ body {
   h1 {
     margin-bottom: 50px;
   }
+  .product {
+    text-align: left;
+    width: auto;
+    max-width: 250px;
+    height: 300px;
+    &:hover {
+      opacity: 1;
+      box-shadow: none;
+    }
+  }
+  .caption {
+    padding: 10px 20px;
+    > p {
+      font-size: 0.9em;
+      opacity: 0.5;
+    }
+  }
 }
 
 .card-link {
