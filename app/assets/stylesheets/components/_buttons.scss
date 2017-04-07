@@ -63,8 +63,7 @@
   margin-top: 20px;
 }
 
-#btn-create {
-  margin-top: 50px;
+.btn-cta {
   padding: 15px 35px 10px;
   border: 1px solid #f9b5b4;
   box-shadow: 0 3px 0 0 rgba(249, 181, 179, 0.5);
@@ -75,4 +74,8 @@
   &:hover, &:focus, &:active {
     box-shadow: none;
   }
+}
+
+#btn-create {
+  margin-top: 50px;
 }
