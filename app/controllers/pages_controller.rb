@@ -13,9 +13,9 @@ class PagesController < ApplicationController
   def preview
     invitation = Invitation.find params[:invitation_id]
     if invitation.custom_url.present?
-      @invitation_url = "http://localhost:3000/#{invitation.custom_url}"
+      @invitation_url = request.base_url + "/#{invitation.custom_url}"
     else
-      @invitation_url = "http://localhost:3000/invitations/#{invitation.id}"
+      @invitation_url = request.base_url + "/invitations/#{invitation.id}"
     end
     qrcode = RQRCode::QRCode.new( @invitation_url )
 
@@ -39,9 +39,9 @@ class PagesController < ApplicationController
   def invitation_share_link
     invitation = Invitation.find params[:invitation_id]
     if invitation.custom_url.present?
-      @share_link = "https://wedtales.herokuapp.com/#{invitation.custom_url}"
+      @share_link = request.base_url + "/#{invitation.custom_url}"
     else
-      @share_link = "https://wedtales.herokuapp.com/invitations/#{invitation.id}"
+      @share_link = request.base_url + "/invitations/#{invitation.id}"
     end
     qrcode = RQRCode::QRCode.new( @share_link )
 
@@ -52,3 +52,5 @@ class PagesController < ApplicationController
       @share_link
   end
 end
+
+
