@@ -5,7 +5,7 @@ class GuestsController < ApplicationController
   before_action :find_invitation, only: [:index, :new, :create]
 
   # ------------ Skiping AppController Callback ------------
-  skip_before_action :authenticate_user!, only: [:index]
+  skip_before_action :authenticate_user!
 
   # ------------ CRUD Actions ------------
   def index
