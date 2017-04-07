@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=375, initial-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <%= stylesheet_link_tag    'mastertemplate', media: 'all' %>
-    <%#= stylesheet_link_tag     @invitation.template.stylesheet , media: 'all' %>
-    <link rel="stylesheet" media="all" href='/assets/templates/<%= @invitation.template.stylesheet %>.scss' />
+    <!-- <%#= stylesheet_link_tag     @invitation.template.stylesheet , media: 'all' %> -->
+    <%= stylesheet_link_tag    'templates/' + @invitation.template.stylesheet, media: 'all' %>
+    <!-- <link rel="stylesheet" media="all" href='/assets/templates/<%= @invitation.template.stylesheet %>.scss' /> -->
 
   </head>
 
