@@ -32,16 +32,24 @@
           <% current_user.invitations.each do |invitation| %>
             <div class="col-xs-12 col-md-6 col-lg-4" id="invitation_<%= invitation.id -%>">
               <div class="product">
-                <div class="product-image">
+                <div class="image-wrapper">
                   <% if invitation.gallery? %>
-                    <%= cl_image_tag invitation.gallery.first.path, width: 108, height: 138, crop:'fill' %>
+                    <div class="product-image image" style="background-image: url('<%= cl_image_path invitation.gallery.first.path, gravity:"faces", crop:"fill" %>')">
+                     </div>
                   <% else %>
-                  <%= image_tag "img-placeholder.svg" %>
+                    <div class="image image-placeholder"></div>
                   <% end %>
                 </div>
+
                 <div class='product-body'>
-                  <h3><%= invitation.story_title %></h3>
-                  <p><%= invitation.wedding_description.nil? ? "" : invitation.wedding_description.slice(0..23).concat('...') %></p>
+                  <h3><%= invitation.story_title || "Welcome to our wedding!" %></h3>
+                  <p>
+                  <% if invitation.wedding_description != nil %>
+                    <%= invitation.wedding_description.slice(0..23).concat('...') %>
+                  <% else %>
+                    We are getting married...
+                  <% end %>
+                  </p>
                 </div>
                 <div class="product-buttons-four text-center">
                   <%= link_to edit_invitation_path(invitation) do %>
