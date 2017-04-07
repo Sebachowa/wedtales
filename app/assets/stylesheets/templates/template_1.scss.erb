@@ -1,5 +1,5 @@
 body {
-  background-image: url('template1/bg-square.png');
+  background-image: url(<%= asset_path('templates/template1/bg-square.png') %>);
   background-size: 100px 100px;
   background-repeat: repeat;
   text-align: center;
@@ -13,7 +13,7 @@ body {
     padding-top: 100%;
     background-color: #F5F5F5;
     &.image-placeholder.image-placeholder {
-      background-image: url('template1/img-placeholder.svg');
+      background-image: url(<%= asset_path('templates/template1/img-placeholder.svg') %>);
       background-size: 60px auto;
       background-position: center;
       background-repeat: no-repeat;
@@ -23,7 +23,7 @@ body {
 }
 
 .slide-1, .slide-2, .slide-3, .slide-4, .slide-5, .slide-6, .slide-7, .slide-8 {
-  background-image: url('template1/bg-square.png');
+  background-image: url(<%= asset_path('templates/template1/bg-square.png') %>);
   // background-color: #A6DCD4;
   height: 100vh;
   width: 100%;
@@ -45,14 +45,14 @@ body {
   }
   .logo {
     padding-top: 100%;
-    background-image: url('template1/logo-loading.svg');
+    background-image: url(<%= asset_path('templates/template1/logo-loading.svg') %>);
     height: 68px;
     background-repeat: no-repeat;
     background-position: center;
   }
   .anima {
     padding-top: 50%;
-    background-image: url('template1/three-dots.svg');
+    background-image: url(<%= asset_path('templates/template1/three-dots.svg') %>);
     height: 15px;
     background-repeat: no-repeat;
     background-position: bottom center;
@@ -109,7 +109,7 @@ p {
     line-height: 20px;
   }
   .title-image {
-    background-image: url('template1/cover-title.svg');
+    background-image: url(<%= asset_path 'templates/template1/cover-title.svg' %>);
     height:108px;
     width: 221px;
     background-repeat: no-repeat;
@@ -118,7 +118,7 @@ p {
     margin-right: auto;
   }
   .deco-image {
-    background-image: url('template1/birds.svg');
+    background-image: url(<%= asset_path 'templates/template1/birds.svg' %>);
     width: 148px;
     height: 139px;
     margin-left: auto;
@@ -150,11 +150,11 @@ p {
     overflow: hidden;
     margin: 20px auto;
     .groom-placeholder {
-      background-image: url('template1/groom.svg');
+      background-image: url(<%= asset_path 'templates/template1/groom.svg' %>);
       height: 92px;
     }
     .bride-placeholder {
-      background-image: url('template1/bride.svg');
+      background-image: url(<%= asset_path 'templates/template1/bride.svg' %>);
       height: 92px;
     }
   }
@@ -169,7 +169,7 @@ p {
       left: 0;
       right: 0;
       top: 15px;
-      background-image: url('template1/flower.svg');
+      background-image: url(<%= asset_path 'templates/template1/flower.svg' %>);
       height: 76px;
       background-size: contain;
       background-repeat: no-repeat;
@@ -203,7 +203,7 @@ p {
       right: 0;
       top: 0;
       height: 60px;
-      background-image: url('template1/branch.svg');
+      background-image: url(<%= asset_path 'templates/template1/branch.svg' %>);
       background-size: contain;
       background-repeat: no-repeat;
       background-position: top center;
@@ -239,7 +239,7 @@ p {
       right: 6px;
       bottom: -25px;
       height: 155px;
-      background-image: url('template1/blue-flower.svg');
+      background-image: url(<%= asset_path 'templates/template1/blue-flower.svg' %>);
       background-size: contain;
       background-repeat: no-repeat;
       background-position: bottom right;
@@ -277,7 +277,7 @@ p {
       right: 0;
       bottom: 0;
       height: 158px;
-      background-image: url('template1/deer.svg');
+      background-image: url(<%= asset_path 'templates/template1/deer.svg' %>);
       background-size: contain;
       background-repeat: no-repeat;
       background-position: bottom right;
@@ -287,7 +287,7 @@ p {
 .slide-6 {
   .location-icon {
     height: 18px;
-    background-image: url('template1/location.svg');
+    background-image: url(<%= asset_path 'templates/template1/location.svg' %>);
     background-repeat: no-repeat;
     margin-left: auto;
     margin-right: auto;
@@ -298,7 +298,7 @@ p {
     padding-top: 40px;
     width: 90%;
     margin: 0 auto;
-    background-image: url('template1/bird-yellow.svg');
+    background-image: url(<%= asset_path 'templates/template1/bird-yellow.svg' %>);
     background-size: auto 40px;
     background-repeat: no-repeat;
     background-position: top right;
@@ -315,7 +315,7 @@ p {
     .map-placeholder {
       padding-top: 85%;
       margin-top: 0;
-      background-image: url('template1/map.png');
+      background-image: url(<%= asset_path 'templates/template1/map.png' %>);
       background-repeat: no-repeat;
     }
   }
@@ -323,7 +323,7 @@ p {
 .slide-7 {
   .guest-image {
     height: 68px;
-    background-image: url('template1/illus-guests.svg');
+    background-image: url(<%= asset_path 'templates/template1/illus-guests.svg' %>);
     background-repeat: no-repeat;
     background-position: center;
     margin-top: 20px;
@@ -411,10 +411,10 @@ p {
   padding-top: 100px;
   color: #fff;
   font-family: Cinzel;
-  background: rgba(#000, 0.7) url('template1/check.svg') no-repeat center;
+  background: rgba(#000, 0.7) url(<%= asset_path 'templates/template1/check.svg' %>) no-repeat center;
   background-size: 40px 40px;
   &.fail {
-    background-image: url('template1/close.svg');
+    background-image: url(<%= asset_path 'templates/template1/close.svg' %>);
     background-size: 25px 25px;
     margin-top: 20px;
     background-position: center 40%;
